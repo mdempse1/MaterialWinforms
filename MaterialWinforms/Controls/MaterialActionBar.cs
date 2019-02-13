@@ -490,7 +490,7 @@ namespace MaterialWinforms.Controls
                 }
 
                 //Form title
-                g.DrawString(Parent.Text, SkinManager.ROBOTO_MEDIUM_12, SkinManager.ColorScheme.TextBrush, new Rectangle(SkinManager.FORM_PADDING + (DrawerIcon ? drawerButtonBounds.Right : 0), 0, Width, Height), new StringFormat { LineAlignment = StringAlignment.Center });
+                g.DrawString(Parent.Text, SkinManager.FONT_TITLE, SkinManager.ColorScheme.TextBrush, new Rectangle(SkinManager.FORM_PADDING + (DrawerIcon ? drawerButtonBounds.Right : 0), 0, Width, Height), new StringFormat { LineAlignment = StringAlignment.Center });
 
 
                 if (objAnimationManager.IsAnimating())
@@ -1517,7 +1517,7 @@ namespace MaterialWinforms.Controls
                 baseTextBox = new BaseTextBox
                 {
                     BorderStyle = BorderStyle.None,
-                    Font = SkinManager.ROBOTO_REGULAR_11,
+                    Font = SkinManager.FONT_TEXT,
                     ForeColor = Color.Black,
                     Location = new Point(0, 15),
                     Width = Width,

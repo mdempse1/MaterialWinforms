@@ -948,7 +948,7 @@ namespace MaterialWinforms.Controls
             baseTextBox = new BaseTextBox
             {
                 BorderStyle = BorderStyle.None,
-                Font = SkinManager.ROBOTO_REGULAR_11,
+                Font = SkinManager.FONT_TEXT,
                 ForeColor = SkinManager.GetPrimaryTextColor(),
                 Location = new Point(0, 18),
                 Width = Width,
@@ -1020,7 +1020,7 @@ namespace MaterialWinforms.Controls
             {
                 g.DrawString(
                 Hint,
-                SkinManager.ROBOTO_MEDIUM_10,
+                SkinManager.FONT_CONTROL_SMALL,
                 Focused() ? SkinManager.ColorScheme.AccentBrush: SkinManager.GetSecondaryTextBrush(),
                 new Rectangle(ClientRectangle.X, 0, ClientRectangle.Width, ClientRectangle.Height),
                 new StringFormat { Alignment = StringAlignment.Near, LineAlignment = StringAlignment.Near });

@@ -73,8 +73,6 @@
             this.materialLabel3.AutoSize = true;
             this.materialLabel3.Depth = 0;
             this.materialLabel3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.materialLabel3.Font = new System.Drawing.Font("Roboto", 11F);
-            this.materialLabel3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.materialLabel3.Location = new System.Drawing.Point(0, 1);
             this.materialLabel3.MouseState = MaterialWinforms.MouseState.HOVER;
             this.materialLabel3.Name = "materialLabel3";
@@ -97,8 +95,6 @@
             // 
             this.materialLabel2.AutoSize = true;
             this.materialLabel2.Depth = 0;
-            this.materialLabel2.Font = new System.Drawing.Font("Roboto", 11F);
-            this.materialLabel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.materialLabel2.Location = new System.Drawing.Point(158, 58);
             this.materialLabel2.MouseState = MaterialWinforms.MouseState.HOVER;
             this.materialLabel2.Name = "materialLabel2";
@@ -110,8 +106,6 @@
             // 
             this.materialLabel1.AutoSize = true;
             this.materialLabel1.Depth = 0;
-            this.materialLabel1.Font = new System.Drawing.Font("Roboto", 11F);
-            this.materialLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.materialLabel1.Location = new System.Drawing.Point(30, 58);
             this.materialLabel1.MouseState = MaterialWinforms.MouseState.HOVER;
             this.materialLabel1.Name = "materialLabel1";
@@ -135,8 +129,6 @@
             // 
             this.materialLabel4.AutoSize = true;
             this.materialLabel4.Depth = 0;
-            this.materialLabel4.Font = new System.Drawing.Font("Roboto", 11F);
-            this.materialLabel4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.materialLabel4.Location = new System.Drawing.Point(11, 13);
             this.materialLabel4.MouseState = MaterialWinforms.MouseState.HOVER;
             this.materialLabel4.Name = "materialLabel4";

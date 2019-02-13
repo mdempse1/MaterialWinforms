@@ -764,7 +764,7 @@ namespace MaterialWinforms.Controls
 
             //Form title
             if (_ActionBar == null)
-                g.DrawString(Text, SkinManager.ROBOTO_REGULAR_11, SkinManager.ColorScheme.TextBrush, new Rectangle(SkinManager.FORM_PADDING, 0, Width, STATUS_BAR_HEIGHT), new StringFormat { LineAlignment = StringAlignment.Center });
+                g.DrawString(Text, SkinManager.FONT_TEXT, SkinManager.ColorScheme.TextBrush, new Rectangle(SkinManager.FORM_PADDING, 0, Width, STATUS_BAR_HEIGHT), new StringFormat { LineAlignment = StringAlignment.Center });
 
             if (_SideDrawer != null)
             {

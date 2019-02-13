@@ -50,7 +50,7 @@ namespace MaterialWinforms.Controls
             }
         }
 
-        public SizeF TitleSize { get { return CreateGraphics().MeasureString(_Text, LargeTitle ? new FontManager().Roboto_Medium15 : SkinManager.ROBOTO_MEDIUM_10); } }
+        public SizeF TitleSize { get { return CreateGraphics().MeasureString(_Text, LargeTitle ? SkinManager.FONT_TITLE : SkinManager.FONT_CONTROL_SMALL); } }
         public MaterialCard()
         {
             SetStyle(ControlStyles.SupportsTransparentBackColor, true);
@@ -91,7 +91,7 @@ namespace MaterialWinforms.Controls
             {
                 g.DrawString(
                _Text,
-               LargeTitle?new FontManager().Roboto_Medium15: SkinManager.ROBOTO_MEDIUM_10,
+               LargeTitle?SkinManager.FONT_TITLE: SkinManager.FONT_CONTROL_SMALL,
                SkinManager.ColorScheme.PrimaryBrush,
                new Rectangle(ClientRectangle.X + 10, ClientRectangle.Y + 10, ClientRectangle.Width, (int)TitleSize.Height),
                new StringFormat { Alignment = StringAlignment.Near, LineAlignment = StringAlignment.Near });

@@ -61,7 +61,7 @@ namespace MaterialWinforms.Controls
             set
             {
                 base.Text = value;
-                textSize = CreateGraphics().MeasureString(value.ToUpper(), SkinManager.ROBOTO_MEDIUM_10);
+                textSize = CreateGraphics().MeasureString(value.ToUpper(), SkinManager.FONT_CONTROL_SMALL);
                 if (IconImage != null)
                     textSize = new Size((int)textSize.Width + (int)ClientRectangle.Height, (int)textSize.Height);
                 if (AutoSize)
@@ -76,7 +76,7 @@ namespace MaterialWinforms.Controls
             set
             {
                 base.Image = value;
-                textSize = CreateGraphics().MeasureString(Text.ToUpper(), SkinManager.ROBOTO_MEDIUM_10);
+                textSize = CreateGraphics().MeasureString(Text.ToUpper(), SkinManager.FONT_CONTROL_SMALL);
                 if (IconImage != null)
                     textSize = new Size((int)textSize.Width + (int)textSize.Height, (int)textSize.Height);
                 if (AutoSize)
@@ -126,7 +126,7 @@ namespace MaterialWinforms.Controls
                 }
                 g.SmoothingMode = SmoothingMode.None;
             }
-            g.DrawString(Text.ToUpper(), SkinManager.ROBOTO_MEDIUM_10, Enabled ? (Primary ? SkinManager.ColorScheme.PrimaryBrush : Accent ? SkinManager.ColorScheme.AccentBrush : SkinManager.GetPrimaryTextBrush()) : SkinManager.GetFlatButtonDisabledTextBrush(), ClientRectangle, new StringFormat { Alignment = StringAlignment.Far, LineAlignment = StringAlignment.Center });
+            g.DrawString(Text.ToUpper(), SkinManager.FONT_CONTROL_SMALL, Enabled ? (Primary ? SkinManager.ColorScheme.PrimaryBrush : Accent ? SkinManager.ColorScheme.AccentBrush : SkinManager.GetPrimaryTextBrush()) : SkinManager.GetFlatButtonDisabledTextBrush(), ClientRectangle, new StringFormat { Alignment = StringAlignment.Far, LineAlignment = StringAlignment.Center });
         }
 
         private Size GetPreferredSize()

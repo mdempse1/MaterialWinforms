@@ -258,9 +258,9 @@ namespace MaterialWinforms.Controls
             }
 
 
-            g.DrawString(MinValue.ToString(), SkinManager.ROBOTO_MEDIUM_10, SkinManager.GetPrimaryTextBrush(), new PointF(0, 0));
-            g.DrawString(MaxValue.ToString(), SkinManager.ROBOTO_MEDIUM_10, SkinManager.GetPrimaryTextBrush(), new PointF(Width - g.MeasureString(MaxValue.ToString(), SkinManager.ROBOTO_MEDIUM_10).Width, 0f));
-            g.DrawString(Value.ToString(), SkinManager.ROBOTO_MEDIUM_10, SkinManager.GetPrimaryTextBrush(), new PointF(Width / 2 - g.MeasureString(Value.ToString(), SkinManager.ROBOTO_MEDIUM_10).Width / 2, 0f));
+            g.DrawString(MinValue.ToString(), SkinManager.FONT_CONTROL_SMALL, SkinManager.GetPrimaryTextBrush(), new PointF(0, 0));
+            g.DrawString(MaxValue.ToString(), SkinManager.FONT_CONTROL_SMALL, SkinManager.GetPrimaryTextBrush(), new PointF(Width - g.MeasureString(MaxValue.ToString(), SkinManager.FONT_CONTROL_SMALL).Width, 0f));
+            g.DrawString(Value.ToString(), SkinManager.FONT_CONTROL_SMALL, SkinManager.GetPrimaryTextBrush(), new PointF(Width / 2 - g.MeasureString(Value.ToString(), SkinManager.FONT_CONTROL_SMALL).Width / 2, 0f));
             e.Graphics.DrawImage((Image)bmp.Clone(), 0, 0);
         }
     }

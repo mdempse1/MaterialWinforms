@@ -30,7 +30,7 @@ namespace MaterialWinforms.Controls
                 {
                     UserInitialien = _UserName.Substring(0, 1);
                 }
-                NameRect.Size = MeasureString(value, SkinManager.ROBOTO_REGULAR_11);
+                NameRect.Size = MeasureString(value, SkinManager.FONT_TEXT);
                 OnResize(EventArgs.Empty);
             }
         }
@@ -62,7 +62,7 @@ namespace MaterialWinforms.Controls
             set
             {
                 _Title = value;
-                TitleRect.Size = MeasureString(_Title,_FontManager.Roboto_Medium15);
+                TitleRect.Size = MeasureString(_Title,SkinManager.FONT_TITLE);
                 OnResize(EventArgs.Empty);
             }
         }
@@ -78,7 +78,7 @@ namespace MaterialWinforms.Controls
             set
             {
                 _Text = value;
-               ContentRect.Size = MeasureString(_Text,SkinManager.ROBOTO_REGULAR_11);
+               ContentRect.Size = MeasureString(_Text,SkinManager.FONT_TEXT);
                 OnResize(EventArgs.Empty);
             }
         }
@@ -115,7 +115,7 @@ namespace MaterialWinforms.Controls
             DoubleBuffered = true;
             StringGraphics = Graphics.FromImage(new Bitmap(10, 10));
             AutoSize = true;
-            TimeRectangle = new Rectangle(new Point(0, 30), MeasureString(DateTime.Now.ToString("dd.MM.yyyy") + "\r\n" + DateTime.Now.ToString("HH:mm:ss"), SkinManager.ROBOTO_REGULAR_11));
+            TimeRectangle = new Rectangle(new Point(0, 30), MeasureString(DateTime.Now.ToString("dd.MM.yyyy") + "\r\n" + DateTime.Now.ToString("HH:mm:ss"), SkinManager.FONT_TEXT));
             AvatarRect = new Rectangle(TimeRectangle.Right+5, 20, 50, 50);
             CardRectangle = new Rectangle(AvatarRect.Right + 20, 20,40,40);
             TitleRect = new Rectangle(CardRectangle.X + 10, CardRectangle.Y + 10, 30, 30);
@@ -178,20 +178,20 @@ namespace MaterialWinforms.Controls
             e.Graphics.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAlias;
 
             //Draw Time
-            e.Graphics.DrawString(_Time.ToString("dd.MM.yyyy") + "\r\n" + _Time.ToString("HH:mm:ss"), SkinManager.ROBOTO_REGULAR_11, SkinManager.ColorScheme.TextBrush, TimeRectangle, _StringFormat);
+            e.Graphics.DrawString(_Time.ToString("dd.MM.yyyy") + "\r\n" + _Time.ToString("HH:mm:ss"), SkinManager.FONT_TEXT, SkinManager.ColorScheme.TextBrush, TimeRectangle, _StringFormat);
             //Draw Avatar
             if (_User == null)
             {
                 e.Graphics.DrawString(_UserInitialien, _UserInitialienFont, SkinManager.ColorScheme.TextBrush, AvatarRect, _StringFormat);
             }
             //Draw Title
-            e.Graphics.DrawString(_Title, _FontManager.Roboto_Medium15, SkinManager.ColorScheme.PrimaryBrush, TitleRect, _StringFormat);
+            e.Graphics.DrawString(_Title, SkinManager.FONT_TITLE, SkinManager.ColorScheme.PrimaryBrush, TitleRect, _StringFormat);
             //Draw Content
-            e.Graphics.DrawString(_Text, SkinManager.ROBOTO_REGULAR_11, SkinManager.ColorScheme.TextBrush, ContentRect, new StringFormat { LineAlignment = StringAlignment.Center });
+            e.Graphics.DrawString(_Text, SkinManager.FONT_TEXT, SkinManager.ColorScheme.TextBrush, ContentRect, new StringFormat { LineAlignment = StringAlignment.Center });
             //Draw Name
-            e.Graphics.DrawString(_UserName, SkinManager.ROBOTO_REGULAR_11, SkinManager.ColorScheme.TextBrush, NameRect, _StringFormat);
+            e.Graphics.DrawString(_UserName, SkinManager.FONT_TEXT, SkinManager.ColorScheme.TextBrush, NameRect, _StringFormat);
 
-            e.Graphics.DrawString(_AdditionalInfo, SkinManager.ROBOTO_REGULAR_11, SkinManager.ColorScheme.TextBrush, AdditionalInfoRectangle, _StringFormat);
+            e.Graphics.DrawString(_AdditionalInfo, SkinManager.FONT_TEXT, SkinManager.ColorScheme.TextBrush, AdditionalInfoRectangle, _StringFormat);
         }
 
     

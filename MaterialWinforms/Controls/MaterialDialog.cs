@@ -298,6 +298,8 @@ namespace MaterialWinforms.Controls
 
         private static void InitButtons(Buttons buttons)
         {
+            MaterialSkinManager skinMgr = MaterialSkinManager.Instance;
+
             switch (buttons)
             {
                 case MaterialDialog.Buttons.AbortRetryIgnore:
@@ -327,7 +329,7 @@ namespace MaterialWinforms.Controls
 
             foreach (Button btn in _msgBox._buttonCollection)
             {
-                btn.Font = new FontManager().Roboto_Medium10;
+                btn.Font = skinMgr.FONT_TITLE;
                 btn.Padding = new Padding(3);
                 btn.FlatStyle = FlatStyle.Flat;
                 btn.Height = 30;
@@ -611,8 +613,6 @@ namespace MaterialWinforms.Controls
             this.lbl_Message.AutoSize = true;
             this.lbl_Message.Depth = 0;
             this.lbl_Message.Dock = System.Windows.Forms.DockStyle.Top;
-            this.lbl_Message.Font = new System.Drawing.Font("Roboto", 11F);
-            this.lbl_Message.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.lbl_Message.Location = new System.Drawing.Point(5, 5);
             this.lbl_Message.MaximumSize = new System.Drawing.Size(330, 5000);
             this.lbl_Message.MouseState = MaterialWinforms.MouseState.HOVER;
@@ -624,8 +624,6 @@ namespace MaterialWinforms.Controls
             // 
             this.lbl_Title.AutoSize = true;
             this.lbl_Title.Dock = System.Windows.Forms.DockStyle.Top;
-            this.lbl_Title.Font = new System.Drawing.Font("Roboto", 12F);
-            this.lbl_Title.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.lbl_Title.Location = new System.Drawing.Point(10, 10);
             this.lbl_Title.Name = "lbl_Title";
             this.lbl_Title.Size = new System.Drawing.Size(115, 20);

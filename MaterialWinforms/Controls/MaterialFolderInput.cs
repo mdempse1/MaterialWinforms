@@ -308,7 +308,7 @@ public class MaterialFolderInput : Control, IMaterialControl
         MaterialTB.Location = new Point(0, 1);
         MaterialTB.Size = new Size(Width - 21, 20);
 
-        MaterialTB.Font = font.Roboto_Regular10;
+        MaterialTB.Font = SkinManager.FONT_TEXT;
         MaterialTB.UseSystemPasswordChar = UseSystemPasswordChar;       
         
         MaterialTB.KeyDown += OnKeyDown;

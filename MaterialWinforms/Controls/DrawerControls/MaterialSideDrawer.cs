@@ -237,7 +237,7 @@ namespace MaterialWinforms.Controls
                                 objLabel.Text = objMenuItem.Text;
                                 objLabel.Tag = objMenuItem.Tag;
                                 objLabel.Margin = new Padding(0);
-                                objLabel.Font = SkinManager.ROBOTO_MEDIUM_10;
+                                objLabel.Font = SkinManager.FONT_CONTROL_SMALL;
                                 LastControlWasDivider = false;
                                 Controls.Add(objLabel);
 

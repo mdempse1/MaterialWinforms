@@ -88,6 +88,9 @@ namespace MaterialWinforms
 
     public enum Primary
     {
+        ClaytexLight = 0x969dde,
+        ClaytexPrimary = 0x666fac,
+        ClaytexDark = 0x37447c,
         Red50 = 0xFFEBEE,
         Red100 = 0xFFCDD2,
         Red200 = 0xEF9A9A,
@@ -284,6 +287,9 @@ namespace MaterialWinforms
 
     public enum Accent
     {
+        ClaytexLight = 0xb093dc,
+        ClaytexSecondary = 0x7f65aa,
+        ClaytexDark = 0x513a7b,
         Red100 = 0xFF8A80,
         Red200 = 0xFF5252,
         Red400 = 0xFF1744,

@@ -20,7 +20,7 @@ namespace MaterialWinforms.Controls
         [Browsable(false)]
         public MouseState MouseState { get; set; }
 
-        public new Font Font { get { return SkinManager.ROBOTO_MEDIUM_10; } }
+        public new Font Font { get { return SkinManager.FONT_CONTROL_SMALL; } }
 
 
         public new Color BackColor { get { return Parent == null ? SkinManager.GetApplicationBackgroundColor() : typeof(IShadowedMaterialControl).IsAssignableFrom(Parent.GetType()) ? ((IMaterialControl)Parent).BackColor : Parent.BackColor; } set { } }
@@ -81,7 +81,7 @@ namespace MaterialWinforms.Controls
                 }
 
 
-                Font nodeFont = SkinManager.ROBOTO_MEDIUM_10;
+                Font nodeFont = SkinManager.FONT_CONTROL_SMALL;
                 Brush textBrush = SkinManager.GetPrimaryTextBrush();
                 //to highlight the text when selected
                 if ((e.State & TreeNodeStates.Focused) != 0)
@@ -164,7 +164,7 @@ namespace MaterialWinforms.Controls
         private Rectangle NodeBounds(TreeNode node)
         {
             // Set the return value to the normal node bounds.
-            return new Rectangle(new Point(node.Bounds.X, node.Bounds.Y), Size.Ceiling(CreateGraphics().MeasureString(node.Text, SkinManager.ROBOTO_MEDIUM_10)));
+            return new Rectangle(new Point(node.Bounds.X, node.Bounds.Y), Size.Ceiling(CreateGraphics().MeasureString(node.Text, SkinManager.FONT_CONTROL_SMALL)));
 
         }
 

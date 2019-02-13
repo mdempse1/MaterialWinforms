@@ -276,10 +276,10 @@ namespace MaterialWinforms
         }
 
         //Roboto font
-        public Font ROBOTO_MEDIUM_12;
-        public Font ROBOTO_REGULAR_11;
-        public Font ROBOTO_MEDIUM_11;
-        public Font ROBOTO_MEDIUM_10;
+        public Font FONT_TITLE;
+        public Font FONT_TEXT;
+        public Font FONT_CONTROL_LARGE;
+        public Font FONT_CONTROL_SMALL;
 
         //Other constants
         public int FORM_PADDING = 14;
@@ -289,12 +289,12 @@ namespace MaterialWinforms
 
         private MaterialSkinManager()
         {
-            ROBOTO_MEDIUM_12 = new Font(LoadFont(Resources.Roboto_Medium), 12f);
-            ROBOTO_MEDIUM_10 = new Font(LoadFont(Resources.Roboto_Medium), 10f);
-            ROBOTO_REGULAR_11 = new Font(LoadFont(Resources.Roboto_Regular), 11f);
-            ROBOTO_MEDIUM_11 = new Font(LoadFont(Resources.Roboto_Medium), 11f);
-			Theme = Themes.DARK;
-            ColorScheme = new ColorScheme(Primary.Indigo500, Primary.Indigo700, Primary.Indigo100, Accent.Pink200, TextShade.WHITE);
+            FONT_TITLE = new Font(LoadFont(Resources.Roboto_Medium), 12f);
+            FONT_CONTROL_SMALL = new Font(LoadFont(Resources.Roboto_Medium), 10f);
+            FONT_CONTROL_LARGE = new Font(LoadFont(Resources.Roboto_Medium), 11f);
+            FONT_TEXT = new Font(LoadFont(Resources.Roboto_Regular), 11f);
+            Theme = Themes.LIGHT;
+            ColorScheme = new ColorScheme(Primary.ClaytexPrimary, Primary.ClaytexDark, Primary.ClaytexPrimary, Accent.ClaytexLight, TextShade.BLACK);
             ColorSchemes = new ColorSchemePresetCollection();
         }
 

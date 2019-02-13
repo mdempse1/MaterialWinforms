@@ -581,8 +581,8 @@ namespace MaterialWinforms.Controls
             }
 
 
-            g.DrawString(Beschreibung, SkinManager.ROBOTO_MEDIUM_10, SkinManager.GetPrimaryTextBrush(), DescriptioRectangle, new StringFormat { Alignment = StringAlignment.Center, LineAlignment = StringAlignment.Center });
-            g.DrawString(Value.ToString(), SkinManager.ROBOTO_MEDIUM_10, SkinManager.GetPrimaryTextBrush(), ValueRectangle, new StringFormat { Alignment = StringAlignment.Center, LineAlignment = StringAlignment.Center });
+            g.DrawString(Beschreibung, SkinManager.FONT_CONTROL_SMALL, SkinManager.GetPrimaryTextBrush(), DescriptioRectangle, new StringFormat { Alignment = StringAlignment.Center, LineAlignment = StringAlignment.Center });
+            g.DrawString(Value.ToString(), SkinManager.FONT_CONTROL_SMALL, SkinManager.GetPrimaryTextBrush(), ValueRectangle, new StringFormat { Alignment = StringAlignment.Center, LineAlignment = StringAlignment.Center });
             e.Graphics.DrawImage((Image)bmp.Clone(), 0, 0);
         }
     }

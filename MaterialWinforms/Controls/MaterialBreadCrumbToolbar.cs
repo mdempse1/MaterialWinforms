@@ -241,7 +241,7 @@ namespace MaterialWinforms.Controls
                 {
                     g.DrawString(
                         _Teile[i].Text + (i == _Teile.Count - 1 ? "" : _Trennzeichen),
-                        SkinManager.ROBOTO_MEDIUM_10,
+                        SkinManager.FONT_CONTROL_SMALL,
                         SkinManager.GetPrimaryTextBrush(),
                         new Rectangle(_Teile[i].ItemRect.X + offset, _Teile[i].ItemRect.Y, _Teile[i].ItemRect.Width, _Teile[i].ItemRect.Height),
                         new StringFormat { Alignment = StringAlignment.Center, LineAlignment = StringAlignment.Center });
@@ -262,12 +262,12 @@ namespace MaterialWinforms.Controls
                 using (var g = Graphics.FromImage(b))
                 {
 
-                    _Teile[0].ItemRect = new Rectangle(10, Convert.ToInt32((Height - g.MeasureString("T", SkinManager.ROBOTO_MEDIUM_10).Height) / 2), (int)g.MeasureString(_Teile[0].Text + (0 == _Teile.Count - 1 ? "" : _Trennzeichen) + 5, SkinManager.ROBOTO_MEDIUM_10).Width + 2, Height);
+                    _Teile[0].ItemRect = new Rectangle(10, Convert.ToInt32((Height - g.MeasureString("T", SkinManager.FONT_CONTROL_SMALL).Height) / 2), (int)g.MeasureString(_Teile[0].Text + (0 == _Teile.Count - 1 ? "" : _Trennzeichen) + 5, SkinManager.FONT_CONTROL_SMALL).Width + 2, Height);
                     ItemLengt += _Teile[0].ItemRect.Width;
                     for (int i = 1; i < _Teile.Count; i++)
                     {
 
-                        _Teile[i].ItemRect = new Rectangle(_Teile[i - 1].ItemRect.Right, _Teile[i - 1].ItemRect.Y, (int)g.MeasureString(_Teile[i].Text + (i == _Teile.Count - 1 ? "" : _Trennzeichen) + 5, SkinManager.ROBOTO_MEDIUM_10).Width + 2, Height);
+                        _Teile[i].ItemRect = new Rectangle(_Teile[i - 1].ItemRect.Right, _Teile[i - 1].ItemRect.Y, (int)g.MeasureString(_Teile[i].Text + (i == _Teile.Count - 1 ? "" : _Trennzeichen) + 5, SkinManager.FONT_CONTROL_SMALL).Width + 2, Height);
                         ItemLengt += _Teile[i].ItemRect.Width;
                     }
 

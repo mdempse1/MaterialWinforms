@@ -296,7 +296,7 @@ namespace MaterialWinforms.Controls
                               };
             e.Graphics.FillPolygon(LineBrush, curvePoints, FillMode.Winding);
         }
-            TextRenderer.DrawText(e.Graphics, _Text, SkinManager.ROBOTO_MEDIUM_11, this.AnchorClientBounds, SkinManager.ColorScheme.TextColor, TextFormatFlags.WordEllipsis);
+            TextRenderer.DrawText(e.Graphics, _Text, SkinManager.FONT_CONTROL_LARGE, this.AnchorClientBounds, SkinManager.ColorScheme.TextColor, TextFormatFlags.WordEllipsis);
         }
 
         private System.Windows.Forms.VisualStyles.ComboBoxState getState()

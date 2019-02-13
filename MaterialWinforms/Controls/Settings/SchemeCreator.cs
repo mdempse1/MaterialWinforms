@@ -820,7 +820,7 @@ namespace MaterialWinforms.Controls.Settings
             DrawHelper.drawShadow(g, DrawHelper.CreateCircle(Fab.X - 1, Fab.Y - 1, 20), 2, Color.Black);
             g.FillEllipse(Accent, Fab);
             g.DrawString(
-                "Sample Text", SkinManager.ROBOTO_MEDIUM_10, Text, TopDefault.Location);
+                "Sample Text", SkinManager.FONT_CONTROL_SMALL, Text, TopDefault.Location);
         }
 
 

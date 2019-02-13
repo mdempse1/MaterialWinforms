@@ -42,6 +42,7 @@ namespace MaterialWinformsExample
             System.Drawing.Drawing2D.GraphicsPath graphicsPath6 = new System.Drawing.Drawing2D.GraphicsPath();
             System.Drawing.Drawing2D.GraphicsPath graphicsPath7 = new System.Drawing.Drawing2D.GraphicsPath();
             System.Drawing.Drawing2D.GraphicsPath graphicsPath8 = new System.Drawing.Drawing2D.GraphicsPath();
+            System.Drawing.Drawing2D.GraphicsPath graphicsPath9 = new System.Drawing.Drawing2D.GraphicsPath();
             System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Knoten0");
             System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Knoten1");
             System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("Knoten3");
@@ -69,7 +70,6 @@ namespace MaterialWinformsExample
             System.Drawing.Drawing2D.GraphicsPath graphicsPath10 = new System.Drawing.Drawing2D.GraphicsPath();
             System.Drawing.Drawing2D.GraphicsPath graphicsPath11 = new System.Drawing.Drawing2D.GraphicsPath();
             System.Drawing.Drawing2D.GraphicsPath graphicsPath12 = new System.Drawing.Drawing2D.GraphicsPath();
-            System.Drawing.Drawing2D.GraphicsPath graphicsPath9 = new System.Drawing.Drawing2D.GraphicsPath();
             this.materialFlatButton3 = new MaterialWinforms.Controls.MaterialFlatButton();
             this.materialFlatButton1 = new MaterialWinforms.Controls.MaterialFlatButton();
             this.materialButton1 = new MaterialWinforms.Controls.MaterialRaisedButton();
@@ -169,6 +169,7 @@ namespace MaterialWinformsExample
             this.materialPanel1 = new MaterialWinforms.Controls.MaterialPanel();
             this.materialTimeline2 = new MaterialWinforms.Controls.MaterialTimeline();
             this.materialTabPage2 = new MaterialWinforms.Controls.MaterialTabPage();
+            this.materialRaisedButton2 = new MaterialWinforms.Controls.MaterialRaisedButton();
             this.treeView1 = new System.Windows.Forms.TreeView();
             this.materialTreeControl1 = new MaterialWinforms.Controls.MaterialTreeControl();
             this.materialFlatButton6 = new MaterialWinforms.Controls.MaterialFlatButton();
@@ -189,7 +190,6 @@ namespace MaterialWinformsExample
             this.materialSideDrawer1 = new MaterialWinforms.Controls.MaterialSideDrawer();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.materialRaisedButton2 = new MaterialWinforms.Controls.MaterialRaisedButton();
             this.SideDrawerList.SuspendLayout();
             this.materialTabControl1.SuspendLayout();
             this.mtp_Picker.SuspendLayout();
@@ -889,7 +889,7 @@ namespace MaterialWinformsExample
             // materialTextBox1
             // 
             this.materialTextBox1.Depth = 0;
-            this.materialTextBox1.Font = new System.Drawing.Font("Roboto", 10F);
+            this.materialTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.materialTextBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.materialTextBox1.Hint = "Testhint";
             this.materialTextBox1.Location = new System.Drawing.Point(552, 218);
@@ -924,8 +924,6 @@ namespace MaterialWinformsExample
             // 
             this.materialLabel2.AutoSize = true;
             this.materialLabel2.Depth = 0;
-            this.materialLabel2.Font = new System.Drawing.Font("Roboto", 11F);
-            this.materialLabel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.materialLabel2.Location = new System.Drawing.Point(41, 17);
             this.materialLabel2.MouseState = MaterialWinforms.MouseState.HOVER;
             this.materialLabel2.Name = "materialLabel2";
@@ -1008,8 +1006,6 @@ namespace MaterialWinformsExample
             // 
             this.materialLabel1.AutoSize = true;
             this.materialLabel1.Depth = 0;
-            this.materialLabel1.Font = new System.Drawing.Font("Roboto", 11F);
-            this.materialLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.materialLabel1.Location = new System.Drawing.Point(26, 347);
             this.materialLabel1.MouseState = MaterialWinforms.MouseState.HOVER;
             this.materialLabel1.Name = "materialLabel1";
@@ -1146,8 +1142,7 @@ namespace MaterialWinformsExample
             this.materialCheckBox3.CheckState = System.Windows.Forms.CheckState.Checked;
             this.materialCheckBox3.Depth = 0;
             this.materialCheckBox3.Enabled = false;
-            this.materialCheckBox3.Font = new System.Drawing.Font("Roboto", 10F);
-            this.materialCheckBox3.Location = new System.Drawing.Point(170, 59);
+             this.materialCheckBox3.Location = new System.Drawing.Point(170, 59);
             this.materialCheckBox3.Margin = new System.Windows.Forms.Padding(0);
             this.materialCheckBox3.MouseLocation = new System.Drawing.Point(-1, -1);
             this.materialCheckBox3.MouseState = MaterialWinforms.MouseState.HOVER;
@@ -1163,7 +1158,6 @@ namespace MaterialWinformsExample
             this.materialCheckBox4.AutoSize = true;
             this.materialCheckBox4.Depth = 0;
             this.materialCheckBox4.Enabled = false;
-            this.materialCheckBox4.Font = new System.Drawing.Font("Roboto", 10F);
             this.materialCheckBox4.Location = new System.Drawing.Point(170, 29);
             this.materialCheckBox4.Margin = new System.Windows.Forms.Padding(0);
             this.materialCheckBox4.MouseLocation = new System.Drawing.Point(-1, -1);
@@ -1181,8 +1175,7 @@ namespace MaterialWinformsExample
             this.materialCheckBox2.Checked = true;
             this.materialCheckBox2.CheckState = System.Windows.Forms.CheckState.Checked;
             this.materialCheckBox2.Depth = 0;
-            this.materialCheckBox2.Font = new System.Drawing.Font("Roboto", 10F);
-            this.materialCheckBox2.Location = new System.Drawing.Point(9, 59);
+             this.materialCheckBox2.Location = new System.Drawing.Point(9, 59);
             this.materialCheckBox2.Margin = new System.Windows.Forms.Padding(0);
             this.materialCheckBox2.MouseLocation = new System.Drawing.Point(-1, -1);
             this.materialCheckBox2.MouseState = MaterialWinforms.MouseState.HOVER;
@@ -1197,7 +1190,6 @@ namespace MaterialWinformsExample
             // 
             this.materialCheckBox1.AutoSize = true;
             this.materialCheckBox1.Depth = 0;
-            this.materialCheckBox1.Font = new System.Drawing.Font("Roboto", 10F);
             this.materialCheckBox1.Location = new System.Drawing.Point(9, 29);
             this.materialCheckBox1.Margin = new System.Windows.Forms.Padding(0);
             this.materialCheckBox1.MouseLocation = new System.Drawing.Point(-1, -1);
@@ -1305,6 +1297,21 @@ namespace MaterialWinformsExample
             this.materialTabPage2.Size = new System.Drawing.Size(775, 555);
             this.materialTabPage2.TabIndex = 3;
             this.materialTabPage2.Text = "Dialogs and windows";
+            // 
+            // materialRaisedButton2
+            // 
+            this.materialRaisedButton2.Depth = 0;
+            this.materialRaisedButton2.Elevation = 5;
+            this.materialRaisedButton2.Location = new System.Drawing.Point(354, 483);
+            this.materialRaisedButton2.MouseState = MaterialWinforms.MouseState.HOVER;
+            this.materialRaisedButton2.Name = "materialRaisedButton2";
+            this.materialRaisedButton2.Primary = true;
+            graphicsPath9.FillMode = System.Drawing.Drawing2D.FillMode.Alternate;
+            this.materialRaisedButton2.ShadowBorder = graphicsPath9;
+            this.materialRaisedButton2.Size = new System.Drawing.Size(117, 47);
+            this.materialRaisedButton2.TabIndex = 5;
+            this.materialRaisedButton2.Text = "materialRaisedButton2";
+            this.materialRaisedButton2.UseVisualStyleBackColor = true;
             // 
             // treeView1
             // 
@@ -1593,21 +1600,6 @@ namespace MaterialWinformsExample
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(783, 6);
             this.panel2.TabIndex = 36;
-            // 
-            // materialRaisedButton2
-            // 
-            this.materialRaisedButton2.Depth = 0;
-            this.materialRaisedButton2.Elevation = 5;
-            this.materialRaisedButton2.Location = new System.Drawing.Point(354, 483);
-            this.materialRaisedButton2.MouseState = MaterialWinforms.MouseState.HOVER;
-            this.materialRaisedButton2.Name = "materialRaisedButton2";
-            this.materialRaisedButton2.Primary = true;
-            graphicsPath9.FillMode = System.Drawing.Drawing2D.FillMode.Alternate;
-            this.materialRaisedButton2.ShadowBorder = graphicsPath9;
-            this.materialRaisedButton2.Size = new System.Drawing.Size(117, 47);
-            this.materialRaisedButton2.TabIndex = 5;
-            this.materialRaisedButton2.Text = "materialRaisedButton2";
-            this.materialRaisedButton2.UseVisualStyleBackColor = true;
             // 
             // MainForm
             // 

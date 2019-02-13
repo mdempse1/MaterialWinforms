@@ -130,6 +130,15 @@ namespace MaterialWinforms
                 AccentColor = Accent.LightBlue200,
                 TextShade = TextShade.WHITE
             });
+
+            objSchemes.Add(new ColorSchemePreset("Claytex")
+            {
+                PrimaryColor = Primary.ClaytexPrimary,
+                DarkPrimaryColor = Primary.ClaytexDark,
+                LightPrimaryColor = Primary.ClaytexLight,
+                AccentColor = Accent.ClaytexLight,
+                TextShade = TextShade.BLACK
+            });
         }
 
         public ColorSchemePreset get(int Index)

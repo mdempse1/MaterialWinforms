@@ -19,7 +19,7 @@ namespace MaterialWinforms.Controls
             base.OnCreateControl();
 
             ForeColor = SkinManager.GetPrimaryTextColor();
-            Font = SkinManager.ROBOTO_REGULAR_11;
+            Font = SkinManager.FONT_TEXT;
             
             BackColorChanged += (sender, args) => ForeColor = SkinManager.GetPrimaryTextColor();
         }

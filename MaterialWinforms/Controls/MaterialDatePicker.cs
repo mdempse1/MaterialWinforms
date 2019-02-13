@@ -69,10 +69,10 @@ namespace MaterialWinforms.Controls
             NextCal = new RectangleF(Width - CurrentCal_Header.Height, CurrentCal_Header.Y, CurrentCal_Header.Height, CurrentCal_Header.Height);
             ShadowPath = new GraphicsPath();
             ShadowPath.AddLine(-5, TopDateRect.Bottom, Width, TopDateRect.Bottom);
-            TopDayFont = SkinManager.ROBOTO_MEDIUM_10;
-            MonthFont = new Font(SkinManager.ROBOTO_MEDIUM_10.Name, 16, FontStyle.Bold);
-            DayFont = new Font(SkinManager.ROBOTO_MEDIUM_10.Name, 40, FontStyle.Bold);
-            YeahrFont = new Font(SkinManager.ROBOTO_MEDIUM_10.Name, 15, FontStyle.Bold);
+            TopDayFont = SkinManager.FONT_CONTROL_SMALL;
+            MonthFont = new Font(SkinManager.FONT_CONTROL_SMALL.Name, 16, FontStyle.Bold);
+            DayFont = new Font(SkinManager.FONT_CONTROL_SMALL.Name, 40, FontStyle.Bold);
+            YeahrFont = new Font(SkinManager.FONT_CONTROL_SMALL.Name, 15, FontStyle.Bold);
             DoubleBuffered = true;
             DateRectDefaultSize = (Width - 10) / 7;
             CurrentDate = DateTime.Now;
@@ -241,7 +241,7 @@ namespace MaterialWinforms.Controls
             g.DrawString(CurrentDate.ToString("dd"), DayFont, SkinManager.ACTION_BAR_TEXT_BRUSH(), DayRect, new StringFormat { Alignment = StringAlignment.Center, LineAlignment = StringAlignment.Center });
             g.DrawString(CurrentDate.ToString("yyyy"), YeahrFont, new SolidBrush(Color.FromArgb(80, SkinManager.ACTION_BAR_TEXT())), YearRect, new StringFormat { Alignment = StringAlignment.Center, LineAlignment = StringAlignment.Center });
 
-            g.DrawString(CurrentDate.ToString("MMMM"), SkinManager.ROBOTO_REGULAR_11, SkinManager.GetPrimaryTextBrush(), CurrentCal_Header, new StringFormat { Alignment = StringAlignment.Center, LineAlignment = StringAlignment.Center });
+            g.DrawString(CurrentDate.ToString("MMMM"), SkinManager.FONT_TEXT, SkinManager.GetPrimaryTextBrush(), CurrentCal_Header, new StringFormat { Alignment = StringAlignment.Center, LineAlignment = StringAlignment.Center });
 
             if (HoverX >= 0)
             {
@@ -289,7 +289,7 @@ namespace MaterialWinforms.Controls
                 if (DayOfWeek < 0) DayOfWeek = 6;
 
                 strName = DateTime.Now.AddDays(-DayOfWeek+i).ToString("ddd");
-                g.DrawString(strName, SkinManager.ROBOTO_MEDIUM_11, SkinManager.GetSecondaryTextBrush(), DateRectangles[0][i].Rect, new StringFormat { Alignment = StringAlignment.Center, LineAlignment = StringAlignment.Center });
+                g.DrawString(strName, SkinManager.FONT_CONTROL_LARGE, SkinManager.GetSecondaryTextBrush(), DateRectangles[0][i].Rect, new StringFormat { Alignment = StringAlignment.Center, LineAlignment = StringAlignment.Center });
             }
                 for (DateTime date = FirstDay; date <= LastDayOfMonth(CurrentDate); date = date.AddDays(1))
                 {
@@ -297,7 +297,7 @@ namespace MaterialWinforms.Controls
                     int DayOfWeek = (int)date.DayOfWeek - 1;
                     if (DayOfWeek < 0) DayOfWeek = 6;
 
-                    g.DrawString(date.Day.ToString(), SkinManager.ROBOTO_MEDIUM_11, SkinManager.GetPrimaryTextBrush(), DateRectangles[WeekOfMonth][DayOfWeek].Rect, new StringFormat { Alignment = StringAlignment.Center, LineAlignment = StringAlignment.Center });
+                    g.DrawString(date.Day.ToString(), SkinManager.FONT_CONTROL_LARGE, SkinManager.GetPrimaryTextBrush(), DateRectangles[WeekOfMonth][DayOfWeek].Rect, new StringFormat { Alignment = StringAlignment.Center, LineAlignment = StringAlignment.Center });
 
                 }
 

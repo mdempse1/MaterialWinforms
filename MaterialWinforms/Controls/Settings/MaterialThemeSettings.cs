@@ -140,7 +140,7 @@ namespace MaterialWinforms.Controls.Settings
 
             g.DrawString(
                 PreviewPreset.Name,
-                 SkinManager.ROBOTO_REGULAR_11,
+                 SkinManager.FONT_TEXT,
                  Text, TopDefault);
             g.ResetClip();
             

@@ -86,7 +86,7 @@ namespace MaterialWinforms.Controls
 
         public override Size GetPreferredSize(Size proposedSize)
         {
-            int width = boxOffset + 20 + (int)CreateGraphics().MeasureString(Text, SkinManager.ROBOTO_MEDIUM_10).Width;
+            int width = boxOffset + 20 + (int)CreateGraphics().MeasureString(Text, SkinManager.FONT_CONTROL_SMALL).Width;
             return Ripple ? new Size(width, 30) : new Size(width, 20);
         }
 
@@ -158,8 +158,8 @@ namespace MaterialWinforms.Controls
                     g.FillPath(brush, path);
                 }
             }
-            SizeF stringSize = g.MeasureString(Text, SkinManager.ROBOTO_MEDIUM_10);
-            g.DrawString(Text, SkinManager.ROBOTO_MEDIUM_10, Enabled ? SkinManager.GetPrimaryTextBrush() : SkinManager.GetDisabledOrHintBrush(), boxOffset + 22, Height / 2 - stringSize.Height / 2);
+            SizeF stringSize = g.MeasureString(Text, SkinManager.FONT_CONTROL_SMALL);
+            g.DrawString(Text, SkinManager.FONT_CONTROL_SMALL, Enabled ? SkinManager.GetPrimaryTextBrush() : SkinManager.GetDisabledOrHintBrush(), boxOffset + 22, Height / 2 - stringSize.Height / 2);
 
             brush.Dispose();  
             pen.Dispose();
@@ -173,7 +173,7 @@ namespace MaterialWinforms.Controls
         protected override void OnCreateControl()
         {
             base.OnCreateControl();
-            Font = SkinManager.ROBOTO_MEDIUM_10;
+            Font = SkinManager.FONT_CONTROL_SMALL;
 
             if (DesignMode) return;
 

@@ -107,7 +107,7 @@ namespace MaterialWinforms.Controls
             var textRect = new Rectangle(0, itemRect.Y, itemRect.Width, itemRect.Height);
             g.DrawString(
                 e.Text,
-                SkinManager.ROBOTO_MEDIUM_10,
+                SkinManager.FONT_CONTROL_SMALL,
                 e.Item.Enabled ? SkinManager.GetPrimaryTextBrush() : SkinManager.GetDisabledOrHintBrush(),
                 textRect,
                 new StringFormat { LineAlignment = StringAlignment.Center });
