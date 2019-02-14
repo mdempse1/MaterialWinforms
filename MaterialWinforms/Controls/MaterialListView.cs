@@ -56,7 +56,7 @@ namespace MaterialWinforms.Controls
 		}
 
 		protected override void OnDrawColumnHeader(DrawListViewColumnHeaderEventArgs e)
-		{
+        {
             e.Graphics.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAlias;
 			e.Graphics.FillRectangle(new SolidBrush(SkinManager.GetApplicationBackgroundColor()), new Rectangle(e.Bounds.X, e.Bounds.Y, Width, e.Bounds.Height));
 			e.Graphics.DrawString(e.Header.Text, 
@@ -72,7 +72,7 @@ namespace MaterialWinforms.Controls
             pevent.Graphics.Clear(SkinManager.GetApplicationBackgroundColor());
         }
 
-		private const int ITEM_PADDING = 12;
+		private const int ITEM_PADDING = 6;
 		protected override void OnDrawItem(DrawListViewItemEventArgs e)
 		{
 			//We draw the current line of items (= item with subitems) on a temp bitmap, then draw the bitmap at once. This is to reduce flickering.
@@ -129,8 +129,7 @@ namespace MaterialWinforms.Controls
             //This is a hax for the needed padding.
             //Another way would be intercepting all ListViewItems and changing the sizes, but really, that will be a lot of work
             //This will do for now.
-            //Font = new Font(SkinManager.FONT_TITLE.FontFamily, 24);
-            Font = SkinManager.FONT_CONTROL_LARGE;
+            Font = new Font(SkinManager.FONT_TITLE.FontFamily, 16);            
 		}
 	}
 }
