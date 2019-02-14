@@ -70,7 +70,7 @@ namespace MaterialWinforms.Controls
                 }
                 else
                 {
-                textSize = CreateGraphics().MeasureString(value.ToUpper(), SkinManager.FONT_CONTROL_SMALL);
+                textSize = CreateGraphics().MeasureString(value.ToUpper(), SkinManager.FONT_CONTROL_LARGE);
                 }
                 if(IconImage!= null)
                 textSize = new Size((int)textSize.Width + (int)ClientRectangle.Height, (int)textSize.Height);
@@ -86,7 +86,7 @@ namespace MaterialWinforms.Controls
             set
             {
                 base.Image = value;
-                textSize = CreateGraphics().MeasureString(Text.ToUpper(), SkinManager.FONT_CONTROL_SMALL);
+                textSize = CreateGraphics().MeasureString(Text.ToUpper(), SkinManager.FONT_CONTROL_LARGE);
                 if (IconImage != null)
                 textSize = new Size((int)textSize.Width + (int)textSize.Height, (int)textSize.Height);
                 if (AutoSize)
@@ -136,7 +136,7 @@ namespace MaterialWinforms.Controls
                 }
                 g.SmoothingMode = SmoothingMode.None;
             }
-            g.DrawString(Capitalized ?Text.ToUpper():Text, SkinManager.FONT_CONTROL_SMALL, Enabled ? (Primary ? SkinManager.ColorScheme.PrimaryBrush : Accent ? SkinManager.ColorScheme.AccentBrush : SkinManager.GetPrimaryTextBrush()) : SkinManager.GetFlatButtonDisabledTextBrush(), ClientRectangle, new StringFormat { Alignment = (IconImage == null ? StringAlignment.Center : StringAlignment.Far), LineAlignment = StringAlignment.Center });
+            g.DrawString(Capitalized ?Text.ToUpper():Text, SkinManager.FONT_CONTROL_LARGE, Enabled ? (Primary ? SkinManager.ColorScheme.PrimaryBrush : Accent ? SkinManager.ColorScheme.AccentBrush : SkinManager.GetPrimaryTextBrush()) : SkinManager.GetFlatButtonDisabledTextBrush(), ClientRectangle, new StringFormat { Alignment = (IconImage == null ? StringAlignment.Center : StringAlignment.Far), LineAlignment = StringAlignment.Center });
         }
 
         private Size GetPreferredSize()

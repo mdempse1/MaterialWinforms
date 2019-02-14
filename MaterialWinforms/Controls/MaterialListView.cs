@@ -126,10 +126,11 @@ namespace MaterialWinforms.Controls
 		{
 			base.OnCreateControl();
 
-			//This is a hax for the needed padding.
-			//Another way would be intercepting all ListViewItems and changing the sizes, but really, that will be a lot of work
-			//This will do for now.
-			Font = new Font(SkinManager.FONT_TITLE.FontFamily, 24);
+            //This is a hax for the needed padding.
+            //Another way would be intercepting all ListViewItems and changing the sizes, but really, that will be a lot of work
+            //This will do for now.
+            //Font = new Font(SkinManager.FONT_TITLE.FontFamily, 24);
+            Font = SkinManager.FONT_CONTROL_LARGE;
 		}
 	}
 }

@@ -298,7 +298,7 @@ namespace MaterialWinforms.Controls
             g.Clear(BackColor);
             g.DrawLine(objPen, new Point(0, Height - 2), new Point(Width, Height - 2));
             if (SelectedIndex >= 0) { 
-            e.Graphics.DrawString(Items[SelectedIndex].ToString(), SkinManager.FONT_TEXT, SkinManager.ColorScheme.TextBrush, 0, 0);
+            e.Graphics.DrawString(Items[SelectedIndex].ToString(), SkinManager.FONT_TEXT, SkinManager.GetPrimaryTextBrush(), 0, 0);
             }
             Point[] objTriangle = new Point[3];
 
@@ -334,7 +334,7 @@ namespace MaterialWinforms.Controls
                 e.Bounds.Height, e.Bounds.Height - 4);
             // Draw each string in the array, using a different size, color,
             // and font for each item.
-            e.Graphics.DrawString(Items[e.Index].ToString(), SkinManager.FONT_TEXT, SkinManager.ColorScheme.TextBrush, new RectangleF(e.Bounds.X + rectangle.Width, e.Bounds.Y, e.Bounds.Width, e.Bounds.Height));
+            e.Graphics.DrawString(Items[e.Index].ToString(), SkinManager.FONT_TEXT, SkinManager.GetPrimaryTextBrush(), new RectangleF(e.Bounds.X + rectangle.Width, e.Bounds.Y, e.Bounds.Width, e.Bounds.Height));
 
 
         }

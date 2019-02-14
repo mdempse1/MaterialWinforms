@@ -290,11 +290,11 @@ namespace MaterialWinforms
         private MaterialSkinManager()
         {
             FONT_TITLE = new Font(LoadFont(Resources.Roboto_Medium), 12f);
-            FONT_CONTROL_SMALL = new Font(LoadFont(Resources.Roboto_Medium), 10f);
-            FONT_CONTROL_LARGE = new Font(LoadFont(Resources.Roboto_Medium), 11f);
-            FONT_TEXT = new Font(LoadFont(Resources.Roboto_Regular), 11f);
+            FONT_CONTROL_SMALL = new Font(LoadFont(Resources.Roboto_Medium), 9f);
+            FONT_CONTROL_LARGE = new Font(LoadFont(Resources.Roboto_Medium), 10f);
+            FONT_TEXT = new Font(LoadFont(Resources.Roboto_Regular), 9f);
             Theme = Themes.LIGHT;
-            ColorScheme = new ColorScheme(Primary.ClaytexPrimary, Primary.ClaytexDark, Primary.ClaytexPrimary, Accent.ClaytexLight, TextShade.BLACK);
+            ColorScheme = new ColorScheme(Primary.ClaytexPrimary, Primary.ClaytexDark, Primary.ClaytexPrimary, Accent.ClaytexLight, TextShade.WHITE);
             ColorSchemes = new ColorSchemePresetCollection();
         }
 
