@@ -16,6 +16,19 @@ namespace MaterialWinforms.Controls
         public Color BackColor { get { return Parent == null ? SkinManager.GetApplicationBackgroundColor() : typeof(IShadowedMaterialControl).IsAssignableFrom(Parent.GetType()) ? ((IMaterialControl)Parent).BackColor : Parent.BackColor; } }
         [Browsable(false)]
 
+        private string _MaxValueLabel = null;
+        private string _MinValueLabel = null;
+        public string MaxValueLabel
+        {
+            get { return _MaxValueLabel; }
+            set { _MaxValueLabel = value; }
+        }
+        public string MinValueLabel
+        {
+            get { return _MinValueLabel; }
+            set { _MinValueLabel = value; }
+        }
+
         public delegate void ValueChanged(int newValue);
         public event ValueChanged onValueChanged;
 
@@ -27,6 +40,7 @@ namespace MaterialWinforms.Controls
             {
                 _Value = value;
                 MouseX = (int)((double)_Value / (double)(MaxValue - MinValue) * (double)(Width - IndicatorSize));
+                RecalcutlateIndicator();
             }
         }
         private int _MaxValue;
@@ -257,10 +271,24 @@ namespace MaterialWinforms.Controls
                 }
             }
 
-
-            g.DrawString(MinValue.ToString(), SkinManager.FONT_CONTROL_SMALL, SkinManager.GetPrimaryTextBrush(), new PointF(0, 0));
-            g.DrawString(MaxValue.ToString(), SkinManager.FONT_CONTROL_SMALL, SkinManager.GetPrimaryTextBrush(), new PointF(Width - g.MeasureString(MaxValue.ToString(), SkinManager.FONT_CONTROL_SMALL).Width, 0f));
-            g.DrawString(Value.ToString(), SkinManager.FONT_CONTROL_SMALL, SkinManager.GetPrimaryTextBrush(), new PointF(Width / 2 - g.MeasureString(Value.ToString(), SkinManager.FONT_CONTROL_SMALL).Width / 2, 0f));
+            if (_MinValueLabel == null)
+            {
+                g.DrawString(MinValue.ToString(), SkinManager.FONT_CONTROL_SMALL, SkinManager.GetPrimaryTextBrush(), new PointF(0, 0));
+            } else
+            {
+                g.DrawString(_MinValueLabel, SkinManager.FONT_CONTROL_SMALL, SkinManager.GetPrimaryTextBrush(), new PointF(0, 0));
+            }
+            if (_MaxValueLabel == null)
+            {
+                g.DrawString(MaxValue.ToString(), SkinManager.FONT_CONTROL_SMALL, SkinManager.GetPrimaryTextBrush(), new PointF(Width - g.MeasureString(MaxValue.ToString(), SkinManager.FONT_CONTROL_SMALL).Width, 0f));
+            } else
+            {
+                g.DrawString(_MaxValueLabel, SkinManager.FONT_CONTROL_SMALL, SkinManager.GetPrimaryTextBrush(), new PointF(Width - g.MeasureString(_MaxValueLabel, SkinManager.FONT_CONTROL_SMALL).Width, 0f));
+            }
+            if (_MaxValueLabel == null && _MinValueLabel == null)
+            {
+                g.DrawString(Value.ToString(), SkinManager.FONT_CONTROL_SMALL, SkinManager.GetPrimaryTextBrush(), new PointF(Width / 2 - g.MeasureString(Value.ToString(), SkinManager.FONT_CONTROL_SMALL).Width / 2, 0f));
+            }
             e.Graphics.DrawImage((Image)bmp.Clone(), 0, 0);
         }
     }
