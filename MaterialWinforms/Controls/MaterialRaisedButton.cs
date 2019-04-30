@@ -101,7 +101,7 @@ namespace MaterialWinforms.Controls
 
             g.DrawString(
                 Text.ToUpper(),
-                SkinManager.FONT_CONTROL_SMALL, 
+                SkinManager.FONT_CONTROL_SMALL,
                 SkinManager.GetRaisedButtonTextBrush(Primary),
                 ClientRectangle,
                 new StringFormat { Alignment = StringAlignment.Center, LineAlignment = StringAlignment.Center });

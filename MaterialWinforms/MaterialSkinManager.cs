@@ -237,7 +237,7 @@ namespace MaterialWinforms
 
         public Brush GetRaisedButtonTextBrush(bool primary)
         {
-            return (primary ? ACTION_BAR_TEXT_BRUSH() : RAISED_BUTTON_TEXT_DARK_BRUSH);
+            return (primary ? RAISED_BUTTON_TEXT_LIGHT_BRUSH : RAISED_BUTTON_TEXT_DARK_BRUSH);
         }
 
         public Color GetFlatButtonHoverBackgroundColor()

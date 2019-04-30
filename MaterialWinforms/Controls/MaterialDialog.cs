@@ -593,7 +593,6 @@ namespace MaterialWinforms.Controls
             this.pnl_Top.Padding = new System.Windows.Forms.Padding(10);
             this.pnl_Top.Size = new System.Drawing.Size(350, 250);
             this.pnl_Top.TabIndex = 1;
-            this.pnl_Top.MouseDown += lbl_Title_MouseDown;
             // 
             // pnl_Message
             // 
@@ -613,11 +612,13 @@ namespace MaterialWinforms.Controls
             this.lbl_Message.AutoSize = true;
             this.lbl_Message.Depth = 0;
             this.lbl_Message.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lbl_Message.Font = new System.Drawing.Font("Roboto", 9F);
+            this.lbl_Message.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.lbl_Message.Location = new System.Drawing.Point(5, 5);
             this.lbl_Message.MaximumSize = new System.Drawing.Size(330, 5000);
             this.lbl_Message.MouseState = MaterialWinforms.MouseState.HOVER;
             this.lbl_Message.Name = "lbl_Message";
-            this.lbl_Message.Size = new System.Drawing.Size(0, 19);
+            this.lbl_Message.Size = new System.Drawing.Size(0, 15);
             this.lbl_Message.TabIndex = 1;
             // 
             // lbl_Title
@@ -626,10 +627,9 @@ namespace MaterialWinforms.Controls
             this.lbl_Title.Dock = System.Windows.Forms.DockStyle.Top;
             this.lbl_Title.Location = new System.Drawing.Point(10, 10);
             this.lbl_Title.Name = "lbl_Title";
-            this.lbl_Title.Size = new System.Drawing.Size(115, 20);
+            this.lbl_Title.Size = new System.Drawing.Size(75, 13);
             this.lbl_Title.TabIndex = 0;
             this.lbl_Title.Text = "materialLabel1";
-            this.lbl_Title.MouseDown += lbl_Title_MouseDown;
             // 
             // pnl_Footer
             // 
@@ -638,7 +638,6 @@ namespace MaterialWinforms.Controls
             this.pnl_Footer.Name = "pnl_Footer";
             this.pnl_Footer.Size = new System.Drawing.Size(350, 50);
             this.pnl_Footer.TabIndex = 2;
-            this.pnl_Footer.MouseDown += lbl_Title_MouseDown;
             // 
             // MaterialDialog
             // 
@@ -652,7 +651,6 @@ namespace MaterialWinforms.Controls
             this.pnl_Message.ResumeLayout(false);
             this.pnl_Message.PerformLayout();
             this.ResumeLayout(false);
-            this.MouseDown += lbl_Title_MouseDown;
 
         }
 
