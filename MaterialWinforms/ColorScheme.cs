@@ -379,4 +379,14 @@ namespace MaterialWinforms
 
 
     }
+
+    public enum ColorChoice
+    {
+        Primary,
+        DarkPrimary,
+        LightPrimary,
+        AccentColor,
+        TextColor
+    }
+
 }

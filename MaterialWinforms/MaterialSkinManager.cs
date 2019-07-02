@@ -294,7 +294,7 @@ namespace MaterialWinforms
             FONT_CONTROL_LARGE = new Font(LoadFont(Resources.Roboto_Medium), 10f);
             FONT_TEXT = new Font(LoadFont(Resources.Roboto_Regular), 9f);
             Theme = Themes.LIGHT;
-            ColorScheme = new ColorScheme(Primary.ClaytexPrimary, Primary.ClaytexDark, Primary.ClaytexPrimary, Accent.ClaytexLight, TextShade.WHITE);
+            ColorScheme = new ColorScheme(Primary.ClaytexPrimary, Primary.ClaytexDark, Primary.ClaytexLight, Accent.ClaytexLight, TextShade.WHITE);
             ColorSchemes = new ColorSchemePresetCollection();
         }
 
