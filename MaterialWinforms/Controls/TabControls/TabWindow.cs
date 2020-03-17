@@ -1,13 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Drawing;
 using System.Windows.Forms;
 
 namespace MaterialWinforms.Controls
 {
-    public class TabWindow: MaterialForm
+    public class TabWindow : MaterialForm
     {
         private MaterialTabPage TabPage;
         private MaterialTabSelector BaseTabControl;
@@ -17,13 +14,13 @@ namespace MaterialWinforms.Controls
         private bool Closable;
         private bool allowClose;
 
-        public TabWindow(MaterialTabPage tabPage,ref MaterialTabSelector baseTab)
+        public TabWindow(MaterialTabPage tabPage, ref MaterialTabSelector baseTab)
         {
             TabPage = tabPage;
             Text = TabPage.Text;
             Root = new MaterialTabControl();
             Root.TabPages.Add(TabPage);
-            Root.Dock= System.Windows.Forms.DockStyle.Fill;
+            Root.Dock = System.Windows.Forms.DockStyle.Fill;
             BaseTabControl = baseTab;
             Closable = tabPage.Closable;
             Size = TabPage.Size;
@@ -48,7 +45,7 @@ namespace MaterialWinforms.Controls
                 if (ReturnButtonBounds.Contains(e.Location))
                 {
                     ReturnButtonState = RetButtonState.ReturnButtonDown;
-                   
+
                 }
                 else
                     ReturnButtonState = RetButtonState.None;
@@ -72,7 +69,7 @@ namespace MaterialWinforms.Controls
         protected override void OnResize(EventArgs e)
         {
             base.OnResize(e);
-            ReturnButtonBounds = new Rectangle((Width - SkinManager.FORM_PADDING / 2) -  4 * STATUS_BAR_BUTTON_WIDTH , 0, STATUS_BAR_BUTTON_WIDTH, STATUS_BAR_HEIGHT);
+            ReturnButtonBounds = new Rectangle((Width - SkinManager.FORM_PADDING / 2) - 4 * STATUS_BAR_BUTTON_WIDTH, 0, STATUS_BAR_BUTTON_WIDTH, STATUS_BAR_HEIGHT);
 
         }
 
@@ -101,7 +98,7 @@ namespace MaterialWinforms.Controls
             }
 
             var downBrush = SkinManager.GetFlatButtonPressedBackgroundBrush();
-            if (ReturnButtonState == RetButtonState.ReturnButtonOver )
+            if (ReturnButtonState == RetButtonState.ReturnButtonOver)
                 g.FillRectangle(downBrush, ReturnButtonBounds);
             g.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
             using (var DrawerButtonPen = new Pen(SkinManager.ACTION_BAR_TEXT_SECONDARY(), 2))

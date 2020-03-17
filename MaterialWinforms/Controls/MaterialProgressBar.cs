@@ -1,7 +1,6 @@
 ﻿using System.ComponentModel;
-using System.Windows.Forms;
 using System.Drawing;
-using System;
+using System.Windows.Forms;
 
 namespace MaterialWinforms.Controls
 {
@@ -190,11 +189,11 @@ namespace MaterialWinforms.Controls
             }
             set
             {
-                if (value >= Maximum-Minimum )
+                if (value >= Maximum - Minimum)
                 {
                     _Step = Maximum - Minimum;
                 }
-                else if(value <= Minimum-Maximum)
+                else if (value <= Minimum - Maximum)
                 {
                     _Step = Minimum - Maximum;
                 }
@@ -295,7 +294,7 @@ namespace MaterialWinforms.Controls
             {
                 if (Orientation == System.Windows.Forms.Orientation.Horizontal)
                 {
-                    var doneProgress = (int)(e.ClipRectangle.Width * ((double)Value / (Maximum-Minimum)));
+                    var doneProgress = (int)(e.ClipRectangle.Width * ((double)Value / (Maximum - Minimum)));
                     if (InvertedProgressBar)
                     {
                         doneProgress = Width - doneProgress;

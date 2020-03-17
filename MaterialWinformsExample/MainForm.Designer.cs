@@ -1552,7 +1552,7 @@ namespace MaterialWinformsExample
             this.materialTabSelectorClosable1.Elevation = 10;
             this.materialTabSelectorClosable1.Location = new System.Drawing.Point(0, 66);
             this.materialTabSelectorClosable1.Margin = new System.Windows.Forms.Padding(0, 0, 0, 10);
-            this.materialTabSelectorClosable1.MaxTabWidht = 0;
+            this.materialTabSelectorClosable1.MaxTabWidth = 0;
             this.materialTabSelectorClosable1.MouseState = MaterialWinforms.MouseState.HOVER;
             this.materialTabSelectorClosable1.Name = "materialTabSelectorClosable1";
             graphicsPath11.FillMode = System.Drawing.Drawing2D.FillMode.Alternate;

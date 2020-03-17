@@ -1,10 +1,8 @@
 ﻿using System;
-using System.Drawing;
 using System.Collections.Generic;
-using System.Linq;
-using System.Windows.Forms;
-using System.Text.RegularExpressions;
+using System.Drawing;
 using System.Runtime.InteropServices;
+using System.Windows.Forms;
 
 namespace MaterialWinforms.Controls
 {

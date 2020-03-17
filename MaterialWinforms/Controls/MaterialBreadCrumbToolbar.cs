@@ -1,12 +1,11 @@
-﻿using System.ComponentModel;
-using System.Windows.Forms;
+﻿using MaterialWinforms.Animations;
+using System;
+using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Drawing.Text;
-using System.Collections.ObjectModel;
-using System;
-
-using MaterialWinforms.Animations;
+using System.Windows.Forms;
 
 namespace MaterialWinforms.Controls
 {
@@ -19,16 +18,16 @@ namespace MaterialWinforms.Controls
         public MaterialSkinManager SkinManager { get { return MaterialSkinManager.Instance; } }
         [Browsable(false)]
         public MouseState MouseState { get; set; }
-        public Color BackColor { get { return SkinManager.GetCardsColor() ; } }
+        public Color BackColor { get { return SkinManager.GetCardsColor(); } }
 
         [Category("Appearance")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public  ObservableCollection<BreadCrumbItem> Items
+        public ObservableCollection<BreadCrumbItem> Items
         {
             get { return _Teile; }
         }
 
-        public delegate void BreadCrumbItemClicked(String pTitel,Object pTag);
+        public delegate void BreadCrumbItemClicked(String pTitel, Object pTag);
         public event BreadCrumbItemClicked onBreadCrumbItemClicked;
 
         private int ItemLengt;
@@ -82,7 +81,7 @@ namespace MaterialWinforms.Controls
         protected override void OnMouseMove(MouseEventArgs e)
         {
             base.OnMouseMove(e);
-            if (mouseDown && _Teile.Count>0)
+            if (mouseDown && _Teile.Count > 0)
             {
                 bool move = false;
 
@@ -293,7 +292,7 @@ namespace MaterialWinforms.Controls
     [Serializable]
     public class BreadCrumbItem
     {
-        public string Text{get;set;}
+        public string Text { get; set; }
         public Object Tag { get; set; }
         public Rectangle ItemRect;
         public BreadCrumbItem()

@@ -1,10 +1,10 @@
-﻿using System;
+﻿using MaterialWinforms.Animations;
+using System;
 using System.ComponentModel;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Drawing.Text;
 using System.Windows.Forms;
-using MaterialWinforms.Animations;
 
 namespace MaterialWinforms.Controls
 {
@@ -70,17 +70,17 @@ namespace MaterialWinforms.Controls
                 }
                 else
                 {
-                textSize = CreateGraphics().MeasureString(value.ToUpper(), SkinManager.FONT_CONTROL_LARGE);
+                    textSize = CreateGraphics().MeasureString(value.ToUpper(), SkinManager.FONT_CONTROL_LARGE);
                 }
-                if(IconImage!= null)
-                textSize = new Size((int)textSize.Width + (int)ClientRectangle.Height, (int)textSize.Height);
+                if (IconImage != null)
+                    textSize = new Size((int)textSize.Width + (int)ClientRectangle.Height, (int)textSize.Height);
                 if (AutoSize)
                     Size = GetPreferredSize();
                 Invalidate();
             }
         }
 
-        public  Image IconImage
+        public Image IconImage
         {
             get { return base.Image; }
             set
@@ -88,7 +88,7 @@ namespace MaterialWinforms.Controls
                 base.Image = value;
                 textSize = CreateGraphics().MeasureString(Text.ToUpper(), SkinManager.FONT_CONTROL_LARGE);
                 if (IconImage != null)
-                textSize = new Size((int)textSize.Width + (int)textSize.Height, (int)textSize.Height);
+                    textSize = new Size((int)textSize.Width + (int)textSize.Height, (int)textSize.Height);
                 if (AutoSize)
                     Size = GetPreferredSize();
                 Invalidate();
@@ -106,12 +106,12 @@ namespace MaterialWinforms.Controls
             if (Image != null)
             {
                 ImageDrawn = true;
-                g.DrawImage(Image, 8, 2, Height-4, Height-4);
+                g.DrawImage(Image, 8, 2, Height - 4, Height - 4);
             }
 
             if (Selected)
             {
-                    g.FillRectangle(SkinManager.GetFlatButtonHoverBackgroundBrush(), ClientRectangle);
+                g.FillRectangle(SkinManager.GetFlatButtonHoverBackgroundBrush(), ClientRectangle);
             }
 
             //Hover
@@ -136,7 +136,7 @@ namespace MaterialWinforms.Controls
                 }
                 g.SmoothingMode = SmoothingMode.None;
             }
-            g.DrawString(Capitalized ?Text.ToUpper():Text, SkinManager.FONT_CONTROL_LARGE, Enabled ? (Primary ? SkinManager.ColorScheme.PrimaryBrush : Accent ? SkinManager.ColorScheme.AccentBrush : SkinManager.GetPrimaryTextBrush()) : SkinManager.GetFlatButtonDisabledTextBrush(), ClientRectangle, new StringFormat { Alignment = (IconImage == null ? StringAlignment.Center : StringAlignment.Far), LineAlignment = StringAlignment.Center });
+            g.DrawString(Capitalized ? Text.ToUpper() : Text, SkinManager.FONT_CONTROL_LARGE, Enabled ? (Primary ? SkinManager.ColorScheme.PrimaryBrush : Accent ? SkinManager.ColorScheme.AccentBrush : SkinManager.GetPrimaryTextBrush()) : SkinManager.GetFlatButtonDisabledTextBrush(), ClientRectangle, new StringFormat { Alignment = (IconImage == null ? StringAlignment.Center : StringAlignment.Far), LineAlignment = StringAlignment.Center });
         }
 
         private Size GetPreferredSize()
@@ -146,7 +146,7 @@ namespace MaterialWinforms.Controls
 
         public override Size GetPreferredSize(Size proposedSize)
         {
-            return new Size((int) textSize.Width + 8, 36);
+            return new Size((int)textSize.Width + 8, 36);
         }
 
         protected override void OnCreateControl()

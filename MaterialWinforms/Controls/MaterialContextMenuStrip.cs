@@ -1,9 +1,9 @@
-﻿using System.ComponentModel;
+﻿using MaterialWinforms.Animations;
+using System.ComponentModel;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Drawing.Text;
 using System.Windows.Forms;
-using MaterialWinforms.Animations;
 
 namespace MaterialWinforms.Controls
 {
@@ -16,7 +16,7 @@ namespace MaterialWinforms.Controls
         public MaterialSkinManager SkinManager { get { return MaterialSkinManager.Instance; } }
         [Browsable(false)]
         public MouseState MouseState { get; set; }
-        
+
 
         internal AnimationManager animationManager;
         internal Point animationSource;
@@ -162,7 +162,7 @@ namespace MaterialWinforms.Controls
 
         protected override void OnRenderToolStripBorder(ToolStripRenderEventArgs e)
         {
-            e.ToolStrip.BackColor = SkinManager.GetCardsColor();   
+            e.ToolStrip.BackColor = SkinManager.GetCardsColor();
 
         }
 
@@ -178,9 +178,9 @@ namespace MaterialWinforms.Controls
             using (var arrowPath = new GraphicsPath())
             {
                 arrowPath.AddLines(
-                    new[] { 
-                        new Point(arrowMiddle.X - ARROW_SIZE, arrowMiddle.Y - ARROW_SIZE), 
-                        new Point(arrowMiddle.X, arrowMiddle.Y), 
+                    new[] {
+                        new Point(arrowMiddle.X - ARROW_SIZE, arrowMiddle.Y - ARROW_SIZE),
+                        new Point(arrowMiddle.X, arrowMiddle.Y),
                         new Point(arrowMiddle.X - ARROW_SIZE, arrowMiddle.Y + ARROW_SIZE) });
                 arrowPath.CloseFigure();
 

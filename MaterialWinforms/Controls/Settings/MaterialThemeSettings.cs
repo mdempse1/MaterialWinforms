@@ -1,11 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
 using System.Drawing.Drawing2D;
-using System.Data;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 
 namespace MaterialWinforms.Controls.Settings
@@ -39,11 +35,11 @@ namespace MaterialWinforms.Controls.Settings
 
         void objPreview_Click(object sender, EventArgs e)
         {
-            ThemePreview objPreview =(ThemePreview) sender;
+            ThemePreview objPreview = (ThemePreview)sender;
 
             Point OverlayOrigin = new Point();
             OverlayOrigin = Cursor.Position;
-            ColorOverlay objOverlay = new ColorOverlay(OverlayOrigin,objPreview.getColorSchemePreset(), _BaseForm,_Parent);
+            ColorOverlay objOverlay = new ColorOverlay(OverlayOrigin, objPreview.getColorSchemePreset(), _BaseForm, _Parent);
             objOverlay.FormClosed += objOverlay_FormClosed;
             objOverlay.Show();
 
@@ -65,7 +61,7 @@ namespace MaterialWinforms.Controls.Settings
             Point OverlayOrigin = new Point();
             OverlayOrigin.X = tgl_Theme.Checked ? tgl_Theme.Right - tgl_Theme.Height / 2 : tgl_Theme.Left + tgl_Theme.Height / 2;
             OverlayOrigin.Y = tgl_Theme.Location.Y + tgl_Theme.Height / 3;
-            ColorOverlay objOverlay = new ColorOverlay(PointToScreen(OverlayOrigin), (tgl_Theme.Checked ? MaterialSkinManager.Themes.DARK : MaterialSkinManager.Themes.LIGHT), _BaseForm,_Parent);
+            ColorOverlay objOverlay = new ColorOverlay(PointToScreen(OverlayOrigin), (tgl_Theme.Checked ? MaterialSkinManager.Themes.DARK : MaterialSkinManager.Themes.LIGHT), _BaseForm, _Parent);
             objOverlay.FormClosed += objOverlay_FormClosed;
             objOverlay.Show();
         }
@@ -80,9 +76,9 @@ namespace MaterialWinforms.Controls.Settings
         }
 
         private void newColorScheme(object sender, FormClosedEventArgs e)
-        
+
         {
-           
+
             flowLayoutPanel1.Controls.Clear();
             foreach (ColorSchemePreset objPrest in SkinManager.ColorSchemes.List())
             {
@@ -93,7 +89,7 @@ namespace MaterialWinforms.Controls.Settings
         }
     }
 
-     class ThemePreview : Control,IMaterialControl
+    class ThemePreview : Control, IMaterialControl
     {
         [Browsable(false)]
         public int Depth { get; set; }
@@ -103,8 +99,8 @@ namespace MaterialWinforms.Controls.Settings
         public MouseState MouseState { get; set; }
 
         private ColorSchemePreset PreviewPreset;
-        private Rectangle TopDark,TopDefault,Fab;
-        private SolidBrush PrimaryDark, Primary, Accent,Text;
+        private Rectangle TopDark, TopDefault, Fab;
+        private SolidBrush PrimaryDark, Primary, Accent, Text;
         public ThemePreview(ColorSchemePreset SchemeToPreview)
         {
             PreviewPreset = SchemeToPreview;
@@ -113,7 +109,7 @@ namespace MaterialWinforms.Controls.Settings
             SetStyle(ControlStyles.OptimizedDoubleBuffer, true);
             Size = new Size(200, 110);
             TopDark = new Rectangle(0, 0, 200, 20);
-            TopDefault = new Rectangle(0, TopDark.Bottom, 200,60);
+            TopDefault = new Rectangle(0, TopDark.Bottom, 200, 60);
             Fab = new Rectangle(Width - 60, TopDefault.Bottom - 20, 40, 40);
             PrimaryDark = new SolidBrush(((int)PreviewPreset.DarkPrimaryColor).ToColor());
             Primary = new SolidBrush(((int)PreviewPreset.PrimaryColor).ToColor());
@@ -135,7 +131,7 @@ namespace MaterialWinforms.Controls.Settings
             g.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
             g.FillRectangle(PrimaryDark, TopDark);
             g.FillRectangle(Primary, TopDefault);
-            DrawHelper.drawShadow(g, DrawHelper.CreateCircle(Fab.X-1, Fab.Y-1, 20), 2, Color.Black);
+            DrawHelper.drawShadow(g, DrawHelper.CreateCircle(Fab.X - 1, Fab.Y - 1, 20), 2, Color.Black);
             g.FillEllipse(Accent, Fab);
 
             g.DrawString(
@@ -143,10 +139,10 @@ namespace MaterialWinforms.Controls.Settings
                  SkinManager.FONT_TEXT,
                  Text, TopDefault);
             g.ResetClip();
-            
+
         }
 
-        
+
     }
 
 }

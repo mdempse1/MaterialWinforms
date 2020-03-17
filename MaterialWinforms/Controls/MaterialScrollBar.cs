@@ -2,9 +2,9 @@
 using System.ComponentModel;
 using System.Diagnostics;
 using System.Drawing;
+using System.Runtime.InteropServices;
 using System.Security;
 using System.Windows.Forms;
-using System.Runtime.InteropServices;
 
 
 namespace MaterialWinforms.Controls
@@ -19,7 +19,7 @@ namespace MaterialWinforms.Controls
 
     [DefaultEvent("Scroll")]
     [DefaultProperty("Value")]
-    public class MaterialScrollBar : Control,IMaterialControl
+    public class MaterialScrollBar : Control, IMaterialControl
     {
 
         [Browsable(false)]
@@ -32,7 +32,7 @@ namespace MaterialWinforms.Controls
         [DllImport("user32.dll")]
         public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
 
-         internal const int SCROLLBAR_DEFAULT_SIZE = 10;
+        internal const int SCROLLBAR_DEFAULT_SIZE = 10;
 
         #region Events
 
@@ -423,7 +423,7 @@ namespace MaterialWinforms.Controls
                 g.FillRectangle(b, thumbRect);
             }
 
-            using (var b = new SolidBrush(isHovered ?barColor:thumbColor))
+            using (var b = new SolidBrush(isHovered ? barColor : thumbColor))
             {
                 g.FillRectangle(b, thumbRectangle);
             }

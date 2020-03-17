@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 using System.Xml;
 using System.Xml.Serialization;
@@ -31,7 +30,7 @@ namespace MaterialWinforms
                 XmlSerializer objSerializer = new XmlSerializer(typeof(List<ColorSchemePreset>));
                 using (StreamReader objReader = new StreamReader(FilePath))
                 {
-                    UserSchemes =  (List<ColorSchemePreset>) objSerializer.Deserialize(objReader);
+                    UserSchemes = (List<ColorSchemePreset>)objSerializer.Deserialize(objReader);
                 }
 
             }

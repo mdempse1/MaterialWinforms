@@ -1,12 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Windows.Forms;
 using System.Runtime.InteropServices;
+using System.Windows.Forms;
 
 namespace MaterialWinforms.Controls
 {
@@ -49,7 +45,7 @@ namespace MaterialWinforms.Controls
             _ButtonArea = new Rectangle(ClientRectangle.X - 1, ClientRectangle.Y - 1, ClientRectangle.Width + 2, ClientRectangle.Height + 2);
             _dropDownCheck.Interval = 10;
             _dropDownCheck.Tick += new EventHandler(dropDownCheck_Tick);
-           MeasureItem += new MeasureItemEventHandler(CustMeasureItem);
+            MeasureItem += new MeasureItemEventHandler(CustMeasureItem);
         }
         public enum PenStyles
         {
@@ -297,8 +293,9 @@ namespace MaterialWinforms.Controls
             g.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAlias;
             g.Clear(BackColor);
             g.DrawLine(objPen, new Point(0, Height - 2), new Point(Width, Height - 2));
-            if (SelectedIndex >= 0) { 
-            e.Graphics.DrawString(Items[SelectedIndex].ToString(), SkinManager.FONT_TEXT, SkinManager.GetPrimaryTextBrush(), 0, 0);
+            if (SelectedIndex >= 0)
+            {
+                e.Graphics.DrawString(Items[SelectedIndex].ToString(), SkinManager.FONT_TEXT, SkinManager.GetPrimaryTextBrush(), 0, 0);
             }
             Point[] objTriangle = new Point[3];
 

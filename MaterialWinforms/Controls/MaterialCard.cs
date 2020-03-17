@@ -1,8 +1,8 @@
 ﻿using System.ComponentModel;
-using System.Windows.Forms;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Drawing.Text;
+using System.Windows.Forms;
 
 namespace MaterialWinforms.Controls
 {
@@ -91,8 +91,8 @@ namespace MaterialWinforms.Controls
             {
                 g.DrawString(
                _Text,
-               LargeTitle?SkinManager.FONT_TITLE: SkinManager.FONT_CONTROL_SMALL,
-               SkinManager.ColorScheme.PrimaryBrush,
+               LargeTitle ? SkinManager.FONT_TITLE : SkinManager.FONT_CONTROL_SMALL,
+               SkinManager.ColorScheme.DarkPrimaryBrush,
                new Rectangle(ClientRectangle.X + 10, ClientRectangle.Y + 10, ClientRectangle.Width, (int)TitleSize.Height),
                new StringFormat { Alignment = StringAlignment.Near, LineAlignment = StringAlignment.Near });
             }

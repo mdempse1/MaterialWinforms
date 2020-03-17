@@ -1,14 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Windows.Forms;
 using System.ComponentModel;
 using System.Drawing;
-
-using System.Runtime.InteropServices;
-using System.Windows.Forms.Design;
 using System.Drawing.Drawing2D;
+using System.Runtime.InteropServices;
+using System.Windows.Forms;
+using System.Windows.Forms.Design;
 
 namespace MaterialWinforms.Controls
 {
@@ -71,7 +67,7 @@ namespace MaterialWinforms.Controls
 
         public MaterialFlowLayoutPanel() : base()
         {
-            
+
             DoubleBuffered = true;
             VerticalScrollbar = new MaterialScrollBar(MaterialScrollOrientation.Vertical);
             VerticalScrollbar.Scroll += Scrolled;
@@ -107,7 +103,7 @@ namespace MaterialWinforms.Controls
 
             VerticalScrollbar.BringToFront();
             HorizontalScrollbar.BringToFront();
-            
+
             MainPanel.BringToFront();
         }
 
@@ -155,7 +151,7 @@ namespace MaterialWinforms.Controls
             HorizontalScrollbar.Size = new Size(Width - VerticalScrollbar.Width, HorizontalScrollbar.Height);
             HorizontalScrollbar.Anchor = ((AnchorStyles)AnchorStyles.Left | AnchorStyles.Bottom | AnchorStyles.Right);
             ShadowBorder = new GraphicsPath();
-            ShadowBorder.AddRectangle(new Rectangle(Location,Size));
+            ShadowBorder.AddRectangle(new Rectangle(Location, Size));
             base.OnResize(eventargs);
             UpdateScrollbars();
 
@@ -164,7 +160,7 @@ namespace MaterialWinforms.Controls
 
         private void UpdateScrollbars()
         {
-            if(ignoreResize)
+            if (ignoreResize)
             {
                 return;
             }
@@ -271,7 +267,7 @@ namespace MaterialWinforms.Controls
 
         protected override void WndProc(ref System.Windows.Forms.Message m)
         {
-            if (onScrollBarChanged != null && ! IgnoreResizing)
+            if (onScrollBarChanged != null && !IgnoreResizing)
             {
                 onScrollBarChanged(Orientation.Horizontal, HorizontalScroll.Visible);
                 onScrollBarChanged(Orientation.Vertical, VerticalScroll.Visible);
@@ -280,7 +276,7 @@ namespace MaterialWinforms.Controls
             ShowScrollBar(this.Handle, (int)ScrollBarDirection.SB_VERT, false);
             base.WndProc(ref m);
         }
-        
+
         protected override void OnPaint(PaintEventArgs e)
         {
             e.Graphics.Clear(BackColor);

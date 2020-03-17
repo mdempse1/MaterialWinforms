@@ -1,12 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Windows.Forms;
-using System.Windows.Forms.Design;
 using System.ComponentModel;
+using System.Drawing;
 using System.Drawing.Drawing2D;
+using System.Windows.Forms;
 
 namespace MaterialWinforms.Controls
 {
@@ -35,7 +31,7 @@ namespace MaterialWinforms.Controls
             set
             {
                 _Avater = value;
-                _AvatarScaled = DrawHelper.ResizeImage(_Avater, Width-1, Height-1);
+                _AvatarScaled = DrawHelper.ResizeImage(_Avater, Width - 1, Height - 1);
             }
 
         }
@@ -76,7 +72,7 @@ namespace MaterialWinforms.Controls
 
         protected override void OnResize(EventArgs e)
         {
-            if(Width>Height)
+            if (Width > Height)
             {
                 Height = Width;
             }
@@ -84,7 +80,7 @@ namespace MaterialWinforms.Controls
             {
                 Width = Height;
             }
-            TextRect = new Rectangle(Convert.ToInt32(Width * 0.05), Convert.ToInt32(Height * 0.05),Convert.ToInt32(Width * 0.9), Convert.ToInt32(Height * 0.9));
+            TextRect = new Rectangle(Convert.ToInt32(Width * 0.05), Convert.ToInt32(Height * 0.05), Convert.ToInt32(Width * 0.9), Convert.ToInt32(Height * 0.9));
             Region = new Region(DrawHelper.CreateCircle(0, 0, Width / 2));
             CalculateAvatarFont();
             if (ShadowBorder != null)
@@ -94,10 +90,11 @@ namespace MaterialWinforms.Controls
             ShadowBorder = new GraphicsPath();
             ShadowBorder = DrawHelper.CreateCircle(Location.X,
                                     Location.Y,
-                                    ClientRectangle.Width / 2 -1);
-            if (_AvatarScaled != null) { 
-            _AvatarScaled.Dispose();
-            _AvatarScaled = DrawHelper.ResizeImage(_Avater, Width, Height);
+                                    ClientRectangle.Width / 2 - 1);
+            if (_AvatarScaled != null)
+            {
+                _AvatarScaled.Dispose();
+                _AvatarScaled = DrawHelper.ResizeImage(_Avater, Width, Height);
             }
         }
 
@@ -119,20 +116,20 @@ namespace MaterialWinforms.Controls
             g.PixelOffsetMode = PixelOffsetMode.HighQuality;
             g.SmoothingMode = SmoothingMode.AntiAlias;
 
-           
+
             if (Avatar == null)
             {
                 g.FillPath(SkinManager.ColorScheme.PrimaryBrush, DrawHelper.CreateCircle(1, 1, Height / 2 - 1));
                 g.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAlias;
                 g.DrawString(AvatarLetter, AvatarFont, SkinManager.ACTION_BAR_TEXT_BRUSH(), TextRect, new StringFormat() { Alignment = StringAlignment.Center, LineAlignment = StringAlignment.Center });
-                 
+
             }
             else
             {
 
                 using (Brush brush = new TextureBrush(_AvatarScaled))
                 {
-                    g.FillEllipse(brush, new Rectangle(1, 1, Width-1, Height-1));
+                    g.FillEllipse(brush, new Rectangle(1, 1, Width - 1, Height - 1));
                 }
             }
         }

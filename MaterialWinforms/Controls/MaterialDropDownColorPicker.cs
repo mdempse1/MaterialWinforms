@@ -1,17 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+﻿using System.ComponentModel;
 using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 
 namespace MaterialWinforms.Controls
 {
-    public partial class MaterialDropDownColorPicker : DropDownControl,IMaterialControl
+    public partial class MaterialDropDownColorPicker : DropDownControl, IMaterialControl
     {
- [Browsable(false)]
+        [Browsable(false)]
         public int Depth { get; set; }
         [Browsable(false)]
         public MaterialSkinManager SkinManager { get { return MaterialSkinManager.Instance; } }
@@ -28,9 +23,9 @@ namespace MaterialWinforms.Controls
             set
             {
                 _Color = value; objColorControl.Value = _Color;
-                }
             }
-            public MaterialDropDownColorPicker()
+        }
+        public MaterialDropDownColorPicker()
         {
             InitializeComponent();
             objColorControl = new MaterialColorPicker();
@@ -39,15 +34,15 @@ namespace MaterialWinforms.Controls
             InitializeDropDown(objColorControl);
         }
 
-            protected override void OnPaint(PaintEventArgs e)
-            {
-                base.OnPaint(e);
-                ColorRect = new Rectangle();
-                ColorRect.Location = new Point(1, 1);
-                ColorRect.Size = new Size((int)(Width - 18), (int)(Height * 0.8));
+        protected override void OnPaint(PaintEventArgs e)
+        {
+            base.OnPaint(e);
+            ColorRect = new Rectangle();
+            ColorRect.Location = new Point(1, 1);
+            ColorRect.Size = new Size((int)(Width - 18), (int)(Height * 0.8));
 
-                e.Graphics.FillRectangle(new SolidBrush(Color), ColorRect);
-            }
+            e.Graphics.FillRectangle(new SolidBrush(Color), ColorRect);
+        }
 
         void objDateControl_onDateChanged(Color newColor)
         {

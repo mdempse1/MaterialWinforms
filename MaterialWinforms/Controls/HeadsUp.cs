@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using MaterialWinforms.Animations;
+using System;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using MaterialWinforms.Animations;
 using System.Drawing;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace MaterialWinforms.Controls
@@ -44,7 +42,7 @@ namespace MaterialWinforms.Controls
             }
         }
 
-        
+
         private String _Text;
         /// <summary>
         /// The Text which gets displayed as the Content
@@ -65,7 +63,7 @@ namespace MaterialWinforms.Controls
         /// <summary>
         /// The Collection for the Buttons
         /// </summary>
-        public ObservableCollection<MaterialFlatButton> Buttons {get;set;}
+        public ObservableCollection<MaterialFlatButton> Buttons { get; set; }
 
         /// <summary>
         /// The Content Labels
@@ -113,9 +111,10 @@ namespace MaterialWinforms.Controls
         {
             ButtonPanel.SuspendLayout();
             ButtonPanel.Controls.Clear();
-            if (Buttons.Count > 0) { 
-            ButtonPanel.Controls.AddRange(Buttons.ToArray());
-            //    ButtonPanel.Height = Buttons.First().Height;
+            if (Buttons.Count > 0)
+            {
+                ButtonPanel.Controls.AddRange(Buttons.ToArray());
+                //    ButtonPanel.Height = Buttons.First().Height;
             }
             ButtonPanel.ResumeLayout();
         }
@@ -135,7 +134,7 @@ namespace MaterialWinforms.Controls
         protected override void OnLoad(EventArgs e)
         {
             base.OnLoad(e);
-            Location = new Point(Convert.ToInt32((Screen.PrimaryScreen.Bounds.Width-Width)/2), -StartHeight);
+            Location = new Point(Convert.ToInt32((Screen.PrimaryScreen.Bounds.Width - Width) / 2), -StartHeight);
             StartX = Location.X;
             _AnimationManager.StartNewAnimation(AnimationDirection.In);
         }
@@ -147,8 +146,8 @@ namespace MaterialWinforms.Controls
         {
             if (CloseAnimation)
             {
-                Opacity =  _AnimationManager.GetProgress();
-                Location = new Point(StartX+Convert.ToInt32((Screen.PrimaryScreen.Bounds.Width-StartX-Width)*(1-_AnimationManager.GetProgress())), Location.Y);
+                Opacity = _AnimationManager.GetProgress();
+                Location = new Point(StartX + Convert.ToInt32((Screen.PrimaryScreen.Bounds.Width - StartX - Width) * (1 - _AnimationManager.GetProgress())), Location.Y);
             }
             else
             {

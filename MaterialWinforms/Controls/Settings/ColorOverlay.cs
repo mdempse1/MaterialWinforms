@@ -1,13 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
+﻿using MaterialWinforms.Animations;
+using System;
 using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
-using MaterialWinforms.Animations;
-using MaterialWinforms;
 
 namespace MaterialWinforms.Controls.Settings
 {
@@ -84,11 +78,11 @@ namespace MaterialWinforms.Controls.Settings
         {
             base.OnPaintBackground(e);
             Opacity = 1;
-            if(Final == null)
+            if (Final == null)
             {
-                if(!_StyleWurdeGesetzt)
+                if (!_StyleWurdeGesetzt)
                 {
-                    if(applyTheme)
+                    if (applyTheme)
                     {
                         MaterialSkinManager.Instance.Theme = _ThemeToApply;
                     }
@@ -104,13 +98,13 @@ namespace MaterialWinforms.Controls.Settings
                     Final = _SettingsDialog.CreateImage();
                     FillBrush = new TextureBrush(Final);
                 }
-                
+
             }
             e.Graphics.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
             Rectangle CurrentRect = CalculateCurrentRect();
-            e.Graphics.FillEllipse(FillBrush,CurrentRect);
+            e.Graphics.FillEllipse(FillBrush, CurrentRect);
 
-            if(!applyTheme)
+            if (!applyTheme)
             {
                 e.Graphics.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
                 e.Graphics.DrawEllipse(_ColorSchemePen, CurrentRect);

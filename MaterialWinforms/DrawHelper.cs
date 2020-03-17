@@ -1,7 +1,7 @@
-﻿using System.Drawing;
-using System.Drawing.Drawing2D;
+﻿using System;
 using System.Collections.Generic;
-using System;
+using System.Drawing;
+using System.Drawing.Drawing2D;
 
 namespace MaterialWinforms
 {
@@ -29,7 +29,7 @@ namespace MaterialWinforms
             gp.AddLine(x + radius, y, x + width - (radius * 2), y);
             gp.AddArc(x + width - (radius * 2), y, radius * 2, radius * 2, 270, 90);
             gp.AddLine(x + width, y + radius, x + width, y + height);
-            gp.AddLine(x + width , y + height, x , y +height);
+            gp.AddLine(x + width, y + height, x, y + height);
             gp.AddLine(x, y + height, x, y + radius);
             gp.AddArc(x, y, radius * 2, radius * 2, 180, 90);
             gp.CloseFigure();
@@ -66,7 +66,7 @@ namespace MaterialWinforms
         public static Image ResizeImage(Image sourceImage, int desiredWidth, int desiredHeight)
         {
             //No Image to scale
-            if(sourceImage == null)
+            if (sourceImage == null)
             {
                 return null;
             }
@@ -155,7 +155,7 @@ namespace MaterialWinforms
         public static GraphicsPath CreateCircle(float x, float y, float radius)
         {
             GraphicsPath gp = new GraphicsPath();
-            gp.AddEllipse(x, y, radius*2, radius*2);
+            gp.AddEllipse(x, y, radius * 2, radius * 2);
             return gp;
         }
 

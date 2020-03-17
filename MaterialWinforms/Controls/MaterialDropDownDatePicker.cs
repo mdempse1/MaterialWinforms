@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Windows.Forms;
 using System.ComponentModel;
 using System.Drawing;
 
@@ -21,11 +17,15 @@ namespace MaterialWinforms.Controls
 
         private MaterialDatePicker objDateControl;
         private DateTime _Date;
-            public DateTime Date {get { return _Date;}
-                set { _Date = value; objDateControl.Date = _Date;
+        public DateTime Date
+        {
+            get { return _Date; }
+            set
+            {
+                _Date = value; objDateControl.Date = _Date;
                 Text = _Date.ToShortDateString();
-                }
             }
+        }
         public MaterialDropDownDatePicker()
         {
             InitializeComponent();

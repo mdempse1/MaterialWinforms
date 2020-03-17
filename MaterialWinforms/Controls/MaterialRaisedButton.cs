@@ -1,9 +1,9 @@
-﻿using System.ComponentModel;
+﻿using MaterialWinforms.Animations;
+using System.ComponentModel;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Drawing.Text;
 using System.Windows.Forms;
-using MaterialWinforms.Animations;
 
 namespace MaterialWinforms.Controls
 {
@@ -48,7 +48,7 @@ namespace MaterialWinforms.Controls
         {
             base.OnLocationChanged(e);
             ShadowBorder = new GraphicsPath();
-            ShadowBorder.AddRectangle(new Rectangle(this.Location.X,this.Location.Y,Width,Height));
+            ShadowBorder.AddRectangle(new Rectangle(this.Location.X, this.Location.Y, Width, Height));
         }
 
         void MaterialCard_MouseLeave(object sender, System.EventArgs e)
@@ -77,11 +77,11 @@ namespace MaterialWinforms.Controls
             g.TextRenderingHint = TextRenderingHint.AntiAlias;
 
             g.Clear(Parent.BackColor);
-            
+
             using (var backgroundPath = DrawHelper.CreateRoundRect(ClientRectangle.X,
                 ClientRectangle.Y,
-                ClientRectangle.Width ,
-                ClientRectangle.Height ,
+                ClientRectangle.Width,
+                ClientRectangle.Height,
                 1f))
             {
                 g.FillPath(Primary ? SkinManager.ColorScheme.PrimaryBrush : SkinManager.GetRaisedButtonBackgroundBrush(), backgroundPath);

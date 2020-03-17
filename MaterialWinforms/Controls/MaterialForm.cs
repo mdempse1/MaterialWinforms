@@ -1,14 +1,13 @@
-﻿using System;
+﻿using MaterialWinforms.Animations;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
-using System.Drawing.Text;
 using System.Drawing.Drawing2D;
+using System.Drawing.Text;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
-using MaterialWinforms.Animations;
-using System.Threading;
 
 namespace MaterialWinforms.Controls
 {
@@ -418,18 +417,18 @@ namespace MaterialWinforms.Controls
             }
             Double Duration = 0.5;
             WindowState = LastState;
-            Location =new Point(LastLocation.X,Screen.FromHandle(Handle).Bounds.Height - LastLocation.Y + 35);
+            Location = new Point(LastLocation.X, Screen.FromHandle(Handle).Bounds.Height - LastLocation.Y + 35);
             BringToFront();
             TopMost = true;
             Application.DoEvents();
             DateTime objTimeFin = DateTime.Now.AddSeconds(Duration);
             Point CurrentLocation = Location;
-            Double Diff = Math.Abs(LastLocation.Y- CurrentLocation.Y);
+            Double Diff = Math.Abs(LastLocation.Y - CurrentLocation.Y);
 
-            while(DateTime.Now < objTimeFin)
+            while (DateTime.Now < objTimeFin)
             {
                 DateTime Curr = DateTime.Now;
-                double Progress =((Duration * 1000)- Math.Abs((objTimeFin - Curr).TotalMilliseconds)) / (Duration * 1000);
+                double Progress = ((Duration * 1000) - Math.Abs((objTimeFin - Curr).TotalMilliseconds)) / (Duration * 1000);
                 Location = new Point(LastLocation.X, (int)(CurrentLocation.Y - Diff * Progress));
                 Application.DoEvents();
             }

@@ -1,13 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Windows.Forms;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Globalization;
+using System.Windows.Forms;
 namespace MaterialWinforms.Controls
 {
     public partial class MaterialDatePicker : Control, IMaterialControl
@@ -109,7 +106,7 @@ namespace MaterialWinforms.Controls
                     }
                 }
             }
-            
+
             if (PreviousCal.Contains(e.Location))
             {
                 recentHovered = true;
@@ -135,16 +132,17 @@ namespace MaterialWinforms.Controls
 
         protected override void OnMouseUp(MouseEventArgs e)
         {
-            if (HoverX >= 0) { 
-            SelectedX = HoverX;
-            SelectedY = HoverY;
-            CurrentDate = DateRectangles[SelectedX][SelectedY].Date;
-            Invalidate();
-            if (onDateChanged != null)
+            if (HoverX >= 0)
             {
-                onDateChanged(CurrentDate);
-            }
-            return;
+                SelectedX = HoverX;
+                SelectedY = HoverY;
+                CurrentDate = DateRectangles[SelectedX][SelectedY].Date;
+                Invalidate();
+                if (onDateChanged != null)
+                {
+                    onDateChanged(CurrentDate);
+                }
+                return;
             }
             if (recentHovered)
             {
@@ -250,7 +248,7 @@ namespace MaterialWinforms.Controls
 
             g.FillEllipse(SkinManager.ColorScheme.PrimaryBrush, DateRectangles[SelectedX][SelectedY].Rect);
             if (recentHovered) g.FillEllipse(HoverBrush, PreviousCal);
-            
+
             if (nextHovered) g.FillEllipse(HoverBrush, NextCal);
 
             using (var ButtonPen = new Pen(SkinManager.GetPrimaryTextBrush(), 2))
@@ -288,18 +286,18 @@ namespace MaterialWinforms.Controls
                 int DayOfWeek = (int)DateTime.Now.DayOfWeek - 1;
                 if (DayOfWeek < 0) DayOfWeek = 6;
 
-                strName = DateTime.Now.AddDays(-DayOfWeek+i).ToString("ddd");
+                strName = DateTime.Now.AddDays(-DayOfWeek + i).ToString("ddd");
                 g.DrawString(strName, SkinManager.FONT_CONTROL_LARGE, SkinManager.GetSecondaryTextBrush(), DateRectangles[0][i].Rect, new StringFormat { Alignment = StringAlignment.Center, LineAlignment = StringAlignment.Center });
             }
-                for (DateTime date = FirstDay; date <= LastDayOfMonth(CurrentDate); date = date.AddDays(1))
-                {
-                    int WeekOfMonth = GetWeekNumber(date, FirstDay);
-                    int DayOfWeek = (int)date.DayOfWeek - 1;
-                    if (DayOfWeek < 0) DayOfWeek = 6;
+            for (DateTime date = FirstDay; date <= LastDayOfMonth(CurrentDate); date = date.AddDays(1))
+            {
+                int WeekOfMonth = GetWeekNumber(date, FirstDay);
+                int DayOfWeek = (int)date.DayOfWeek - 1;
+                if (DayOfWeek < 0) DayOfWeek = 6;
 
-                    g.DrawString(date.Day.ToString(), SkinManager.FONT_CONTROL_LARGE, SkinManager.GetPrimaryTextBrush(), DateRectangles[WeekOfMonth][DayOfWeek].Rect, new StringFormat { Alignment = StringAlignment.Center, LineAlignment = StringAlignment.Center });
+                g.DrawString(date.Day.ToString(), SkinManager.FONT_CONTROL_LARGE, SkinManager.GetPrimaryTextBrush(), DateRectangles[WeekOfMonth][DayOfWeek].Rect, new StringFormat { Alignment = StringAlignment.Center, LineAlignment = StringAlignment.Center });
 
-                }
+            }
 
         }
 

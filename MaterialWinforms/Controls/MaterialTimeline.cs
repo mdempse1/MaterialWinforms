@@ -2,10 +2,9 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
-using System.Drawing;
 using System.Data;
+using System.Drawing;
 using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 
 namespace MaterialWinforms.Controls
@@ -83,10 +82,10 @@ namespace MaterialWinforms.Controls
 
         void objEntry_Click(object sender, MouseEventArgs e)
         {
-            if(onTimeLineEntryClicked != null)
+            if (onTimeLineEntryClicked != null)
             {
 
-                onTimeLineEntryClicked((MaterialTimeLineEntry)sender,e);
+                onTimeLineEntryClicked((MaterialTimeLineEntry)sender, e);
             }
         }
 

@@ -1,10 +1,9 @@
 ﻿using System;
 using System.ComponentModel;
-using System.Windows.Forms;
-using System.Drawing.Drawing2D;
 using System.Drawing;
-
+using System.Drawing.Drawing2D;
 using System.Runtime.InteropServices;
+using System.Windows.Forms;
 
 namespace MaterialWinforms.Controls
 {
@@ -290,9 +289,9 @@ namespace MaterialWinforms.Controls
 
         public void SelectItem(int pPosition)
         {
-            if(Controls[pPosition].GetType() == typeof(MaterialFlatButton))
+            if (Controls[pPosition].GetType() == typeof(MaterialFlatButton))
             {
-                DrawerItemClicked((MaterialFlatButton)Controls[pPosition],EventArgs.Empty);
+                DrawerItemClicked((MaterialFlatButton)Controls[pPosition], EventArgs.Empty);
             }
         }
 

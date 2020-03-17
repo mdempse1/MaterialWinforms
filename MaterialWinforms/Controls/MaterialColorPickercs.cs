@@ -1,12 +1,10 @@
-﻿using System;
+﻿using MaterialWinforms.Animations;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Windows.Forms;
+using System.ComponentModel;
 using System.Drawing;
 using System.Drawing.Drawing2D;
-using System.ComponentModel;
-using MaterialWinforms.Animations;
+using System.Windows.Forms;
 
 namespace MaterialWinforms.Controls
 {
@@ -29,7 +27,7 @@ namespace MaterialWinforms.Controls
         private Color pBaseColor;
         private GraphicsPath objShadowPath;
 
-        public Color BackColor { get { return SkinManager.GetCardsColor(); } set{} }
+        public Color BackColor { get { return SkinManager.GetCardsColor(); } set { } }
 
         private GraphicsPath CurrentHoveredPath;
         private int HoveredIndex;
@@ -59,13 +57,14 @@ namespace MaterialWinforms.Controls
                     {
                         HoveredIndex = i;
                         CurrentHoveredPath = new GraphicsPath();
-                        CurrentHoveredPath.AddRectangle(new Rectangle(ColorRectangles[i].Rect.X-3,ColorRectangles[i].Rect.Y-3,ColorRectangles[i].Rect.Width,ColorRectangles[i].Rect.Height));
-                        Invalidate();   
+                        CurrentHoveredPath.AddRectangle(new Rectangle(ColorRectangles[i].Rect.X - 3, ColorRectangles[i].Rect.Y - 3, ColorRectangles[i].Rect.Width, ColorRectangles[i].Rect.Height));
+                        Invalidate();
                     }
                     return;
                 }
             }
-            if(HoveredIndex>=0){
+            if (HoveredIndex >= 0)
+            {
                 HoveredIndex = -1;
                 CurrentHoveredPath = new GraphicsPath();
                 Invalidate();
@@ -105,9 +104,9 @@ namespace MaterialWinforms.Controls
             ColorRectangles = new List<ColorRect>();
             int x = 0;
             int y = 0;
-            
+
             int RectWidth = (Width / 8);
-          
+
             int RectY = BlueSlider.Bottom + 5;
             int RectHeight = (Height - RectY) / 3;
 
@@ -227,10 +226,11 @@ namespace MaterialWinforms.Controls
 
         void RedSlider_onValueChanged(int newValue)
         {
-            if (!objAnimationManager.IsAnimating()) { 
-            pBaseColor = Color.FromArgb(newValue, pBaseColor.G, pBaseColor.B);
-                if(onColorChanged!= null) onColorChanged(pBaseColor);
-            Invalidate();
+            if (!objAnimationManager.IsAnimating())
+            {
+                pBaseColor = Color.FromArgb(newValue, pBaseColor.G, pBaseColor.B);
+                if (onColorChanged != null) onColorChanged(pBaseColor);
+                Invalidate();
             }
         }
 
@@ -239,17 +239,18 @@ namespace MaterialWinforms.Controls
             if (!objAnimationManager.IsAnimating())
             {
                 pBaseColor = Color.FromArgb(pBaseColor.R, newValue, pBaseColor.B);
-                if(onColorChanged!= null) onColorChanged(pBaseColor);
+                if (onColorChanged != null) onColorChanged(pBaseColor);
                 Invalidate();
             }
         }
 
         void BlueSlider_onValueChanged(int newValue)
         {
-            if (!objAnimationManager.IsAnimating()) { 
-            pBaseColor = Color.FromArgb(pBaseColor.R, pBaseColor.G, newValue);
-                if(onColorChanged!= null) onColorChanged(pBaseColor);
-            Invalidate();
+            if (!objAnimationManager.IsAnimating())
+            {
+                pBaseColor = Color.FromArgb(pBaseColor.R, pBaseColor.G, newValue);
+                if (onColorChanged != null) onColorChanged(pBaseColor);
+                Invalidate();
             }
         }
 
@@ -277,7 +278,7 @@ namespace MaterialWinforms.Controls
 
             if (objAnimationManager.IsAnimating())
             {
-                RedSlider.Value =(int)(pBaseColor.R + (TempColor.R - pBaseColor.R) * objAnimationManager.GetProgress());
+                RedSlider.Value = (int)(pBaseColor.R + (TempColor.R - pBaseColor.R) * objAnimationManager.GetProgress());
                 GreenSlider.Value = (int)(pBaseColor.G + (TempColor.G - pBaseColor.G) * objAnimationManager.GetProgress());
                 BlueSlider.Value = (int)(pBaseColor.B + (TempColor.B - pBaseColor.B) * objAnimationManager.GetProgress());
                 Rectangle clip = new Rectangle(0, 0, Width, (int)(Height * 0.6));
@@ -459,7 +460,7 @@ namespace MaterialWinforms.Controls
         {
             base.OnMouseLeave(e);
             hovered = false;
-            
+
             Invalidate();
         }
 

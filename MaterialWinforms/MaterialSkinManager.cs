@@ -1,12 +1,12 @@
-﻿using System;
+﻿using MaterialWinforms.Controls;
+using MaterialWinforms.Properties;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Text;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
-using MaterialWinforms.Controls;
-using MaterialWinforms.Properties;
 
 namespace MaterialWinforms
 {
@@ -40,13 +40,13 @@ namespace MaterialWinforms
             }
         }
 
-	    private ColorScheme colorScheme;
+        private ColorScheme colorScheme;
         public ColorScheme ColorScheme
         {
-			get { return colorScheme; }
+            get { return colorScheme; }
             set
             {
-				colorScheme = value;
+                colorScheme = value;
                 UpdateBackgrounds();
                 if (onThemeChanged != null)
                 {
@@ -77,7 +77,7 @@ namespace MaterialWinforms
         private static readonly Color DIVIDERS_BLACK = Color.FromArgb(31, 0, 0, 0);
         private static readonly Brush DIVIDERS_BLACK_BRUSH = new SolidBrush(DIVIDERS_BLACK);
         private static readonly Color CARD_BLACK = Color.FromArgb(255, 42, 42, 42);
-        private static readonly Color CARD_WHITE = Color.White;
+        private static readonly Color CARD_WHITE = Color.FromArgb(255,225,225,225);
 
         private static readonly Color PRIMARY_TEXT_WHITE = Color.FromArgb(255, 255, 255, 255);
         private static readonly Brush PRIMARY_TEXT_WHITE_BRUSH = new SolidBrush(PRIMARY_TEXT_WHITE);
@@ -138,7 +138,7 @@ namespace MaterialWinforms
 
         public Color ACTION_BAR_TEXT()
         {
-            return (ColorScheme.PrimaryColor.GetBrightness()<0.5? Color.White: Color.Black);
+            return (ColorScheme.PrimaryColor.GetBrightness() < 0.5 ? Color.White : Color.Black);
         }
 
         public Brush ACTION_BAR_TEXT_BRUSH()
@@ -163,17 +163,17 @@ namespace MaterialWinforms
         public Brush GetPrimaryTextBrush()
         {
             return (Theme == Themes.LIGHT ? PRIMARY_TEXT_BLACK_BRUSH : PRIMARY_TEXT_WHITE_BRUSH);
-		}
+        }
 
-		public Color GetSecondaryTextColor()
-		{
-			return (Theme == Themes.LIGHT ? SECONDARY_TEXT_BLACK : SECONDARY_TEXT_WHITE);
-		}
+        public Color GetSecondaryTextColor()
+        {
+            return (Theme == Themes.LIGHT ? SECONDARY_TEXT_BLACK : SECONDARY_TEXT_WHITE);
+        }
 
-		public Brush GetSecondaryTextBrush()
-		{
-			return (Theme == Themes.LIGHT ? SECONDARY_TEXT_BLACK_BRUSH : SECONDARY_TEXT_WHITE_BRUSH);
-		}
+        public Brush GetSecondaryTextBrush()
+        {
+            return (Theme == Themes.LIGHT ? SECONDARY_TEXT_BLACK_BRUSH : SECONDARY_TEXT_WHITE_BRUSH);
+        }
 
         public Color GetDisabledOrHintColor()
         {
@@ -378,11 +378,11 @@ namespace MaterialWinforms
                 controlToUpdate.BackColor = GetDividersColor();
             }
 
-	        if (controlToUpdate is MaterialListView)
-	        {
-		        controlToUpdate.BackColor = newBackColor;
+            if (controlToUpdate is MaterialListView)
+            {
+                controlToUpdate.BackColor = newBackColor;
 
-	        }
+            }
 
             //recursive call
             foreach (Control control in controlToUpdate.Controls)

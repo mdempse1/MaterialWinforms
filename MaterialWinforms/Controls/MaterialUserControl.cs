@@ -1,15 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+﻿using System.ComponentModel;
 using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 
 namespace MaterialWinforms.Controls
 {
-    public partial class MaterialUserControl : UserControl,IMaterialControl
+    public partial class MaterialUserControl : UserControl, IMaterialControl
     {
         [Browsable(false)]
         public int Depth { get; set; }

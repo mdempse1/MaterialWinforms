@@ -1,14 +1,10 @@
-﻿using System;
+﻿using MaterialWinforms.Animations;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Windows.Forms;
-using MaterialWinforms.Animations;
-using MaterialWinforms;
 using System.Drawing.Drawing2D;
+using System.Windows.Forms;
 
 namespace MaterialWinforms.Controls.Settings
 {
@@ -92,7 +88,7 @@ namespace MaterialWinforms.Controls.Settings
 
         protected override void OnKeyDown(KeyEventArgs e)
         {
-            if (e .KeyCode == Keys.Escape)
+            if (e.KeyCode == Keys.Escape)
             {
                 _BaseForm.Activate();
                 objAnimationManager.StartNewAnimation(AnimationDirection.Out);
@@ -145,7 +141,7 @@ namespace MaterialWinforms.Controls.Settings
                 objText.TextChanged += objText_TextChanged;
                 objSaveControl.Height = 70;
                 objSaveControl.Controls.Add(objText);
-                if (MaterialDialog.Show("Neues Farbschema Speichern",objSaveControl, MaterialDialog.Buttons.OKCancel) == System.Windows.Forms.DialogResult.OK)
+                if (MaterialDialog.Show("Neues Farbschema Speichern", objSaveControl, MaterialDialog.Buttons.OKCancel) == System.Windows.Forms.DialogResult.OK)
                 {
                     MaterialSkinManager.Instance.ColorSchemes.add(new ColorSchemePreset()
                     {
@@ -161,7 +157,7 @@ namespace MaterialWinforms.Controls.Settings
 
                 _BaseForm.Activate();
                 objAnimationManager.StartNewAnimation(AnimationDirection.Out);
-                
+
                 return;
             }
 
@@ -214,10 +210,10 @@ namespace MaterialWinforms.Controls.Settings
         {
             base.OnMouseMove(e);
 
-            if(FabRect.Contains(e.Location))
+            if (FabRect.Contains(e.Location))
             {
                 HoveredIndex = -1;
-                if(!FabHovered)
+                if (!FabHovered)
                 {
                     FabHovered = true;
                     Invalidate();
@@ -324,7 +320,7 @@ namespace MaterialWinforms.Controls.Settings
 
             objPreview.OnPaint(e);
             e.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
-            DrawHelper.drawShadow(e.Graphics, DrawHelper.CreateCircle(FabRect.X - 1, FabRect.Y - 1, 30), FabHovered?2:1, Color.Black);
+            DrawHelper.drawShadow(e.Graphics, DrawHelper.CreateCircle(FabRect.X - 1, FabRect.Y - 1, 30), FabHovered ? 2 : 1, Color.Black);
             e.Graphics.FillEllipse(Brushes.HotPink, FabRect);
             Pen objLinePen = new Pen(Brushes.White, 3);
             e.Graphics.DrawLine(objLinePen, new Point(Convert.ToInt32(FabRect.Left + FabRect.Width * 0.2), Convert.ToInt32(FabRect.Top + FabRect.Height * 0.55)), new Point(Convert.ToInt32(FabRect.Left + FabRect.Width * 0.4), Convert.ToInt32(FabRect.Top + FabRect.Height * 0.80)));

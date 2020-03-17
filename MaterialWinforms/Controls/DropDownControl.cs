@@ -1,13 +1,12 @@
 ﻿using System;
 using System.ComponentModel;
-using System.Text;
-using System.Windows.Forms;
 using System.Drawing;
 using System.Drawing.Drawing2D;
+using System.Windows.Forms;
 
 namespace MaterialWinforms.Controls
 {
-    public partial class DropDownControl : UserControl,IMaterialControl
+    public partial class DropDownControl : UserControl, IMaterialControl
     {
         public enum eDockSide
         {
@@ -194,7 +193,7 @@ namespace MaterialWinforms.Controls
                 MouseState = MouseState.OUT;
                 Invalidate();
             };
-           
+
         }
 
         protected void OpenDropDown()
@@ -284,18 +283,19 @@ namespace MaterialWinforms.Controls
                 e.Graphics.FillRectangle(new SolidBrush(SkinManager.GetApplicationBackgroundColor()), ClientRectangle);
             }
 
-            e.Graphics.DrawLine(new Pen(LineBrush), new Point(0, ClientRectangle.Bottom-1), new Point(ClientRectangle.Right, ClientRectangle.Bottom-1));
+            e.Graphics.DrawLine(new Pen(LineBrush), new Point(0, ClientRectangle.Bottom - 1), new Point(ClientRectangle.Right, ClientRectangle.Bottom - 1));
 
             e.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
-            if (Enabled) { 
-            PointF p1 = new Point(ClientRectangle.Right - 5, (int)(ClientRectangle.Height * 0.33));
-            PointF p2 = new Point(ClientRectangle.Right - 15, (int)(ClientRectangle.Height * 0.33));
-            PointF p3 = new Point(ClientRectangle.Right - 10, (int)(ClientRectangle.Height * 0.66));
-            PointF[] curvePoints = {
+            if (Enabled)
+            {
+                PointF p1 = new Point(ClientRectangle.Right - 5, (int)(ClientRectangle.Height * 0.33));
+                PointF p2 = new Point(ClientRectangle.Right - 15, (int)(ClientRectangle.Height * 0.33));
+                PointF p3 = new Point(ClientRectangle.Right - 10, (int)(ClientRectangle.Height * 0.66));
+                PointF[] curvePoints = {
                                   p1,p2,p3
                               };
-            e.Graphics.FillPolygon(LineBrush, curvePoints, FillMode.Winding);
-        }
+                e.Graphics.FillPolygon(LineBrush, curvePoints, FillMode.Winding);
+            }
             TextRenderer.DrawText(e.Graphics, _Text, SkinManager.FONT_CONTROL_LARGE, this.AnchorClientBounds, SkinManager.ColorScheme.TextColor, TextFormatFlags.WordEllipsis);
         }
 
@@ -363,7 +363,7 @@ namespace MaterialWinforms.Controls
 
                 if (DropDownForm.Height < animate.FormSize.Height)
                 {
-                    DropDownForm.Height += animate.FormSize.Height /20;
+                    DropDownForm.Height += animate.FormSize.Height / 20;
                     if (DropDownForm.Height > animate.FormSize.Height) { DropDownForm.Height = animate.FormSize.Height; }
                     DropDownForm.Invalidate();
                 }
@@ -427,7 +427,7 @@ namespace MaterialWinforms.Controls
             protected override void OnPaint(PaintEventArgs e)
             {
                 base.OnPaint(e);
-               
+
             }
 
             protected override void OnClosing(CancelEventArgs e)

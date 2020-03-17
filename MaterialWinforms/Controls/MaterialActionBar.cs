@@ -1,19 +1,13 @@
-﻿using System;
+﻿using MaterialWinforms.Animations;
+using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.Design;
-using System.Drawing.Design;
 using System.Drawing;
 using System.Drawing.Drawing2D;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Windows.Forms;
 using System.Runtime.InteropServices;
-
-using MaterialWinforms.Animations;
-using System.Reflection;
-using System.Collections;
+using System.Windows.Forms;
 
 namespace MaterialWinforms.Controls
 {
@@ -163,7 +157,7 @@ namespace MaterialWinforms.Controls
                 Controls.Add(SearchTextBox);
                 SearchTextBox.Location = new Point(15, SearchTextBox.Location.Y);
                 SearchTextBox.Select();
-                         
+
             }
             else
             {
@@ -183,7 +177,7 @@ namespace MaterialWinforms.Controls
             base.OnParentChanged(e);
             Dock = DockStyle.Top;
             DrawBackArrow = ((MaterialForm)Parent).SideDrawer != null;
-            if(DrawBackArrow)
+            if (DrawBackArrow)
                 DrawBackArrow = ((MaterialForm)Parent).SideDrawer.SideDrawerFixiert;
             Refresh();
         }
@@ -220,14 +214,14 @@ namespace MaterialWinforms.Controls
                 }
                 return;
             }
-             else if(FilterButtonBounds.Contains(e.Location) && searchOpen && SearchBarFilterIcon)
+            else if (FilterButtonBounds.Contains(e.Location) && searchOpen && SearchBarFilterIcon)
             {
-                 if (buttonState != ButtonState.FilterOver)
-                 {
-                     buttonState = ButtonState.FilterOver;
-                     Invalidate();
-                 }
-                
+                if (buttonState != ButtonState.FilterOver)
+                {
+                    buttonState = ButtonState.FilterOver;
+                    Invalidate();
+                }
+
             }
             else
             {
@@ -295,7 +289,7 @@ namespace MaterialWinforms.Controls
                     }
                     objAnimationManager.StartNewAnimation(AnimationDirection.In);
                     searchOpen = true;
-                   
+
                 }
             }
             else if (drawerButtonBounds.Contains(e.Location) && onSideDrawerButtonClicked != null && DrawBackArrow)
@@ -372,20 +366,20 @@ namespace MaterialWinforms.Controls
                         g.DrawLine(
                                CloseButtonPen,
                                FilterButtonBounds.X + (int)(FilterButtonBounds.Width * (0.2)),
-                               FilterButtonBounds.Y + (int)(FilterButtonBounds.Height * (0.35 )),
-                               FilterButtonBounds.X + (int)(FilterButtonBounds.Width * (0.8 )),
-                               FilterButtonBounds.Y + (int)(FilterButtonBounds.Height * (0.35 )));
+                               FilterButtonBounds.Y + (int)(FilterButtonBounds.Height * (0.35)),
+                               FilterButtonBounds.X + (int)(FilterButtonBounds.Width * (0.8)),
+                               FilterButtonBounds.Y + (int)(FilterButtonBounds.Height * (0.35)));
                         g.DrawLine(
                            CloseButtonPen,
-                           FilterButtonBounds.X + (int)(FilterButtonBounds.Width * (0.3 )),
-                           FilterButtonBounds.Y + (int)(FilterButtonBounds.Height * (0.5 )),
-                           FilterButtonBounds.X + (int)(FilterButtonBounds.Width * (0.7 )),
+                           FilterButtonBounds.X + (int)(FilterButtonBounds.Width * (0.3)),
+                           FilterButtonBounds.Y + (int)(FilterButtonBounds.Height * (0.5)),
+                           FilterButtonBounds.X + (int)(FilterButtonBounds.Width * (0.7)),
                            FilterButtonBounds.Y + (int)(FilterButtonBounds.Height * (0.5)));
                         g.DrawLine(
                           CloseButtonPen,
                           FilterButtonBounds.X + (int)(FilterButtonBounds.Width * (0.45)),
-                          FilterButtonBounds.Y + (int)(FilterButtonBounds.Height * (0.65 )),
-                          FilterButtonBounds.X + (int)(FilterButtonBounds.Width * (0.55 )),
+                          FilterButtonBounds.Y + (int)(FilterButtonBounds.Height * (0.65)),
+                          FilterButtonBounds.X + (int)(FilterButtonBounds.Width * (0.55)),
                           FilterButtonBounds.Y + (int)(FilterButtonBounds.Height * (0.65)));
                     }
                 }
@@ -463,30 +457,30 @@ namespace MaterialWinforms.Controls
                     {
                         g.FillEllipse(hoverBrush, drawerButtonBounds);
                     }
-                  
-                        DrawerIcon = true;
-                        using (var DrawerButtonPen = new Pen(SkinManager.ACTION_BAR_TEXT(), 2))
-                        {
-                            g.DrawLine(
-                               DrawerButtonPen,
-                               drawerButtonBounds.X + (int)(drawerButtonBounds.Width * (0.2 + (0.3 * DrawerAnimationProgress / 100))),
-                               drawerButtonBounds.Y + (int)(drawerButtonBounds.Height * (0.35 + (0.3 * DrawerAnimationProgress / 100))),
-                               drawerButtonBounds.X + (int)(drawerButtonBounds.Width * (0.8 - (0.6 * DrawerAnimationProgress / 100))),
-                               drawerButtonBounds.Y + (int)(drawerButtonBounds.Height * (0.35 + (0.15 * DrawerAnimationProgress / 100))));
-                            g.DrawLine(
-                               DrawerButtonPen,
-                               drawerButtonBounds.X + (int)(drawerButtonBounds.Width * (0.2 + (0.6 * DrawerAnimationProgress / 100))),
-                               drawerButtonBounds.Y + (int)(drawerButtonBounds.Height * (0.65 - (0.3 * Math.Abs(DrawerAnimationProgress - 50) / 100))),
-                               drawerButtonBounds.X + (int)(drawerButtonBounds.Width * (0.8 - (0.6 * DrawerAnimationProgress / 100))),
-                               drawerButtonBounds.Y + (int)(drawerButtonBounds.Height * (0.35 + (0.3 * Math.Abs(DrawerAnimationProgress - 50) / 100))));
-                            g.DrawLine(
-                              DrawerButtonPen,
-                              drawerButtonBounds.X + (int)(drawerButtonBounds.Width * (0.8 - (0.9 * Math.Abs(DrawerAnimationProgress - 66) / 100))),
-                              drawerButtonBounds.Y + (int)(drawerButtonBounds.Height * (0.65 - (0.3 * DrawerAnimationProgress / 100))),
-                              drawerButtonBounds.X + (int)(drawerButtonBounds.Width * (0.8 - (0.6 * DrawerAnimationProgress / 100))),
-                              drawerButtonBounds.Y + (int)(drawerButtonBounds.Height * (0.36 + (0.45 * Math.Abs(DrawerAnimationProgress - 66) / 100))));
-                        }
-                    
+
+                    DrawerIcon = true;
+                    using (var DrawerButtonPen = new Pen(SkinManager.ACTION_BAR_TEXT(), 2))
+                    {
+                        g.DrawLine(
+                           DrawerButtonPen,
+                           drawerButtonBounds.X + (int)(drawerButtonBounds.Width * (0.2 + (0.3 * DrawerAnimationProgress / 100))),
+                           drawerButtonBounds.Y + (int)(drawerButtonBounds.Height * (0.35 + (0.3 * DrawerAnimationProgress / 100))),
+                           drawerButtonBounds.X + (int)(drawerButtonBounds.Width * (0.8 - (0.6 * DrawerAnimationProgress / 100))),
+                           drawerButtonBounds.Y + (int)(drawerButtonBounds.Height * (0.35 + (0.15 * DrawerAnimationProgress / 100))));
+                        g.DrawLine(
+                           DrawerButtonPen,
+                           drawerButtonBounds.X + (int)(drawerButtonBounds.Width * (0.2 + (0.6 * DrawerAnimationProgress / 100))),
+                           drawerButtonBounds.Y + (int)(drawerButtonBounds.Height * (0.65 - (0.3 * Math.Abs(DrawerAnimationProgress - 50) / 100))),
+                           drawerButtonBounds.X + (int)(drawerButtonBounds.Width * (0.8 - (0.6 * DrawerAnimationProgress / 100))),
+                           drawerButtonBounds.Y + (int)(drawerButtonBounds.Height * (0.35 + (0.3 * Math.Abs(DrawerAnimationProgress - 50) / 100))));
+                        g.DrawLine(
+                          DrawerButtonPen,
+                          drawerButtonBounds.X + (int)(drawerButtonBounds.Width * (0.8 - (0.9 * Math.Abs(DrawerAnimationProgress - 66) / 100))),
+                          drawerButtonBounds.Y + (int)(drawerButtonBounds.Height * (0.65 - (0.3 * DrawerAnimationProgress / 100))),
+                          drawerButtonBounds.X + (int)(drawerButtonBounds.Width * (0.8 - (0.6 * DrawerAnimationProgress / 100))),
+                          drawerButtonBounds.Y + (int)(drawerButtonBounds.Height * (0.36 + (0.45 * Math.Abs(DrawerAnimationProgress - 66) / 100))));
+                    }
+
                 }
 
                 //Form title
@@ -1640,7 +1634,7 @@ namespace MaterialWinforms.Controls
 
                 public new void SelectAll()
                 {
-                    BeginInvoke((MethodInvoker)delegate()
+                    BeginInvoke((MethodInvoker)delegate ()
                     {
                         base.Focus();
                         base.SelectAll();

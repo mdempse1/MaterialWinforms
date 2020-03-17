@@ -1,9 +1,9 @@
-﻿using System;
+﻿using MaterialWinforms.Animations;
+using System;
 using System.ComponentModel;
 using System.Drawing;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
-using MaterialWinforms.Animations;
 
 namespace MaterialWinforms.Controls
 {
@@ -21,7 +21,7 @@ namespace MaterialWinforms.Controls
         public override string Text { get { return baseTextBox.Text; } set { baseTextBox.Text = value; } }
         public new object Tag { get { return baseTextBox.Tag; } set { baseTextBox.Tag = value; } }
         public new int MaxLength { get { return baseTextBox.MaxLength; } set { baseTextBox.MaxLength = value; } }
-        
+
         public string SelectedText { get { return baseTextBox.SelectedText; } set { baseTextBox.SelectedText = value; } }
         public string Hint { get { return baseTextBox.Hint; } set { baseTextBox.Hint = value; } }
 
@@ -35,21 +35,21 @@ namespace MaterialWinforms.Controls
         public void SelectAll() { baseTextBox.SelectAll(); }
         public void Clear() { baseTextBox.Clear(); }
 
-        public void Copy() { baseTextBox.Copy();}
+        public void Copy() { baseTextBox.Copy(); }
 
-        public void Cut(){ baseTextBox.Cut(); }
+        public void Cut() { baseTextBox.Cut(); }
 
         public bool ReadOnly { get { return baseTextBox.ReadOnly; } set { baseTextBox.ReadOnly = value; } }
 
-        public HorizontalAlignment TextAlign { get { return baseTextBox.TextAlign; } set { baseTextBox.TextAlign = value; } } 
-        
+        public HorizontalAlignment TextAlign { get { return baseTextBox.TextAlign; } set { baseTextBox.TextAlign = value; } }
 
-        # region Forwarding events to baseTextBox
+
+        #region Forwarding events to baseTextBox
         public event EventHandler AcceptsTabChanged
         {
             add
             {
-                
+
                 baseTextBox.AcceptsTabChanged += value;
             }
             remove
@@ -969,7 +969,7 @@ namespace MaterialWinforms.Controls
                 ForeColor = SkinManager.GetPrimaryTextColor(),
                 Location = new Point(0, 15),
                 Width = Width,
-                Height = Height -5
+                Height = Height - 5
             };
 
             if (!Controls.Contains(baseTextBox) && !DesignMode)
@@ -987,9 +987,9 @@ namespace MaterialWinforms.Controls
 
             baseTextBox.TextChanged += new EventHandler(Redraw);
 
-			//Fix for tabstop
-			baseTextBox.TabStop = true;
-			this.TabStop = false;
+            //Fix for tabstop
+            baseTextBox.TabStop = true;
+            this.TabStop = false;
         }
 
         private void Redraw(object sencer, EventArgs e)
@@ -1009,7 +1009,7 @@ namespace MaterialWinforms.Controls
             if (!animationManager.IsAnimating())
             {
                 //No animation
-				g.FillRectangle(baseTextBox.Focused ? SkinManager.ColorScheme.PrimaryBrush : SkinManager.GetDividersBrush(), baseTextBox.Location.X, lineY, baseTextBox.Width, baseTextBox.Focused ? 2 : 1);
+                g.FillRectangle(baseTextBox.Focused ? SkinManager.ColorScheme.PrimaryBrush : SkinManager.GetDividersBrush(), baseTextBox.Location.X, lineY, baseTextBox.Width, baseTextBox.Focused ? 2 : 1);
             }
             else
             {
@@ -1022,20 +1022,20 @@ namespace MaterialWinforms.Controls
                 g.FillRectangle(SkinManager.GetDividersBrush(), baseTextBox.Location.X, lineY, baseTextBox.Width, 1);
 
                 //Animated focus transition
-				g.FillRectangle(SkinManager.ColorScheme.PrimaryBrush, animationStart - halfAnimationWidth, lineY, animationWidth, 2);
+                g.FillRectangle(SkinManager.ColorScheme.PrimaryBrush, animationStart - halfAnimationWidth, lineY, animationWidth, 2);
 
-              
+
             }
             if (!String.IsNullOrWhiteSpace(Hint) && (!String.IsNullOrWhiteSpace(Text) || Focused()))
             {
-               g.DrawString(
-               Hint,
-               SkinManager.FONT_CONTROL_SMALL,
-               SkinManager.ColorScheme.AccentBrush,
-               new Rectangle(ClientRectangle.X , 0, ClientRectangle.Width, ClientRectangle.Height),
-               new StringFormat { Alignment = StringAlignment.Near, LineAlignment = StringAlignment.Near });
+                g.DrawString(
+                Hint,
+                SkinManager.FONT_CONTROL_SMALL,
+                SkinManager.ColorScheme.AccentBrush,
+                new Rectangle(ClientRectangle.X, 0, ClientRectangle.Width, ClientRectangle.Height),
+                new StringFormat { Alignment = StringAlignment.Near, LineAlignment = StringAlignment.Near });
             }
-            else if(!Enabled && String.IsNullOrWhiteSpace(Text)&& !String.IsNullOrWhiteSpace(Hint))
+            else if (!Enabled && String.IsNullOrWhiteSpace(Text) && !String.IsNullOrWhiteSpace(Hint))
             {
                 g.DrawString(
                               Hint,
@@ -1045,7 +1045,7 @@ namespace MaterialWinforms.Controls
                               new StringFormat { Alignment = StringAlignment.Near, LineAlignment = StringAlignment.Near });
             }
 
-            
+
         }
 
         public bool Focused()
@@ -1105,11 +1105,11 @@ namespace MaterialWinforms.Controls
 
             public new void SelectAll()
             {
-                BeginInvoke((MethodInvoker) delegate()
-                {
-                    base.Focus();
-                    base.SelectAll();
-                });
+                BeginInvoke((MethodInvoker)delegate ()
+               {
+                   base.Focus();
+                   base.SelectAll();
+               });
             }
 
 

@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel;
-using System.Windows.Forms;
 using System.Drawing;
+using System.Windows.Forms;
 
 namespace MaterialWinforms.Controls
 {
@@ -13,7 +13,7 @@ namespace MaterialWinforms.Controls
         [Browsable(false)]
         public MouseState MouseState { get; set; }
         public Color BackColor { get { return SkinManager.GetDividersColor(); } }
-        
+
         public MaterialDivider()
         {
             SetStyle(ControlStyles.SupportsTransparentBackColor, true);

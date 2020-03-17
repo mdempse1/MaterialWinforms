@@ -1,9 +1,9 @@
-﻿using System;
+﻿using MaterialWinforms.Animations;
+using System;
 using System.ComponentModel;
 using System.Drawing;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
-using MaterialWinforms.Animations;
 
 namespace MaterialWinforms.Controls
 {
@@ -28,6 +28,8 @@ namespace MaterialWinforms.Controls
         public int SelectionStart { get { return baseTextBox.SelectionStart; } set { baseTextBox.SelectionStart = value; } }
         public int SelectionLength { get { return baseTextBox.SelectionLength; } set { baseTextBox.SelectionLength = value; } }
         public int TextLength { get { return baseTextBox.TextLength; } }
+
+        public bool MultiLine { get { return baseTextBox.Multiline; } set { baseTextBox.Multiline = value; } }
 
         public void SelectAll() { baseTextBox.SelectAll(); }
         public void Clear() { baseTextBox.Clear(); }
@@ -953,7 +955,7 @@ namespace MaterialWinforms.Controls
                 Location = new Point(0, 18),
                 Width = Width,
                 Height = Height - 5,
-                Multiline = true
+                Multiline = false
             };
             baseTextBox.SizeChanged += baseTextBox_SizeChanged;
 
@@ -979,7 +981,7 @@ namespace MaterialWinforms.Controls
 
         void baseTextBox_SizeChanged(object sender, EventArgs e)
         {
-           // Height = baseTextBox.Height + 20;
+            // Height = baseTextBox.Height + 20;
         }
 
         private void Redraw(object sencer, EventArgs e)
@@ -1021,7 +1023,7 @@ namespace MaterialWinforms.Controls
                 g.DrawString(
                 Hint,
                 SkinManager.FONT_CONTROL_SMALL,
-                Focused() ? SkinManager.ColorScheme.AccentBrush: SkinManager.GetSecondaryTextBrush(),
+                Focused() ? SkinManager.ColorScheme.AccentBrush : SkinManager.GetSecondaryTextBrush(),
                 new Rectangle(ClientRectangle.X, 0, ClientRectangle.Width, ClientRectangle.Height),
                 new StringFormat { Alignment = StringAlignment.Near, LineAlignment = StringAlignment.Near });
             }
@@ -1038,7 +1040,7 @@ namespace MaterialWinforms.Controls
 
             baseTextBox.Location = new Point(0, 15);
             baseTextBox.Width = Width;
-            baseTextBox.Height = Height-20;
+            baseTextBox.Height = Height - 20;
 
         }
 
@@ -1073,7 +1075,7 @@ namespace MaterialWinforms.Controls
 
             public new void SelectAll()
             {
-                BeginInvoke((MethodInvoker)delegate()
+                BeginInvoke((MethodInvoker)delegate ()
                 {
                     base.Focus();
                     base.SelectAll();

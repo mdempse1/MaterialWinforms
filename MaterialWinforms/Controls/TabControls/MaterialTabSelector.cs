@@ -1,11 +1,11 @@
-﻿using System;
+﻿using MaterialWinforms.Animations;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Drawing.Text;
 using System.Windows.Forms;
-using MaterialWinforms.Animations;
-using System.Drawing.Drawing2D;
 
 namespace MaterialWinforms.Controls
 {
@@ -58,6 +58,11 @@ namespace MaterialWinforms.Controls
                 _Elevation = value;
                 Margin = new Padding(0, 0, 0, value);
             }
+        }
+        public int SelectedTabIndicatorHeight
+        {
+            get { return TAB_INDICATOR_HEIGHT; }
+            set { TAB_INDICATOR_HEIGHT = value; }
         }
 
         public int TabPadding
@@ -113,7 +118,7 @@ namespace MaterialWinforms.Controls
         private int oldXLocation = -1;
         private int TabLength = 0;
         private int HoveredTab = -1;
-        private ColorChoice _backColour ;
+        private ColorChoice _backColour;
         private int _widthPadding = 22;
 
         private int SetHeightAndWidthPadding()
@@ -122,14 +127,14 @@ namespace MaterialWinforms.Controls
             {
                 _widthPadding = 22;
                 TAB_HEADER_PADDING = 24;
-                TAB_INDICATOR_HEIGHT = 6;
+                //TAB_INDICATOR_HEIGHT = 6;
                 return 35;
             }
             else
             {
                 _widthPadding = 11;
                 TAB_HEADER_PADDING = 12;
-                TAB_INDICATOR_HEIGHT = 4;
+                //TAB_INDICATOR_HEIGHT = 4;
                 return 28;
             }
 
@@ -634,7 +639,7 @@ namespace MaterialWinforms.Controls
                         int xButtonSize = ((MaterialTabPage)BaseTabControl.TabPages[0]).Closable ? 18 : 0;
                         TabRectangle CurrentTab = new TabRectangle();
                         CurrentTab.TabRect = new Rectangle(SkinManager.FORM_PADDING, 0, TAB_HEADER_PADDING * 2 + (int)g.MeasureString(baseTabControl.TabPages[0].Text, this.Font).Width + _widthPadding, Height);
-                        CurrentTab.XButtonRect = new Rectangle(CurrentTab.TabRect.X + CurrentTab.TabRect.Width, CurrentTab.TabRect.Y + ((Height/2) / 2), xButtonSize, xButtonSize);
+                        CurrentTab.XButtonRect = new Rectangle(CurrentTab.TabRect.X + CurrentTab.TabRect.Width, CurrentTab.TabRect.Y + ((Height / 2) / 2), xButtonSize, xButtonSize);
                         CurrentTab.TabRect.Width += CurrentTab.XButtonRect.Width;
                         if (MaxTabWidth > 0 && CurrentTab.TabRect.Width > MaxTabWidth)
                         {
@@ -647,7 +652,7 @@ namespace MaterialWinforms.Controls
                             xButtonSize = ((MaterialTabPage)BaseTabControl.TabPages[i]).Closable ? 18 : 0;
                             CurrentTab = new TabRectangle();
                             CurrentTab.TabRect = new Rectangle(tabRects[i - 1].TabRect.Right, 0, TAB_HEADER_PADDING * 2 + (int)g.MeasureString(baseTabControl.TabPages[i].Text, this.Font).Width + _widthPadding, Height);
-                            CurrentTab.XButtonRect = new Rectangle(CurrentTab.TabRect.X + CurrentTab.TabRect.Width, CurrentTab.TabRect.Y + ((Height/2) / 2), xButtonSize, xButtonSize);
+                            CurrentTab.XButtonRect = new Rectangle(CurrentTab.TabRect.X + CurrentTab.TabRect.Width, CurrentTab.TabRect.Y + ((Height / 2) / 2), xButtonSize, xButtonSize);
                             CurrentTab.TabRect.Width += CurrentTab.XButtonRect.Width;
                             if (MaxTabWidth > 0 && CurrentTab.TabRect.Width > MaxTabWidth)
                             {
@@ -673,7 +678,7 @@ namespace MaterialWinforms.Controls
                         {
                             CurrentTab = tabRects[0];
                             CurrentTab.TabRect = new Rectangle(CurrentTab.TabRect.X + TabOffset, 0, TAB_HEADER_PADDING * 2 + (int)g.MeasureString(baseTabControl.TabPages[0].Text, this.Font).Width + _widthPadding, Height);
-                            CurrentTab.XButtonRect = new Rectangle(CurrentTab.TabRect.X + CurrentTab.TabRect.Width, CurrentTab.TabRect.Y + ((Height/2) / 2), CurrentTab.XButtonRect.Width, CurrentTab.XButtonRect.Height);
+                            CurrentTab.XButtonRect = new Rectangle(CurrentTab.TabRect.X + CurrentTab.TabRect.Width, CurrentTab.TabRect.Y + ((Height / 2) / 2), CurrentTab.XButtonRect.Width, CurrentTab.XButtonRect.Height);
                             CurrentTab.TabRect.Width += CurrentTab.XButtonRect.Width;
                             if (MaxTabWidth > 0 && CurrentTab.TabRect.Width > MaxTabWidth)
                             {
@@ -684,7 +689,7 @@ namespace MaterialWinforms.Controls
                             {
                                 CurrentTab = tabRects[i];
                                 CurrentTab.TabRect = new Rectangle(tabRects[i - 1].TabRect.Right, 0, TAB_HEADER_PADDING * 2 + (int)g.MeasureString(baseTabControl.TabPages[i].Text, this.Font).Width + _widthPadding, Height);
-                                CurrentTab.XButtonRect = new Rectangle(CurrentTab.TabRect.X + CurrentTab.TabRect.Width, CurrentTab.TabRect.Y + ((Height /2) / 2), CurrentTab.XButtonRect.Width, CurrentTab.XButtonRect.Height);
+                                CurrentTab.XButtonRect = new Rectangle(CurrentTab.TabRect.X + CurrentTab.TabRect.Width, CurrentTab.TabRect.Y + ((Height / 2) / 2), CurrentTab.XButtonRect.Width, CurrentTab.XButtonRect.Height);
                                 CurrentTab.TabRect.Width += CurrentTab.XButtonRect.Width;
                                 if (MaxTabWidth > 0 && CurrentTab.TabRect.Width > MaxTabWidth)
                                 {

@@ -1,12 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Diagnostics;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Windows.Forms;
 using System.Drawing.Drawing2D;
+using System.Windows.Forms;
 
 namespace MaterialWinforms.Controls
 {
@@ -26,7 +21,7 @@ namespace MaterialWinforms.Controls
             set
             {
                 _UserName = value;
-                if(String.IsNullOrEmpty(_UserInitialien))
+                if (String.IsNullOrEmpty(_UserInitialien))
                 {
                     UserInitialien = _UserName.Substring(0, 1);
                 }
@@ -37,7 +32,7 @@ namespace MaterialWinforms.Controls
 
         private Font _UserInitialienFont;
         private String _UserInitialien;
-        public String UserInitialien {get{return _UserInitialien;}set{_UserInitialien = value; _UserInitialienFont = _FontManager.ScaleTextToRectangle(StringGraphics,value,new Rectangle(AvatarRect.X,AvatarRect.Y,AvatarRect.Width-4,AvatarRect.Height-4));}}
+        public String UserInitialien { get { return _UserInitialien; } set { _UserInitialien = value; _UserInitialienFont = _FontManager.ScaleTextToRectangle(StringGraphics, value, new Rectangle(AvatarRect.X, AvatarRect.Y, AvatarRect.Width - 4, AvatarRect.Height - 4)); } }
 
         private Image _UserScaled;
         private Image _User;
@@ -47,7 +42,7 @@ namespace MaterialWinforms.Controls
             set
             {
                 _User = value;
-                _UserScaled = DrawHelper.ResizeImage(value, AvatarRect.Size.Width-1, AvatarRect.Size.Height-1);
+                _UserScaled = DrawHelper.ResizeImage(value, AvatarRect.Size.Width - 1, AvatarRect.Size.Height - 1);
             }
         }
 
@@ -62,7 +57,7 @@ namespace MaterialWinforms.Controls
             set
             {
                 _Title = value;
-                TitleRect.Size = MeasureString(_Title,SkinManager.FONT_TITLE);
+                TitleRect.Size = MeasureString(_Title, SkinManager.FONT_TITLE);
                 OnResize(EventArgs.Empty);
             }
         }
@@ -78,7 +73,7 @@ namespace MaterialWinforms.Controls
             set
             {
                 _Text = value;
-               ContentRect.Size = MeasureString(_Text,SkinManager.FONT_TEXT);
+                ContentRect.Size = MeasureString(_Text, SkinManager.FONT_TEXT);
                 OnResize(EventArgs.Empty);
             }
         }
@@ -86,12 +81,12 @@ namespace MaterialWinforms.Controls
         private Rectangle TimeRectangle;
         private DateTime _Time;
         public DateTime Time
-            {
-            get { return _Time;}
+        {
+            get { return _Time; }
             set
-                {
-                    _Time = value;
-                }
+            {
+                _Time = value;
+            }
         }
 
         private Rectangle AdditionalInfoRectangle;
@@ -116,13 +111,13 @@ namespace MaterialWinforms.Controls
             StringGraphics = Graphics.FromImage(new Bitmap(10, 10));
             AutoSize = true;
             TimeRectangle = new Rectangle(new Point(0, 30), MeasureString(DateTime.Now.ToString("dd.MM.yyyy") + "\r\n" + DateTime.Now.ToString("HH:mm:ss"), SkinManager.FONT_TEXT));
-            AvatarRect = new Rectangle(TimeRectangle.Right+5, 20, 50, 50);
-            CardRectangle = new Rectangle(AvatarRect.Right + 20, 20,40,40);
+            AvatarRect = new Rectangle(TimeRectangle.Right + 5, 20, 50, 50);
+            CardRectangle = new Rectangle(AvatarRect.Right + 20, 20, 40, 40);
             TitleRect = new Rectangle(CardRectangle.X + 10, CardRectangle.Y + 10, 30, 30);
             ContentRect = new Rectangle(TitleRect.X, TitleRect.Bottom + 5, TitleRect.Width, TitleRect.Height);
             NameRect = new Rectangle(ContentRect.X, ContentRect.Bottom + 5, TitleRect.Width, TitleRect.Height);
-            AdditionalInfoRectangle = new Rectangle(TimeRectangle.Left, TimeRectangle.Bottom+5, TimeRectangle.Width, TimeRectangle.Height);
-   
+            AdditionalInfoRectangle = new Rectangle(TimeRectangle.Left, TimeRectangle.Bottom + 5, TimeRectangle.Width, TimeRectangle.Height);
+
         }
 
         private Size MeasureString(String pStringToMeasuer, Font pFontToUse)
@@ -137,7 +132,7 @@ namespace MaterialWinforms.Controls
             base.OnResize(e);
             ContentRect.Location = new Point(TitleRect.X, TitleRect.Bottom + 10);
             NameRect.Location = new Point(ContentRect.X, ContentRect.Bottom + 10);
-            CardRectangle.Size = new Size(Math.Max(Math.Max(ContentRect.Size.Width, NameRect.Size.Width), TitleRect.Size.Width)+20, NameRect.Bottom-TitleRect.Y +20);
+            CardRectangle.Size = new Size(Math.Max(Math.Max(ContentRect.Size.Width, NameRect.Size.Width), TitleRect.Size.Width) + 20, NameRect.Bottom - TitleRect.Y + 20);
             CardShadow = DrawHelper.CreateRoundRect(CardRectangle, 10);
             Size = new Size(CardRectangle.Right + 20, CardRectangle.Bottom + 20);
             Invalidate();
@@ -150,7 +145,7 @@ namespace MaterialWinforms.Controls
             e.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
             //Draw Background
             //Draw Vertical Line
-            e.Graphics.FillRectangle(MaterialSkinManager.Instance.ColorScheme.PrimaryBrush, new Rectangle(AvatarRect.X+(int)(AvatarRect.Width/2)-5, -5, 10, Height+5));
+            e.Graphics.FillRectangle(MaterialSkinManager.Instance.ColorScheme.PrimaryBrush, new Rectangle(AvatarRect.X + (int)(AvatarRect.Width / 2) - 5, -5, 10, Height + 5));
             //Draw Avatar
             if (_User == null)
             {
@@ -194,6 +189,6 @@ namespace MaterialWinforms.Controls
             e.Graphics.DrawString(_AdditionalInfo, SkinManager.FONT_TEXT, SkinManager.ColorScheme.TextBrush, AdditionalInfoRectangle, _StringFormat);
         }
 
-    
+
     }
 }

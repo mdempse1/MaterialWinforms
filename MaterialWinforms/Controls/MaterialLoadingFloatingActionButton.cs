@@ -1,10 +1,10 @@
-﻿using System.ComponentModel;
+﻿using MaterialWinforms.Animations;
+using System;
+using System.ComponentModel;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Drawing.Text;
 using System.Windows.Forms;
-using MaterialWinforms.Animations;
-using System;
 
 namespace MaterialWinforms.Controls
 {
@@ -117,9 +117,9 @@ namespace MaterialWinforms.Controls
         private void Redraw(object sender, System.EventArgs e)
         {
             ShadowBorder = new GraphicsPath();
-            ShadowBorder = DrawHelper.CreateCircle(Location.X+5,
-                                    Location.Y+5,
-                                    ClientRectangle.Width / 2 -6);
+            ShadowBorder = DrawHelper.CreateCircle(Location.X + 5,
+                                    Location.Y + 5,
+                                    ClientRectangle.Width / 2 - 6);
 
             if (Width != Height)
             {
@@ -242,7 +242,7 @@ namespace MaterialWinforms.Controls
 
 
             g.Clear(Parent.BackColor);
-          
+
             using (var backgroundPath = DrawHelper.CreateCircle(ClientRectangle.X + ShadowDepth,
                     ClientRectangle.Y + ShadowDepth,
                     ClientRectangle.Width / 2 - ShadowDepth))
@@ -338,16 +338,16 @@ namespace MaterialWinforms.Controls
                 hoverAnimationManager.StartNewAnimation(AnimationDirection.Out);
                 Invalidate();
             };
-           MouseDown += (sender, args) =>
-            {
-                if (args.Button == MouseButtons.Left)
-                {
-                    MouseState = MouseState.DOWN;
+            MouseDown += (sender, args) =>
+             {
+                 if (args.Button == MouseButtons.Left)
+                 {
+                     MouseState = MouseState.DOWN;
 
-                    animationManager.StartNewAnimation(AnimationDirection.In, args.Location);
-                    Invalidate();
-                }
-            };
+                     animationManager.StartNewAnimation(AnimationDirection.In, args.Location);
+                     Invalidate();
+                 }
+             };
             MouseUp += (sender, args) =>
             {
                 MouseState = MouseState.HOVER;

@@ -274,14 +274,16 @@ namespace MaterialWinforms.Controls
             if (_MinValueLabel == null)
             {
                 g.DrawString(MinValue.ToString(), SkinManager.FONT_CONTROL_SMALL, SkinManager.GetPrimaryTextBrush(), new PointF(0, 0));
-            } else
+            }
+            else
             {
                 g.DrawString(_MinValueLabel, SkinManager.FONT_CONTROL_SMALL, SkinManager.GetPrimaryTextBrush(), new PointF(0, 0));
             }
             if (_MaxValueLabel == null)
             {
                 g.DrawString(MaxValue.ToString(), SkinManager.FONT_CONTROL_SMALL, SkinManager.GetPrimaryTextBrush(), new PointF(Width - g.MeasureString(MaxValue.ToString(), SkinManager.FONT_CONTROL_SMALL).Width, 0f));
-            } else
+            }
+            else
             {
                 g.DrawString(_MaxValueLabel, SkinManager.FONT_CONTROL_SMALL, SkinManager.GetPrimaryTextBrush(), new PointF(Width - g.MeasureString(_MaxValueLabel, SkinManager.FONT_CONTROL_SMALL).Width, 0f));
             }
