@@ -173,24 +173,24 @@ namespace MaterialWinforms.Controls
         {
             RightClickMenu = new MaterialContextMenuStrip();
             RightClickMenu.AutoSize = true;
-            ToolStripMenuItem CloseAllTabs = new MaterialToolStripMenuItem();
-            ToolStripMenuItem TabPositionZurruecksetzten = new MaterialToolStripMenuItem();
-            ToolStripMenuItem CloseAllExeptCurrent = new MaterialToolStripMenuItem();
+            //ToolStripMenuItem CloseAllTabs = new MaterialToolStripMenuItem();
+            //ToolStripMenuItem TabPositionZurruecksetzten = new MaterialToolStripMenuItem();
+            //ToolStripMenuItem CloseAllExeptCurrent = new MaterialToolStripMenuItem();
             ToolStripMenuItem OpenInNewWindow = new MaterialToolStripMenuItem();
 
-            CloseAllTabs.Text = "Alle Tabs schließen";
-            CloseAllTabs.Click += CloseAllTabs_Click;
-            RightClickMenu.Items.Add(CloseAllTabs);
+            //CloseAllTabs.Text = "Close all tabs";
+            //CloseAllTabs.Click += CloseAllTabs_Click;
+            //RightClickMenu.Items.Add(CloseAllTabs);
 
-            CloseAllExeptCurrent.Text = "Alle anderen Tabs Schließen";
-            CloseAllExeptCurrent.Click += CloseAllExeptCurrent_Click;
-            RightClickMenu.Items.Add(CloseAllExeptCurrent);
+            //CloseAllExeptCurrent.Text = "Close all other tabs";
+            //CloseAllExeptCurrent.Click += CloseAllExeptCurrent_Click;
+            //RightClickMenu.Items.Add(CloseAllExeptCurrent);
 
-            TabPositionZurruecksetzten.Text = "Tab Positionen zurrücksetzen";
-            TabPositionZurruecksetzten.Click += TabPositionZurruecksetzten_Click;
-            RightClickMenu.Items.Add(TabPositionZurruecksetzten);
+            //TabPositionZurruecksetzten.Text = "Reset tab positions";
+            //TabPositionZurruecksetzten.Click += TabPositionZurruecksetzten_Click;
+            //RightClickMenu.Items.Add(TabPositionZurruecksetzten);
 
-            OpenInNewWindow.Text = "Tab in neuem Fenster öffnen";
+            OpenInNewWindow.Text = "Open tab in new window";
             OpenInNewWindow.Click += OpenInNewWindow_Click;
             RightClickMenu.Items.Add(OpenInNewWindow);
         }
