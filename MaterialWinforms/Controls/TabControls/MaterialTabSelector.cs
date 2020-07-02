@@ -126,7 +126,7 @@ namespace MaterialWinforms.Controls
             if (this.Font.Size >= 10)
             {
                 _widthPadding = 22;
-                TAB_HEADER_PADDING = 24;
+                TAB_HEADER_PADDING = 16;
                 //TAB_INDICATOR_HEIGHT = 6;
                 return 35;
             }

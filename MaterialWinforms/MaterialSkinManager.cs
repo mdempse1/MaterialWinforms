@@ -130,7 +130,7 @@ namespace MaterialWinforms
         private static readonly Brush CMS_BACKGROUND_HOVER_DARK_BRUSH = new SolidBrush(CMS_BACKGROUND_DARK_HOVER);
 
         //Application background
-        private static readonly Color BACKGROUND_LIGHT = Color.FromArgb(255, 255, 255, 255);
+        private static readonly Color BACKGROUND_LIGHT = Color.FromArgb(255, 250, 250, 255);
         private static Brush BACKGROUND_LIGHT_BRUSH = new SolidBrush(BACKGROUND_LIGHT);
 
         private static readonly Color BACKGROUND_DARK = Color.FromArgb(255, 51, 51, 51);
@@ -371,17 +371,32 @@ namespace MaterialWinforms
                 {
                     tabPage.BackColor = newBackColor;
                 }
-            }
-
-            if (controlToUpdate is MaterialDivider)
+            } else  if (controlToUpdate is MaterialDivider)
             {
                 controlToUpdate.BackColor = GetDividersColor();
-            }
-
-            if (controlToUpdate is MaterialListView)
+            } else if (controlToUpdate is MaterialListView)
             {
                 controlToUpdate.BackColor = newBackColor;
 
+            } else
+            {
+                //if the back colour is set to an existing part of the colour scheme then don't change it
+                if (controlToUpdate.BackColor==ColorScheme.AccentColor)
+                {
+                    //Do nothing
+                } else if (controlToUpdate.BackColor == ColorScheme.DarkPrimaryColor)
+                {
+                    //Do nothing
+                } else if (controlToUpdate.BackColor == ColorScheme.LightPrimaryColor)
+                {
+                    //Do nothing
+                } else if (controlToUpdate.BackColor == ColorScheme.PrimaryColor)
+                {
+                    //Do nothing
+                } else
+                {
+                    controlToUpdate.BackColor = GetApplicationBackgroundColor();
+                }
             }
 
             //recursive call

@@ -15,6 +15,7 @@ namespace MaterialWinforms.Controls
         [Browsable(false)]
         public Point MouseLocation { get; set; }
         public new Color BackColor { get { return Parent == null ? SkinManager.GetApplicationBackgroundColor() : typeof(IShadowedMaterialControl).IsAssignableFrom(Parent.GetType()) ? ((IMaterialControl)Parent).BackColor : Parent.BackColor; } }
+        public bool HighlightSelected { get; set; }
 
         public MaterialListView()
         {
@@ -78,7 +79,7 @@ namespace MaterialWinforms.Controls
             //always draw default background
             g.FillRectangle(new SolidBrush(SkinManager.GetApplicationBackgroundColor()), new Rectangle(new Point(e.Bounds.X, 0), e.Bounds.Size));
 
-            if (e.State.HasFlag(ListViewItemStates.Selected))
+            if (e.State.HasFlag(ListViewItemStates.Selected) & HighlightSelected)
             {
                 //selected background
                 g.FillRectangle(SkinManager.GetFlatButtonPressedBackgroundBrush(), new Rectangle(new Point(e.Bounds.X, 0), e.Bounds.Size));

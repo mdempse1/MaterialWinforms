@@ -372,7 +372,7 @@ namespace MaterialWinformsExample
             this.sfdToolStripMenuItem});
             this.SideDrawerList.MouseState = MaterialWinforms.MouseState.HOVER;
             this.SideDrawerList.Name = "materialContextMenuStrip1";
-            this.SideDrawerList.Size = new System.Drawing.Size(141, 988);
+            this.SideDrawerList.Size = new System.Drawing.Size(141, 870);
             // 
             // tmi_Datenbank1
             // 
@@ -746,12 +746,12 @@ namespace MaterialWinformsExample
             this.materialTabControl1.Controls.Add(this.materialTabPage5);
             this.materialTabControl1.Depth = 0;
             this.materialTabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.materialTabControl1.Location = new System.Drawing.Point(210, 107);
+            this.materialTabControl1.Location = new System.Drawing.Point(210, 100);
             this.materialTabControl1.MouseState = MaterialWinforms.MouseState.HOVER;
             this.materialTabControl1.Name = "materialTabControl1";
             this.materialTabControl1.Padding = new System.Drawing.Point(15, 3);
             this.materialTabControl1.SelectedIndex = 1;
-            this.materialTabControl1.Size = new System.Drawing.Size(783, 581);
+            this.materialTabControl1.Size = new System.Drawing.Size(783, 588);
             this.materialTabControl1.TabIndex = 24;
             this.materialTabControl1.TabsAreClosable = true;
             // 
@@ -867,7 +867,7 @@ namespace MaterialWinformsExample
             this.materialTabPage1.Location = new System.Drawing.Point(4, 22);
             this.materialTabPage1.MouseState = MaterialWinforms.MouseState.HOVER;
             this.materialTabPage1.Name = "materialTabPage1";
-            this.materialTabPage1.Size = new System.Drawing.Size(775, 555);
+            this.materialTabPage1.Size = new System.Drawing.Size(775, 562);
             this.materialTabPage1.TabIndex = 0;
             this.materialTabPage1.Text = "Controls";
             // 
@@ -895,6 +895,7 @@ namespace MaterialWinformsExample
             this.materialTextBox1.Location = new System.Drawing.Point(552, 218);
             this.materialTextBox1.MaxLength = 32767;
             this.materialTextBox1.MouseState = MaterialWinforms.MouseState.HOVER;
+            this.materialTextBox1.MultiLine = false;
             this.materialTextBox1.Name = "materialTextBox1";
             this.materialTextBox1.ReadOnly = false;
             this.materialTextBox1.SelectedText = "";
@@ -924,10 +925,12 @@ namespace MaterialWinformsExample
             // 
             this.materialLabel2.AutoSize = true;
             this.materialLabel2.Depth = 0;
+            this.materialLabel2.Font = new System.Drawing.Font("Roboto", 9F);
+            this.materialLabel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.materialLabel2.Location = new System.Drawing.Point(41, 17);
             this.materialLabel2.MouseState = MaterialWinforms.MouseState.HOVER;
             this.materialLabel2.Name = "materialLabel2";
-            this.materialLabel2.Size = new System.Drawing.Size(108, 19);
+            this.materialLabel2.Size = new System.Drawing.Size(88, 15);
             this.materialLabel2.TabIndex = 0;
             this.materialLabel2.Text = "materialLabel2";
             // 
@@ -945,7 +948,7 @@ namespace MaterialWinformsExample
             this.materialSingleLineTextField1.SelectedText = "";
             this.materialSingleLineTextField1.SelectionLength = 0;
             this.materialSingleLineTextField1.SelectionStart = 0;
-            this.materialSingleLineTextField1.Size = new System.Drawing.Size(213, 38);
+            this.materialSingleLineTextField1.Size = new System.Drawing.Size(213, 35);
             this.materialSingleLineTextField1.TabIndex = 44;
             this.materialSingleLineTextField1.TabStop = false;
             this.materialSingleLineTextField1.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -1006,10 +1009,12 @@ namespace MaterialWinformsExample
             // 
             this.materialLabel1.AutoSize = true;
             this.materialLabel1.Depth = 0;
+            this.materialLabel1.Font = new System.Drawing.Font("Roboto", 9F);
+            this.materialLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.materialLabel1.Location = new System.Drawing.Point(26, 347);
             this.materialLabel1.MouseState = MaterialWinforms.MouseState.HOVER;
             this.materialLabel1.Name = "materialLabel1";
-            this.materialLabel1.Size = new System.Drawing.Size(108, 19);
+            this.materialLabel1.Size = new System.Drawing.Size(88, 15);
             this.materialLabel1.TabIndex = 40;
             this.materialLabel1.Text = "materialLabel1";
             // 
@@ -1026,7 +1031,7 @@ namespace MaterialWinformsExample
             this.materialFolderInput1.MouseState = MaterialWinforms.MouseState.HOVER;
             this.materialFolderInput1.Name = "materialFolderInput1";
             this.materialFolderInput1.ReadOnly = false;
-            this.materialFolderInput1.Size = new System.Drawing.Size(172, 38);
+            this.materialFolderInput1.Size = new System.Drawing.Size(172, 35);
             this.materialFolderInput1.TabIndex = 39;
             this.materialFolderInput1.Text = "materialFolderInput1";
             this.materialFolderInput1.TextAlignment = System.Windows.Forms.HorizontalAlignment.Left;
@@ -1045,7 +1050,7 @@ namespace MaterialWinformsExample
             this.materialFileInput1.MouseState = MaterialWinforms.MouseState.HOVER;
             this.materialFileInput1.Name = "materialFileInput1";
             this.materialFileInput1.ReadOnly = false;
-            this.materialFileInput1.Size = new System.Drawing.Size(172, 38);
+            this.materialFileInput1.Size = new System.Drawing.Size(172, 35);
             this.materialFileInput1.TabIndex = 38;
             this.materialFileInput1.TextAlignment = System.Windows.Forms.HorizontalAlignment.Left;
             this.materialFileInput1.UseSystemPasswordChar = false;
@@ -1142,13 +1147,14 @@ namespace MaterialWinformsExample
             this.materialCheckBox3.CheckState = System.Windows.Forms.CheckState.Checked;
             this.materialCheckBox3.Depth = 0;
             this.materialCheckBox3.Enabled = false;
-             this.materialCheckBox3.Location = new System.Drawing.Point(170, 59);
+            this.materialCheckBox3.Font = new System.Drawing.Font("Roboto", 9F);
+            this.materialCheckBox3.Location = new System.Drawing.Point(170, 59);
             this.materialCheckBox3.Margin = new System.Windows.Forms.Padding(0);
             this.materialCheckBox3.MouseLocation = new System.Drawing.Point(-1, -1);
             this.materialCheckBox3.MouseState = MaterialWinforms.MouseState.HOVER;
             this.materialCheckBox3.Name = "materialCheckBox3";
             this.materialCheckBox3.Ripple = true;
-            this.materialCheckBox3.Size = new System.Drawing.Size(150, 30);
+            this.materialCheckBox3.Size = new System.Drawing.Size(138, 30);
             this.materialCheckBox3.TabIndex = 3;
             this.materialCheckBox3.Text = "materialCheckBox3";
             this.materialCheckBox3.UseVisualStyleBackColor = true;
@@ -1158,13 +1164,14 @@ namespace MaterialWinformsExample
             this.materialCheckBox4.AutoSize = true;
             this.materialCheckBox4.Depth = 0;
             this.materialCheckBox4.Enabled = false;
+            this.materialCheckBox4.Font = new System.Drawing.Font("Roboto", 9F);
             this.materialCheckBox4.Location = new System.Drawing.Point(170, 29);
             this.materialCheckBox4.Margin = new System.Windows.Forms.Padding(0);
             this.materialCheckBox4.MouseLocation = new System.Drawing.Point(-1, -1);
             this.materialCheckBox4.MouseState = MaterialWinforms.MouseState.HOVER;
             this.materialCheckBox4.Name = "materialCheckBox4";
             this.materialCheckBox4.Ripple = true;
-            this.materialCheckBox4.Size = new System.Drawing.Size(150, 30);
+            this.materialCheckBox4.Size = new System.Drawing.Size(138, 30);
             this.materialCheckBox4.TabIndex = 2;
             this.materialCheckBox4.Text = "materialCheckBox4";
             this.materialCheckBox4.UseVisualStyleBackColor = true;
@@ -1175,13 +1182,14 @@ namespace MaterialWinformsExample
             this.materialCheckBox2.Checked = true;
             this.materialCheckBox2.CheckState = System.Windows.Forms.CheckState.Checked;
             this.materialCheckBox2.Depth = 0;
-             this.materialCheckBox2.Location = new System.Drawing.Point(9, 59);
+            this.materialCheckBox2.Font = new System.Drawing.Font("Roboto", 9F);
+            this.materialCheckBox2.Location = new System.Drawing.Point(9, 59);
             this.materialCheckBox2.Margin = new System.Windows.Forms.Padding(0);
             this.materialCheckBox2.MouseLocation = new System.Drawing.Point(-1, -1);
             this.materialCheckBox2.MouseState = MaterialWinforms.MouseState.HOVER;
             this.materialCheckBox2.Name = "materialCheckBox2";
             this.materialCheckBox2.Ripple = true;
-            this.materialCheckBox2.Size = new System.Drawing.Size(150, 30);
+            this.materialCheckBox2.Size = new System.Drawing.Size(138, 30);
             this.materialCheckBox2.TabIndex = 1;
             this.materialCheckBox2.Text = "materialCheckBox2";
             this.materialCheckBox2.UseVisualStyleBackColor = true;
@@ -1190,13 +1198,14 @@ namespace MaterialWinformsExample
             // 
             this.materialCheckBox1.AutoSize = true;
             this.materialCheckBox1.Depth = 0;
+            this.materialCheckBox1.Font = new System.Drawing.Font("Roboto", 9F);
             this.materialCheckBox1.Location = new System.Drawing.Point(9, 29);
             this.materialCheckBox1.Margin = new System.Windows.Forms.Padding(0);
             this.materialCheckBox1.MouseLocation = new System.Drawing.Point(-1, -1);
             this.materialCheckBox1.MouseState = MaterialWinforms.MouseState.HOVER;
             this.materialCheckBox1.Name = "materialCheckBox1";
             this.materialCheckBox1.Ripple = true;
-            this.materialCheckBox1.Size = new System.Drawing.Size(150, 30);
+            this.materialCheckBox1.Size = new System.Drawing.Size(138, 30);
             this.materialCheckBox1.TabIndex = 0;
             this.materialCheckBox1.Text = "materialCheckBox1";
             this.materialCheckBox1.UseVisualStyleBackColor = true;
@@ -1224,7 +1233,9 @@ namespace MaterialWinformsExample
             this.materialSlider2.Enabled = false;
             this.materialSlider2.Location = new System.Drawing.Point(26, 42);
             this.materialSlider2.MaxValue = 100;
+            this.materialSlider2.MaxValueLabel = null;
             this.materialSlider2.MinValue = 0;
+            this.materialSlider2.MinValueLabel = null;
             this.materialSlider2.MouseState = MaterialWinforms.MouseState.HOVER;
             this.materialSlider2.Name = "materialSlider2";
             this.materialSlider2.Size = new System.Drawing.Size(250, 40);
@@ -1237,7 +1248,9 @@ namespace MaterialWinformsExample
             this.materialSlider1.Depth = 0;
             this.materialSlider1.Location = new System.Drawing.Point(26, 95);
             this.materialSlider1.MaxValue = 100;
+            this.materialSlider1.MaxValueLabel = null;
             this.materialSlider1.MinValue = 0;
+            this.materialSlider1.MinValueLabel = null;
             this.materialSlider1.MouseState = MaterialWinforms.MouseState.HOVER;
             this.materialSlider1.Name = "materialSlider1";
             this.materialSlider1.Size = new System.Drawing.Size(250, 40);
@@ -1555,9 +1568,10 @@ namespace MaterialWinformsExample
             this.materialTabSelectorClosable1.MaxTabWidth = 0;
             this.materialTabSelectorClosable1.MouseState = MaterialWinforms.MouseState.HOVER;
             this.materialTabSelectorClosable1.Name = "materialTabSelectorClosable1";
+            this.materialTabSelectorClosable1.SelectedTabIndicatorHeight = 4;
             graphicsPath11.FillMode = System.Drawing.Drawing2D.FillMode.Alternate;
             this.materialTabSelectorClosable1.ShadowBorder = graphicsPath11;
-            this.materialTabSelectorClosable1.Size = new System.Drawing.Size(993, 35);
+            this.materialTabSelectorClosable1.Size = new System.Drawing.Size(993, 28);
             this.materialTabSelectorClosable1.TabIndex = 32;
             this.materialTabSelectorClosable1.TabPadding = 24;
             this.materialTabSelectorClosable1.Text = "materialTabSelectorClosable1";
@@ -1570,7 +1584,7 @@ namespace MaterialWinformsExample
             this.materialSideDrawer1.Elevation = 10;
             this.materialSideDrawer1.HiddenOnStart = false;
             this.materialSideDrawer1.HideSideDrawer = false;
-            this.materialSideDrawer1.Location = new System.Drawing.Point(0, 101);
+            this.materialSideDrawer1.Location = new System.Drawing.Point(0, 94);
             this.materialSideDrawer1.MaximumSize = new System.Drawing.Size(210, 10000);
             this.materialSideDrawer1.MouseState = MaterialWinforms.MouseState.HOVER;
             this.materialSideDrawer1.Name = "materialSideDrawer1";
@@ -1580,23 +1594,23 @@ namespace MaterialWinformsExample
             this.materialSideDrawer1.SideDrawer = this.SideDrawerList;
             this.materialSideDrawer1.SideDrawerFixiert = false;
             this.materialSideDrawer1.SideDrawerUnterActionBar = false;
-            this.materialSideDrawer1.Size = new System.Drawing.Size(210, 587);
+            this.materialSideDrawer1.Size = new System.Drawing.Size(210, 594);
             this.materialSideDrawer1.TabIndex = 34;
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Transparent;
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel1.Location = new System.Drawing.Point(210, 107);
+            this.panel1.Location = new System.Drawing.Point(210, 100);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(10, 581);
+            this.panel1.Size = new System.Drawing.Size(10, 588);
             this.panel1.TabIndex = 35;
             // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.Transparent;
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.Location = new System.Drawing.Point(210, 101);
+            this.panel2.Location = new System.Drawing.Point(210, 94);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(783, 6);
             this.panel2.TabIndex = 36;
