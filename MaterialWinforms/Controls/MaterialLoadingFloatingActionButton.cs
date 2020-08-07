@@ -290,6 +290,19 @@ namespace MaterialWinforms.Controls
                                   ClientRectangle.Y + 1,
                                   ClientRectangle.Width / 2 - 1));
                 }
+
+                if (Image != null)
+                {
+                    // Create parallelogram for drawing image.
+                    double radius = ClientRectangle.Width / 2 - ShadowDepth;
+                    Point ulCorner = new Point(ClientRectangle.X + ShadowDepth + (int)(radius / 3), ClientRectangle.Y + ShadowDepth + (int)(radius / 3));
+                    Point urCorner = new Point(ClientRectangle.X + ClientRectangle.Width - ShadowDepth - (int)(radius / 3), ClientRectangle.Y + ShadowDepth + (int)(radius / 3));
+                    Point llCorner = new Point(ClientRectangle.X + ShadowDepth + (int)(radius / 3), ClientRectangle.Y + ClientRectangle.Height - ShadowDepth - (int)(radius / 3));
+                    Point[] destPara = { ulCorner, urCorner, llCorner };
+
+                    // Draw image to screen.
+                    g.DrawImage(Image, destPara);
+                }
             }
             else
             {
@@ -297,6 +310,7 @@ namespace MaterialWinforms.Controls
                                    ClientRectangle.Y + ShadowDepth,
                                    ClientRectangle.Width / 2 - ShadowDepth));
             }
+
 
         }
 
