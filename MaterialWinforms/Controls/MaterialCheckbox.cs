@@ -31,10 +31,10 @@ namespace MaterialWinforms.Controls
                 ripple = value;
                 AutoSize = AutoSize; //Make AutoSize directly set the bounds.
 
-                if (value)
-                {
-                    Margin = new Padding(0);
-                }
+                //if (value)
+                //{
+                //    Margin = new Padding(0);
+                //}
 
                 Invalidate();
             }

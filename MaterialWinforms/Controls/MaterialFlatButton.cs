@@ -136,7 +136,13 @@ namespace MaterialWinforms.Controls
                 }
                 g.SmoothingMode = SmoothingMode.None;
             }
-            g.DrawString(Capitalized ? Text.ToUpper() : Text, SkinManager.FONT_CONTROL_LARGE, Enabled ? (Primary ? SkinManager.ColorScheme.PrimaryBrush : Accent ? SkinManager.ColorScheme.AccentBrush : SkinManager.GetPrimaryTextBrush()) : SkinManager.GetFlatButtonDisabledTextBrush(), ClientRectangle, new StringFormat { Alignment = (IconImage == null ? StringAlignment.Center : StringAlignment.Far), LineAlignment = StringAlignment.Center });
+            g.DrawString(
+                Capitalized ? Text.ToUpper() : Text, 
+                SkinManager.FONT_CONTROL_LARGE, 
+                Enabled ? (Primary ? SkinManager.ColorScheme.PrimaryBrush : Accent ? SkinManager.ColorScheme.AccentBrush : SkinManager.GetPrimaryTextBrush()) : SkinManager.GetFlatButtonDisabledTextBrush(), 
+                ClientRectangle, 
+                new StringFormat { Alignment = (IconImage == null ? StringAlignment.Center : StringAlignment.Far), LineAlignment = StringAlignment.Center }
+            );
         }
 
         private Size GetPreferredSize()

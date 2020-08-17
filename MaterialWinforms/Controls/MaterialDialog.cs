@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
 
@@ -29,7 +30,7 @@ namespace MaterialWinforms.Controls
         {
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.BackColor = pColor.GetCardsColor();
-            this.StartPosition = FormStartPosition.CenterScreen;
+            this.StartPosition = FormStartPosition.CenterParent;
             this.Padding = new System.Windows.Forms.Padding(0);
             this.Width = 400;
             this.SkinManager.ColorScheme = pColor.ColorScheme;
@@ -39,12 +40,12 @@ namespace MaterialWinforms.Controls
 
             InitializeComponent();
 
-
-
             _flpButtons.FlowDirection = FlowDirection.RightToLeft;
             _flpButtons.Dock = DockStyle.Fill;
             pnl_Footer.Controls.Add(_flpButtons);
             lbl_Title.ForeColor = SkinManager.ColorScheme.AccentColor;
+            lbl_Title.Font = SkinManager.FONT_TITLE;
+
         }
 
         protected override void OnLoad(EventArgs e)
@@ -80,6 +81,7 @@ namespace MaterialWinforms.Controls
             _msgBox.pnl_Top.Size = new Size(pContent.Size.Width, pContent.Size.Height + _msgBox.lbl_Title.Height);
             _msgBox.Size = new Size(pContent.Width, _msgBox.pnl_Top.Height + _msgBox.pnl_Footer.Height);
             MaterialDialog.InitButtons(MaterialDialog.Buttons.OK);
+
             return _buttonResult;
         }
 
@@ -372,19 +374,19 @@ namespace MaterialWinforms.Controls
         private void InitAbortRetryIgnoreButtons()
         {
             MaterialFlatButton btnAbort = new MaterialFlatButton();
-            btnAbort.Text = "Abbrechen";
+            btnAbort.Text = "Abort";
             btnAbort.Accent = true;
             btnAbort.Tag = "Abort";
             btnAbort.Click += ButtonClick;
 
             MaterialFlatButton btnRetry = new MaterialFlatButton();
-            btnRetry.Text = "Erneut versuchen";
+            btnRetry.Text = "Retry";
             btnRetry.ForeColor = Color.DarkGray;
             btnRetry.Tag = "Retry";
             btnRetry.Click += ButtonClick;
 
             MaterialFlatButton btnIgnore = new MaterialFlatButton();
-            btnIgnore.Text = "Ignorieren";
+            btnIgnore.Text = "Ignore";
             btnIgnore.Tag = "Ignore";
             btnIgnore.ForeColor = Color.DarkGray;
             btnIgnore.Click += ButtonClick;
@@ -415,7 +417,7 @@ namespace MaterialWinforms.Controls
             btnOK.Click += ButtonClick;
 
             MaterialFlatButton btnCancel = new MaterialFlatButton();
-            btnCancel.Text = "Abbrechen";
+            btnCancel.Text = "Cancel";
             btnCancel.Tag = "Cancel";
             btnCancel.ForeColor = Color.DarkGray;
             btnCancel.Click += ButtonClick;
@@ -428,13 +430,13 @@ namespace MaterialWinforms.Controls
         private void InitRetryCancelButtons()
         {
             MaterialFlatButton btnRetry = new MaterialFlatButton();
-            btnRetry.Text = "Erneut versuchen";
+            btnRetry.Text = "Retry";
             btnRetry.Tag = "Retry";
             btnRetry.Accent = true;
             btnRetry.Click += ButtonClick;
 
             MaterialFlatButton btnCancel = new MaterialFlatButton();
-            btnCancel.Text = "Abbrechen";
+            btnCancel.Text = "Cancel";
             btnCancel.Tag = "Cancel";
             btnCancel.ForeColor = Color.DarkGray;
             btnCancel.Click += ButtonClick;
@@ -447,13 +449,13 @@ namespace MaterialWinforms.Controls
         private void InitYesNoButtons()
         {
             MaterialFlatButton btnYes = new MaterialFlatButton();
-            btnYes.Text = "Ja";
+            btnYes.Text = "Yes";
             btnYes.Tag = "Yes";
             btnYes.Accent = true;
             btnYes.Click += ButtonClick;
 
             MaterialFlatButton btnNo = new MaterialFlatButton();
-            btnNo.Text = "Nein";
+            btnNo.Text = "No";
             btnNo.Tag = "No";
             btnNo.ForeColor = Color.DarkGray;
             btnNo.Click += ButtonClick;
@@ -477,21 +479,21 @@ namespace MaterialWinforms.Controls
         private void InitYesNoCancelButtons()
         {
             MaterialFlatButton btnYes = new MaterialFlatButton();
-            btnYes.Text = "Ja";
+            btnYes.Text = "Yes";
 
             btnYes.Tag = "Yes";
             btnYes.Accent = true;
             btnYes.Click += ButtonClick;
 
             MaterialFlatButton btnNo = new MaterialFlatButton();
-            btnNo.Text = "Nein";
+            btnNo.Text = "No";
 
             btnNo.Tag = "No";
             btnNo.ForeColor = Color.DarkGray;
             btnNo.Click += ButtonClick;
 
             MaterialFlatButton btnCancel = new MaterialFlatButton();
-            btnCancel.Text = "Abbrechen";
+            btnCancel.Text = "Cancel";
 
             btnCancel.Tag = "Cancel";
             btnCancel.ForeColor = Color.DarkGray;

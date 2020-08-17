@@ -76,8 +76,8 @@ namespace MaterialWinforms
         private static readonly Brush DISABLED_OR_HINT_TEXT_BLACK_BRUSH = new SolidBrush(DISABLED_OR_HINT_TEXT_BLACK);
         private static readonly Color DIVIDERS_BLACK = Color.FromArgb(31, 0, 0, 0);
         private static readonly Brush DIVIDERS_BLACK_BRUSH = new SolidBrush(DIVIDERS_BLACK);
-        private static readonly Color CARD_BLACK = Color.FromArgb(255, 42, 42, 42);
-        private static readonly Color CARD_WHITE = Color.FromArgb(255,225,225,225);
+        private static readonly Color CARD_BLACK = Color.FromArgb(255, 45, 45, 45);
+        private static readonly Color CARD_WHITE = Color.FromArgb(255, 245, 245, 250);
 
         private static readonly Color PRIMARY_TEXT_WHITE = Color.FromArgb(255, 255, 255, 255);
         private static readonly Brush PRIMARY_TEXT_WHITE_BRUSH = new SolidBrush(PRIMARY_TEXT_WHITE);
@@ -377,8 +377,14 @@ namespace MaterialWinforms
             } else if (controlToUpdate is MaterialListView)
             {
                 controlToUpdate.BackColor = newBackColor;
+            }
+            else if (controlToUpdate is PictureBox)
+            {
+                //Don't change the colour of a picture box
+                //controlToUpdate.BackColor = newBackColor;
 
-            } else
+            }
+            else
             {
                 //if the back colour is set to an existing part of the colour scheme then don't change it
                 if (controlToUpdate.BackColor==ColorScheme.AccentColor)

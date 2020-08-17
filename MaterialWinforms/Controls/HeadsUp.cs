@@ -97,7 +97,7 @@ namespace MaterialWinforms.Controls
             TextLabel.Location = new Point(20, TitelLabel.Bottom + 5);
             TextLabel.AutoSize = true;
             TextLabel.Resize += TextLabel_Resize;
-            TextLabel.MaximumSize = new Size(Width, Convert.ToInt32(Screen.PrimaryScreen.Bounds.Height * 0.2));
+            TextLabel.MaximumSize = new Size(Width-TextLabel.Left*2, Convert.ToInt32(Screen.PrimaryScreen.Bounds.Height * 0.2));
             Controls.Add(TitelLabel);
             Controls.Add(TextLabel);
             Buttons = new ObservableCollection<MaterialFlatButton>();
@@ -160,6 +160,9 @@ namespace MaterialWinforms.Controls
         /// </summary>
         protected override void OnPaint(System.Windows.Forms.PaintEventArgs e)
         {
+            TitelLabel.Font = SkinManager.FONT_TITLE;
+            TitelLabel.ForeColor = SkinManager.ColorScheme.AccentColor;
+            TextLabel.Location = new Point(TextLabel.Location.X, TitelLabel.Bottom + 8);
             e.Graphics.Clear(BackColor);
         }
 
