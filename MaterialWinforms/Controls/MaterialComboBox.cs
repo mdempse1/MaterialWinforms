@@ -41,7 +41,7 @@ namespace MaterialWinforms.Controls
         public MaterialComboBox()
         {
             SetStyle(ControlStyles.UserPaint, true);
-            DropDownStyle = ComboBoxStyle.DropDownList;
+            //DropDownStyle = ComboBoxStyle.DropDownList;
             _ButtonArea = new Rectangle(ClientRectangle.X - 1, ClientRectangle.Y - 1, ClientRectangle.Width + 2, ClientRectangle.Height + 2);
             _dropDownCheck.Interval = 10;
             _dropDownCheck.Tick += new EventHandler(dropDownCheck_Tick);
