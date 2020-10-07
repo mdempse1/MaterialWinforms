@@ -29,38 +29,51 @@ namespace MaterialWinforms.Controls
             set { _MinValueLabel = value; }
         }
 
-        public delegate void ValueChanged(int newValue);
+        public delegate void ValueChanged(double newValue);
         public event ValueChanged onValueChanged;
 
-        private int _Value;
-        public int Value
+        private double _Value;
+        public double Value
         {
             get { return _Value; }
             set
             {
                 _Value = value;
-                MouseX = (int)((double)_Value / (double)(MaxValue - MinValue) * (double)(Width - IndicatorSize));
-                RecalcutlateIndicator();
+                MouseX = (int)((_Value-MinValue) / (MaxValue - MinValue) * (Width - IndicatorSize));
+                RecalculateIndicator();
             }
         }
-        private int _MaxValue;
-        public int MaxValue
+        private double _MaxValue;
+        public double MaxValue
         {
             get { return _MaxValue; }
             set
             {
                 _MaxValue = value;
-                MouseX = (int)((double)_Value / (double)(MaxValue - MinValue) * (double)(Width - IndicatorSize));
+                MouseX = (int)((_Value - MinValue) / (MaxValue - MinValue) * (Width - IndicatorSize));
+                RecalculateIndicator();
             }
         }
-        private int _MinValue;
-        public int MinValue
+        private double _MinValue;
+        public double MinValue
         {
             get { return _MinValue; }
             set
             {
                 _MinValue = value;
-                MouseX = (int)((double)_Value / (double)(MaxValue - MinValue) * (double)(Width - IndicatorSize));
+                MouseX = (int)((_Value - MinValue) / (MaxValue - MinValue) * (Width - IndicatorSize));
+                RecalculateIndicator();
+            }
+        }
+        private double _Interval;
+        public double Interval
+        {
+            get { return _Interval; }
+            set
+            {
+                _Interval = value;
+                MouseX = (int)((_Value - MinValue) / (MaxValue - MinValue) * (Width - IndicatorSize));
+                RecalculateIndicator();
             }
         }
 
@@ -84,7 +97,7 @@ namespace MaterialWinforms.Controls
             Width = 80;
             MinValue = 0;
             Height = IndicatorSize + 10;
-
+            Interval = 1;
             Value = 50;
 
             IndicatorRectangle = new Rectangle(0, 10, IndicatorSize, IndicatorSize);
@@ -106,8 +119,8 @@ namespace MaterialWinforms.Controls
         {
             base.OnSizeChanged(e);
             Height = IndicatorSize + 10;
-            MouseX = (int)((double)_Value / (double)(MaxValue - MinValue) * (double)(Width - IndicatorSize));
-            RecalcutlateIndicator();
+            MouseX = (int)((_Value-_MinValue) / (MaxValue - MinValue) * (Width - IndicatorSize));
+            RecalculateIndicator();
         }
 
         protected override void OnGotFocus(EventArgs e)
@@ -134,13 +147,14 @@ namespace MaterialWinforms.Controls
                 {
                     MouseX = e.X - IndicatorSize / 2;
                     double ValuePerPx = ((double)(MaxValue - MinValue)) / (Width - IndicatorSize);
-                    int v = (int)(ValuePerPx * MouseX);
+                    double v = _MinValue + _Interval * (int)((ValuePerPx * MouseX) / _Interval);
+                    //int v = (int)(ValuePerPx * MouseX);
                     if (v != _Value)
                     {
                         _Value = v;
                         if (onValueChanged != null) onValueChanged(_Value);
                     }
-                    RecalcutlateIndicator();
+                    RecalculateIndicator();
                 }
             }
         }
@@ -174,18 +188,18 @@ namespace MaterialWinforms.Controls
                 {
                     MouseX = e.X - IndicatorSize / 2;
                     double ValuePerPx = ((double)(MaxValue - MinValue)) / (Width - IndicatorSize);
-                    int v = (int)(ValuePerPx * MouseX);
+                    double v = _MinValue + _Interval *  (int)((ValuePerPx * MouseX)/_Interval);
                     if (v != _Value)
                     {
                         _Value = v;
                         if (onValueChanged != null) onValueChanged(_Value);
                     }
-                    RecalcutlateIndicator();
+                    RecalculateIndicator();
                 }
             }
         }
 
-        private void RecalcutlateIndicator()
+        private void RecalculateIndicator()
         {
             int iWidht = Width - IndicatorSize;
 
