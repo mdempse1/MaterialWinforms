@@ -63,7 +63,12 @@ namespace MaterialWinforms.Controls
         /// <param name="e">A <see cref="T:System.Windows.Forms.PaintEventArgs" /> that contains the event data.</param>
         protected override void OnPaint(PaintEventArgs e)
         {
-            var doneProgress = (int)(e.ClipRectangle.Width * ((double)Value / Maximum));
+            var doneProgress = 0;
+            if (Maximum>0)
+                doneProgress = (int)(e.ClipRectangle.Width * ((double)Value / Maximum));
+            else
+                doneProgress = (int)(e.ClipRectangle.Width * ((double)Value));
+
             e.Graphics.FillRectangle(SkinManager.ColorScheme.DarkPrimaryBrush, 0, 0, doneProgress, e.ClipRectangle.Height);
             e.Graphics.FillRectangle(SkinManager.GetDisabledOrHintBrush(), doneProgress, 0, e.ClipRectangle.Width, e.ClipRectangle.Height);
         }
