@@ -17,7 +17,7 @@ namespace MaterialWinforms.Controls
         public MouseState MouseState { get; set; }
         public bool Primary { get; set; }
 
-        public Color BackColor { get { return Parent == null ? SkinManager.GetApplicationBackgroundColor() : Parent.BackColor; } }
+        public override Color BackColor { get { return Parent == null ? SkinManager.GetApplicationBackgroundColor() : Parent.BackColor; } }
 
         public bool Accent { get; set; }
 
@@ -62,7 +62,7 @@ namespace MaterialWinforms.Controls
                 base.Text = value;
                 textSize = CreateGraphics().MeasureString(value.ToUpper(), SkinManager.FONT_CONTROL_SMALL);
                 if (IconImage != null)
-                    textSize = new Size((int)textSize.Width + (int)ClientRectangle.Height, (int)textSize.Height);
+                    textSize = new Size((int)textSize.Width + ClientRectangle.Height, (int)textSize.Height);
                 if (AutoSize)
                     Size = GetPreferredSize();
                 Invalidate();
@@ -86,7 +86,6 @@ namespace MaterialWinforms.Controls
 
         protected override void OnPaint(PaintEventArgs pevent)
         {
-            bool ImageDrawn = false;
             var g = pevent.Graphics;
             g.TextRenderingHint = TextRenderingHint.AntiAlias;
 
@@ -94,7 +93,6 @@ namespace MaterialWinforms.Controls
 
             if (Image != null)
             {
-                ImageDrawn = true;
                 g.DrawImage(Image, 8, 2, Height - 4, Height - 4);
             }
 
