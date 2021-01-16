@@ -28,6 +28,9 @@ namespace MaterialWinforms.Controls
 
         private FormWindowState mLastState;
 
+        public delegate void MaximiseForm(object sender, EventArgs e);
+        public event MaximiseForm Maximise;
+
 
         private MaterialSideDrawer _SideDrawer;
         public MaterialSideDrawer SideDrawer
@@ -616,7 +619,7 @@ namespace MaterialWinforms.Controls
                 Size = previousSize;
                 Location = previousLocation;
             }
-
+            Maximise(this, new EventArgs());
         }
 
         protected override void OnMouseUp(MouseEventArgs e)

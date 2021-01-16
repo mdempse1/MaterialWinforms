@@ -323,7 +323,7 @@ namespace MaterialWinformsExample
             // 
             // SideDrawerList
             // 
-            this.SideDrawerList.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(42)))), ((int)(((byte)(42)))));
+            this.SideDrawerList.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
             this.SideDrawerList.Depth = 0;
             this.SideDrawerList.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tmi_Datenbank1,
@@ -372,7 +372,7 @@ namespace MaterialWinformsExample
             this.sfdToolStripMenuItem});
             this.SideDrawerList.MouseState = MaterialWinforms.MouseState.HOVER;
             this.SideDrawerList.Name = "materialContextMenuStrip1";
-            this.SideDrawerList.Size = new System.Drawing.Size(141, 870);
+            this.SideDrawerList.Size = new System.Drawing.Size(141, 988);
             // 
             // tmi_Datenbank1
             // 
@@ -771,7 +771,7 @@ namespace MaterialWinformsExample
             this.mtp_Picker.Location = new System.Drawing.Point(4, 22);
             this.mtp_Picker.MouseState = MaterialWinforms.MouseState.HOVER;
             this.mtp_Picker.Name = "mtp_Picker";
-            this.mtp_Picker.Size = new System.Drawing.Size(775, 555);
+            this.mtp_Picker.Size = new System.Drawing.Size(775, 562);
             this.mtp_Picker.TabIndex = 1;
             this.mtp_Picker.Text = "Pickers";
             // 
@@ -976,16 +976,12 @@ namespace MaterialWinformsExample
             // materialProgressBar1
             // 
             this.materialProgressBar1.Depth = 0;
-            this.materialProgressBar1.InvertedProgressBar = false;
             this.materialProgressBar1.Location = new System.Drawing.Point(26, 443);
             this.materialProgressBar1.Maximum = 1;
-            this.materialProgressBar1.Minimum = 0;
             this.materialProgressBar1.MouseState = MaterialWinforms.MouseState.HOVER;
             this.materialProgressBar1.Name = "materialProgressBar1";
-            this.materialProgressBar1.Orientation = System.Windows.Forms.Orientation.Horizontal;
-            this.materialProgressBar1.Size = new System.Drawing.Size(769, 5);
+            this.materialProgressBar1.Size = new System.Drawing.Size(769, 7);
             this.materialProgressBar1.Step = 0;
-            this.materialProgressBar1.Style = MaterialWinforms.Controls.MaterialProgressBar.ProgressStyle.Indeterminate;
             this.materialProgressBar1.TabIndex = 42;
             this.materialProgressBar1.Value = 1;
             // 
@@ -1231,32 +1227,34 @@ namespace MaterialWinformsExample
             // 
             this.materialSlider2.Depth = 0;
             this.materialSlider2.Enabled = false;
+            this.materialSlider2.Interval = 1D;
             this.materialSlider2.Location = new System.Drawing.Point(26, 42);
-            this.materialSlider2.MaxValue = 100;
+            this.materialSlider2.MaxValue = 100D;
             this.materialSlider2.MaxValueLabel = null;
-            this.materialSlider2.MinValue = 0;
+            this.materialSlider2.MinValue = 0D;
             this.materialSlider2.MinValueLabel = null;
             this.materialSlider2.MouseState = MaterialWinforms.MouseState.HOVER;
             this.materialSlider2.Name = "materialSlider2";
             this.materialSlider2.Size = new System.Drawing.Size(250, 40);
             this.materialSlider2.TabIndex = 35;
             this.materialSlider2.Text = "materialSlider2";
-            this.materialSlider2.Value = 50;
+            this.materialSlider2.Value = 50D;
             // 
             // materialSlider1
             // 
             this.materialSlider1.Depth = 0;
+            this.materialSlider1.Interval = 1D;
             this.materialSlider1.Location = new System.Drawing.Point(26, 95);
-            this.materialSlider1.MaxValue = 100;
+            this.materialSlider1.MaxValue = 100D;
             this.materialSlider1.MaxValueLabel = null;
-            this.materialSlider1.MinValue = 0;
+            this.materialSlider1.MinValue = 0D;
             this.materialSlider1.MinValueLabel = null;
             this.materialSlider1.MouseState = MaterialWinforms.MouseState.HOVER;
             this.materialSlider1.Name = "materialSlider1";
             this.materialSlider1.Size = new System.Drawing.Size(250, 40);
             this.materialSlider1.TabIndex = 34;
             this.materialSlider1.Text = "materialSlider1";
-            this.materialSlider1.Value = 50;
+            this.materialSlider1.Value = 50D;
             // 
             // materialTabPage3
             // 
@@ -1266,7 +1264,7 @@ namespace MaterialWinformsExample
             this.materialTabPage3.Location = new System.Drawing.Point(4, 22);
             this.materialTabPage3.MouseState = MaterialWinforms.MouseState.HOVER;
             this.materialTabPage3.Name = "materialTabPage3";
-            this.materialTabPage3.Size = new System.Drawing.Size(775, 555);
+            this.materialTabPage3.Size = new System.Drawing.Size(775, 562);
             this.materialTabPage3.TabIndex = 2;
             this.materialTabPage3.Text = "Timeline";
             // 
@@ -1279,7 +1277,7 @@ namespace MaterialWinformsExample
             this.materialPanel1.Location = new System.Drawing.Point(0, 0);
             this.materialPanel1.MouseState = MaterialWinforms.MouseState.HOVER;
             this.materialPanel1.Name = "materialPanel1";
-            this.materialPanel1.Size = new System.Drawing.Size(775, 555);
+            this.materialPanel1.Size = new System.Drawing.Size(775, 562);
             this.materialPanel1.TabIndex = 1;
             this.materialPanel1.Text = "materialPanel1";
             // 
@@ -1307,7 +1305,7 @@ namespace MaterialWinformsExample
             this.materialTabPage2.Location = new System.Drawing.Point(4, 22);
             this.materialTabPage2.MouseState = MaterialWinforms.MouseState.HOVER;
             this.materialTabPage2.Name = "materialTabPage2";
-            this.materialTabPage2.Size = new System.Drawing.Size(775, 555);
+            this.materialTabPage2.Size = new System.Drawing.Size(775, 562);
             this.materialTabPage2.TabIndex = 3;
             this.materialTabPage2.Text = "Dialogs and windows";
             // 
@@ -1452,7 +1450,7 @@ namespace MaterialWinformsExample
             this.materialTabPage5.Location = new System.Drawing.Point(4, 22);
             this.materialTabPage5.MouseState = MaterialWinforms.MouseState.HOVER;
             this.materialTabPage5.Name = "materialTabPage5";
-            this.materialTabPage5.Size = new System.Drawing.Size(775, 555);
+            this.materialTabPage5.Size = new System.Drawing.Size(775, 562);
             this.materialTabPage5.TabIndex = 4;
             this.materialTabPage5.Text = "spImportExportArtikelStücklisteHofmeier";
             // 
