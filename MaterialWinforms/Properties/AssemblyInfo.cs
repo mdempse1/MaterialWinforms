@@ -9,7 +9,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Claytex Services Limited")]
 [assembly: AssemblyProduct("MaterialSkin")]
-[assembly: AssemblyCopyright("Copyright © 2014 Melvin Fengels, 2019-2020 Claytex Services Limited")]
+[assembly: AssemblyCopyright("Copyright © 2014 Melvin Fengels, 2019-2021 Claytex Services Limited")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
