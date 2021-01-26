@@ -619,7 +619,8 @@ namespace MaterialWinforms.Controls
                 Size = previousSize;
                 Location = previousLocation;
             }
-            Maximise(this, new EventArgs());
+            //Raise an event to allow forms to do something when we maximise the form
+            if (Maximise!=null) Maximise((object)this, new EventArgs());
         }
 
         protected override void OnMouseUp(MouseEventArgs e)
