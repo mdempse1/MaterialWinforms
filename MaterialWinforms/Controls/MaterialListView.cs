@@ -56,8 +56,8 @@ namespace MaterialWinforms.Controls
             e.Graphics.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAlias;
             e.Graphics.FillRectangle(new SolidBrush(SkinManager.GetApplicationBackgroundColor()), new Rectangle(e.Bounds.X, e.Bounds.Y, Width, e.Bounds.Height));
             e.Graphics.DrawString(e.Header.Text,
-                SkinManager.FONT_CONTROL_SMALL,
-                SkinManager.GetSecondaryTextBrush(),
+                SkinManager.FONT_CONTROL_LARGE,
+                SkinManager.GetPrimaryTextBrush(),
                 new Rectangle(e.Bounds.X + ITEM_PADDING, e.Bounds.Y + ITEM_PADDING, e.Bounds.Width - ITEM_PADDING * 2, e.Bounds.Height - ITEM_PADDING * 2),
                 getStringFormat());
         }
