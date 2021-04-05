@@ -1052,7 +1052,7 @@ namespace MaterialWinforms.Controls
             baseTextBox.ForeColor = SkinManager.GetPrimaryTextColor();
         }
 
-        protected class BaseTextBox : RichTextBox
+        public class BaseTextBox : RichTextBox
         {
             [DllImport("user32.dll", CharSet = CharSet.Auto)]
             private static extern IntPtr SendMessage(IntPtr hWnd, int msg, int wParam, string lParam);
