@@ -1,6 +1,8 @@
-﻿using System.ComponentModel;
+﻿using System;
+using System.ComponentModel;
 using System.Drawing;
 using System.Drawing.Drawing2D;
+using System.Runtime.InteropServices;
 using System.Windows.Forms;
 
 namespace MaterialWinforms.Controls
@@ -16,7 +18,7 @@ namespace MaterialWinforms.Controls
         public MouseState MouseState { get; set; }
 
         public new Font Font { get { return SkinManager.FONT_CONTROL_SMALL; } }
-
+        public bool HideCheckBoxesOnParents { get; set; } = false;
 
         public new Color BackColor { get { return Parent == null ? SkinManager.GetApplicationBackgroundColor() : typeof(IShadowedMaterialControl).IsAssignableFrom(Parent.GetType()) ? ((IMaterialControl)Parent).BackColor : Parent.BackColor; } set { } }
         private Pen ExpandButtonPen;
@@ -32,6 +34,10 @@ namespace MaterialWinforms.Controls
 
         protected override void OnDrawNode(DrawTreeNodeEventArgs e)
         {
+            bool CheckBoxOnThisNode = CheckBoxes;
+            if (HideCheckBoxesOnParents && e.Node.Nodes.Count > 0)
+                CheckBoxOnThisNode = false;
+
             if (e.Node.Bounds.X != 0)
             {
                 e.Graphics.FillRectangle(Brushes.Black, e.Bounds);
@@ -44,7 +50,7 @@ namespace MaterialWinforms.Controls
                 e.Graphics.FillRectangle(new SolidBrush(SkinManager.GetApplicationBackgroundColor()), new Rectangle(-2, e.Node.Bounds.Y - 2, Width + 4, e.Node.Bounds.Height + 4));
 
                 Rectangle nodeRect = e.Node.Bounds;
-                Rectangle ExpandIconRect = new Rectangle(e.Node.Bounds.X - e.Node.Bounds.Height * (CheckBoxes ? 2 : 1), e.Node.Bounds.Y + 2, e.Node.Bounds.Height - 4, e.Node.Bounds.Height - 4);
+                Rectangle ExpandIconRect = new Rectangle(e.Node.Bounds.X - e.Node.Bounds.Height * (CheckBoxOnThisNode ? 2 : 1), e.Node.Bounds.Y + 2, e.Node.Bounds.Height - 4, e.Node.Bounds.Height - 4);
                 if (e.Node.IsExpanded)
                 {
                     PointF pntTopLeft, pntTopRight, pntBottom;
@@ -83,7 +89,11 @@ namespace MaterialWinforms.Controls
                     e.Graphics.FillRectangle(SkinManager.GetFlatButtonHoverBackgroundBrush(), new Rectangle(0, e.Node.Bounds.Y, Width, e.Node.Bounds.Height));
 
                 e.Graphics.DrawString(e.Node.Text, nodeFont, textBrush, NodeBounds(e.Node));
-                DrawCheckbox(e);
+
+                if (HideCheckBoxesOnParents && e.Node.Nodes.Count == 0)
+                    DrawCheckbox(e);
+                else
+                    HideCheckBox(e.Node);
             }
         }
 
@@ -107,7 +117,7 @@ namespace MaterialWinforms.Controls
                     g.FillRectangle(new SolidBrush(BackColor), CheckBoxRect);
                     g.DrawRectangle(new Pen(BackColor), CheckBoxRect.X + 2, CheckBoxRect.Y + 2, CheckBoxRect.Width - 1, CheckBoxRect.Height - 1);
 
-                    var brush = new SolidBrush(Color.FromArgb(e.Node.Checked ? 255 : 0, Enabled ? SkinManager.ColorScheme.AccentColor : SkinManager.GetCheckBoxOffDisabledColor()));
+                    var brush = new SolidBrush(Color.FromArgb((e.Node.Checked && e.Node.Nodes.Count==0) ? 255 : 0, Enabled ? SkinManager.ColorScheme.AccentColor : SkinManager.GetCheckBoxOffDisabledColor()));
                     var pen = new Pen(brush.Color);
 
                     brush2.Dispose();
@@ -163,5 +173,42 @@ namespace MaterialWinforms.Controls
 
         }
 
+        private const int TVIF_STATE = 0x8;
+        private const int TVIS_STATEIMAGEMASK = 0xF000;
+        private const int TV_FIRST = 0x1100;
+        private const int TVM_SETITEM = TV_FIRST + 63;
+
+        [StructLayout(LayoutKind.Sequential, Pack = 8, CharSet = CharSet.Auto)]
+        private struct TVITEM
+        {
+            public int mask;
+            public IntPtr hItem;
+            public int state;
+            public int stateMask;
+            [MarshalAs(UnmanagedType.LPTStr)]
+            public string lpszText;
+            public int cchTextMax;
+            public int iImage;
+            public int iSelectedImage;
+            public int cChildren;
+            public IntPtr lParam;
+        }
+
+        [DllImport("user32.dll", CharSet = CharSet.Auto)]
+        private static extern IntPtr SendMessage(IntPtr hWnd, int Msg, IntPtr wParam,
+                                                 ref TVITEM lParam);
+
+        /// <summary>
+        /// Hides the checkbox for the specified node on a TreeView control.
+        /// </summary>
+        private void HideCheckBox(TreeNode node)
+        {
+            TVITEM tvi = new TVITEM();
+            tvi.hItem = node.Handle;
+            tvi.mask = TVIF_STATE;
+            tvi.stateMask = TVIS_STATEIMAGEMASK;
+            tvi.state = 0;
+            SendMessage(this.Handle, TVM_SETITEM, IntPtr.Zero, ref tvi);
+        }
     }
 }
