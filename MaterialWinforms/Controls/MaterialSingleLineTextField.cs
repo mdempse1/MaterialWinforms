@@ -31,6 +31,14 @@ namespace MaterialWinforms.Controls
 
         public bool UseSystemPasswordChar { get { return baseTextBox.UseSystemPasswordChar; } set { baseTextBox.UseSystemPasswordChar = value; } }
         public char PasswordChar { get { return baseTextBox.PasswordChar; } set { baseTextBox.PasswordChar = value; } }
+        protected override Padding DefaultPadding
+        {
+            get { return new Padding(0, 20, 0, 3); }
+        }
+        protected override Padding DefaultMargin
+        {
+            get { return new Padding(0, 0, 0, 0); }
+        }
 
         public void SelectAll() { baseTextBox.SelectAll(); }
         public void Clear() { baseTextBox.Clear(); }
@@ -42,7 +50,6 @@ namespace MaterialWinforms.Controls
         public bool ReadOnly { get { return baseTextBox.ReadOnly; } set { baseTextBox.ReadOnly = value; } }
 
         public HorizontalAlignment TextAlign { get { return baseTextBox.TextAlign; } set { baseTextBox.TextAlign = value; } }
-
 
         #region Forwarding events to baseTextBox
         public event EventHandler AcceptsTabChanged
@@ -967,9 +974,9 @@ namespace MaterialWinforms.Controls
                 BorderStyle = BorderStyle.None,
                 Font = SkinManager.FONT_TEXT,
                 ForeColor = SkinManager.GetPrimaryTextColor(),
-                Location = new Point(0, 15),
+                Location = new Point(0, Padding.Top),
                 Width = Width,
-                Height = Height - 5
+                Height = Height - Padding.Top - Padding.Bottom
             };
 
             if (!Controls.Contains(baseTextBox) && !DesignMode)
@@ -1004,7 +1011,7 @@ namespace MaterialWinforms.Controls
             g.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAlias;
             baseTextBox.BackColor = BackColor;
 
-            int lineY = baseTextBox.Bottom + 3;
+            int lineY = Math.Min(Height-1, baseTextBox.Bottom + Padding.Bottom);
 
             if (!animationManager.IsAnimating())
             {
@@ -1057,10 +1064,10 @@ namespace MaterialWinforms.Controls
         {
             base.OnResize(e);
 
-            baseTextBox.Location = new Point(0, 15);
+            baseTextBox.Location = new Point(0, Padding.Top);
             baseTextBox.Width = Width;
 
-            Height = baseTextBox.Height + 20;
+            baseTextBox.Height = Height - Padding.Top - Padding.Bottom;
         }
 
         protected override void OnCreateControl()

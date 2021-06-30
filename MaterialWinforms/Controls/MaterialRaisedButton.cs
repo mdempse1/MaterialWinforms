@@ -20,7 +20,7 @@ namespace MaterialWinforms.Controls
         [Browsable(false)]
         public GraphicsPath ShadowBorder { get; set; }
 
-        public Color BackColor { get { return Primary ? SkinManager.ColorScheme.PrimaryColor : SkinManager.getRaisedButtonBackroundColor(); } }
+        public Color BackColor { get; set; }
 
         private readonly AnimationManager animationManager;
 
@@ -35,6 +35,8 @@ namespace MaterialWinforms.Controls
             };
             Elevation = 5;
             animationManager.OnAnimationProgress += sender => Invalidate();
+
+            BackColor = Primary? SkinManager.ColorScheme.PrimaryColor : SkinManager.getRaisedButtonBackroundColor();
         }
 
         protected override void OnMouseUp(MouseEventArgs mevent)
@@ -84,7 +86,7 @@ namespace MaterialWinforms.Controls
                 ClientRectangle.Height,
                 1f))
             {
-                g.FillPath(Primary ? SkinManager.ColorScheme.PrimaryBrush : SkinManager.GetRaisedButtonBackgroundBrush(), backgroundPath);
+                g.FillPath(new SolidBrush(BackColor), backgroundPath);
             }
 
             if (animationManager.IsAnimating())
@@ -98,13 +100,18 @@ namespace MaterialWinforms.Controls
                     g.FillEllipse(rippleBrush, new Rectangle(animationSource.X - rippleSize / 2, animationSource.Y - rippleSize / 2, rippleSize, rippleSize));
                 }
             }
-
-            g.DrawString(
-                Text.ToUpper(),
-                SkinManager.FONT_CONTROL_SMALL,
-                SkinManager.GetRaisedButtonTextBrush(Primary),
-                ClientRectangle,
-                new StringFormat { Alignment = StringAlignment.Center, LineAlignment = StringAlignment.Center });
+            if (this.Image == null)
+            {
+                g.DrawString(
+                    Text.ToUpper(),
+                    SkinManager.FONT_CONTROL_SMALL,
+                    SkinManager.GetRaisedButtonTextBrush(Primary),
+                    ClientRectangle,
+                    new StringFormat { Alignment = StringAlignment.Center, LineAlignment = StringAlignment.Center });
+            } else
+            {
+                g.DrawImage(this.Image, new Rectangle(0, 0, this.Width, this.Height));
+            }
         }
     }
 }
