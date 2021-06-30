@@ -90,7 +90,7 @@ namespace MaterialWinforms.Controls
 
                 e.Graphics.DrawString(e.Node.Text, nodeFont, textBrush, NodeBounds(e.Node));
 
-                if (HideCheckBoxesOnParents && e.Node.Nodes.Count == 0)
+                if (!HideCheckBoxesOnParents || (HideCheckBoxesOnParents && e.Node.Nodes.Count == 0))
                     DrawCheckbox(e);
                 else
                     HideCheckBox(e.Node);
@@ -117,7 +117,7 @@ namespace MaterialWinforms.Controls
                     g.FillRectangle(new SolidBrush(BackColor), CheckBoxRect);
                     g.DrawRectangle(new Pen(BackColor), CheckBoxRect.X + 2, CheckBoxRect.Y + 2, CheckBoxRect.Width - 1, CheckBoxRect.Height - 1);
 
-                    var brush = new SolidBrush(Color.FromArgb((e.Node.Checked && e.Node.Nodes.Count==0) ? 255 : 0, Enabled ? SkinManager.ColorScheme.AccentColor : SkinManager.GetCheckBoxOffDisabledColor()));
+                    var brush = new SolidBrush(Color.FromArgb((e.Node.Checked) ? 255 : 0, Enabled ? SkinManager.ColorScheme.AccentColor : SkinManager.GetCheckBoxOffDisabledColor()));
                     var pen = new Pen(brush.Color);
 
                     brush2.Dispose();
